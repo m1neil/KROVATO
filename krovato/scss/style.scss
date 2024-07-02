@@ -1,13 +1,11 @@
 @use "sass:math";
 
-// Підключення шрифтів з Google Fonts
-
 // Локальне підключення шрифтів
-@import "_fonts.scss";
+@import "base/fonts";
 // Скидання стилів
-@import "_reset.scss";
+@import "base/reset";
 // Міксіни
-@import "_mixins.scss";
+@import "base/mixins";
 
 // Налаштування адаптивної сітки ===============================================================================================================================================================================================================================================================================================
 
@@ -24,16 +22,17 @@ $containerPadding: 30;
 $containerWidth: $maxWidthContainer + $containerPadding;
 
 // ==========================================================
+$mainFont: "Proxima Nova";
+@import "base/colors";
 
 body {
-	background-color: #333;
-	color: #fff;
-	font-family: "";
+	background-color: $lightColor;
+	color: $mainColor;
+	font-family: $mainFont, sans-serif;
 }
 .wrapper {
 	min-height: 100%;
 	overflow: clip;
-
 	display: flex;
 	flex-direction: column;
 }
@@ -45,12 +44,19 @@ body {
 [class*="__container"] {
 	max-width: toRem($containerWidth);
 	padding-inline: toRem(15);
-	margin: 0 auto;
+	margin-inline: auto;
 }
 
+$pc: toEm($containerWidth);
+$tablet: toEm(991.98);
+$mobile: toEm(767.98);
+$mobileSmall: toEm(479.98);
+
+// Компоненты
+@import "common";
 // Окремі сторінки
-// @import "_home.scss";
+// @import "home";
 // Окремі компоненти
-// @import "_header.scss";
-// @import "_footer.scss";
+// @import "header";
+@import "footer";
 // ...

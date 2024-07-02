@@ -1,0 +1,129 @@
+@font-face {
+	font-family: "Proxima Nova";
+	src: url("../fonts/ProximaNova-Regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Proxima Nova";
+	src: url("../fonts/ProximaNova-Semibold.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Proxima Nova";
+	src: url("../fonts/ProximaNova-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "icons";
+	src: url("../fonts/icons.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class*="_icon-"]::before {
+	font-family: "icons";
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+._icon-address::before {
+	content: "\e900";
+}
+._icon-add-review::before {
+	content: "\e901";
+}
+._icon-arrow-down::before {
+	content: "\e902";
+}
+._icon-arrow-hide::before {
+	content: "\e903";
+}
+._icon-arrow-link::before {
+	content: "\e904";
+}
+._icon-arrow-navigation::before {
+	content: "\e905";
+}
+._icon-arrow-scroll::before {
+	content: "\e906";
+}
+._icon-arrow-slider::before {
+	content: "\e907";
+}
+._icon-arrow-to::before {
+	content: "\e908";
+}
+._icon-calendar::before {
+	content: "\e909";
+}
+._icon-cart::before {
+	content: "\e90a";
+}
+._icon-checkbox::before {
+	content: "\e90b";
+}
+._icon-crosshair::before {
+	content: "\e90c";
+}
+._icon-crosshair-catalog::before {
+	content: "\e90d";
+}
+._icon-crosshair-hide::before {
+	content: "\e90e";
+}
+._icon-download-more::before {
+	content: "\e90f";
+}
+._icon-favorite::before {
+	content: "\e910";
+}
+._icon-in-stack::before {
+	content: "\e911";
+}
+._icon-like::before {
+	content: "\e912";
+}
+._icon-list::before {
+	content: "\e913";
+}
+._icon-menu-catalog::before {
+	content: "\e914";
+}
+._icon-minus::before {
+	content: "\e915";
+}
+._icon-navigation-address::before {
+	content: "\e916";
+}
+._icon-phone::before {
+	content: "\e917";
+}
+._icon-plus::before {
+	content: "\e918";
+}
+._icon-question::before {
+	content: "\e919";
+}
+._icon-review::before {
+	content: "\e91a";
+}
+._icon-search::before {
+	content: "\e91b";
+}
+._icon-show-more::before {
+	content: "\e91c";
+}
+._icon-user::before {
+	content: "\e91d";
+}
