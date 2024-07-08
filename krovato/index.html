@@ -12,14 +12,190 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header class="header"></header>
+			<header class="header">
+				<div class="header__top top-header">
+					<div class="top-header__container">
+						<nav class="top-header__menu menu">
+							<ul class="menu__list">
+								<li class="menu__item"><a href="#" class="menu__link">Про нас</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">Оплата</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">Доставка та збірка</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">Відгуки</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">Блог</a></li>
+								<li class="menu__item"><a href="#" class="menu__link">Контакти</a></li>
+							</ul>
+						</nav>
+						<div class="top-header__actions">
+							<div class="top-header__social social-top-header">
+								<div class="social-top-header__text">Допомога і консультація:</div>
+								<ul class="social-top-header__list">
+									<li class="social-top-header__item">
+										<a href="#" target="_blank" class="social-top-header__link">
+											<img src="img/icons/socials/whatsapp.svg" alt="WhatsApp">
+										</a>
+									</li>
+									<li class="social-top-header__item">
+										<a href="#" target="_blank" class="social-top-header__link">
+											<img src="img/icons/socials/telegram.svg" alt="Telegram">
+										</a>
+									</li>
+									<li class="social-top-header__item">
+										<a href="#" target="_blank" class="social-top-header__link">
+											<img src="img/icons/socials/viber.svg" alt="Viber">
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="top-header__lang lang-header">
+								<button type="button" class="lang-header__current _icon-arrow-down">UA</button>
+								<ul class="lang-header__list">
+									<li class="lang-header__item">
+										<a href="#" class="lang-header__link">RU</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="header__middle middle-header">
+					<div class="middle-header__container">
+						<a href="#" class="middle-header__logo">
+							<img src="img/logo.svg" alt="KROVATO">
+						</a>
+						<div class="middle-header__catalog catalog-header">
+							<button type="button" class="catalog-header__button">
+								<span class="catalog-header__icon">
+									<span class="_icon-menu-catalog"></span>
+									<span class="_icon-crosshair-catalog"></span>
+								</span>
+								<span class="catalog-header__text">Каталог</span>
+							</button>
+							<div class="catalog-header__menu menu-catalog">
+								<div class="menu-catalog__wrapper">
+									<ul class="menu-catalog__list">
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/01.svg" alt="#">
+												</div>
+												<div class="menu-catalog__text">Ліжка</div>
+											</a>
+											<button type="button" class="menu-catalog__button _icon-arrow-down"></button>
+											<ul class="menu-catalog__sub-list">
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Футони</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+												</li>
+												<li class="menu-catalog__sub-item">
+													<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<form action="#" class="middle-header__search search-header">
+							<input type="text" placeholder="Пошук товарів" class="search-header__input">
+							<button type="submit" class="search-header__button _icon-search"></button>
+						</form>
+						<div class="middle-header__phone phone-header">
+							<div class="phone-header__wrapper">
+								<button type="button" class="phone-header__button _icon-phone"></button>
+								<div class="phone-header__body">
+									<div class="phone-header__schedule">Щодня з 9:00 до 18:00</div>
+									<a href="tel:+0679294545" class="phone-header__link">067 929-45-45</a>
+								</div>
+								<button type="button" class="phone-header__arrow">
+									<span class="_icon-arrow-down"></span>
+									<span class="_icon-crosshair"></span>
+								</button>
+							</div>
+							<div class="phone-header__inner inner-phone-header">
+								<ul class="inner-phone-header__list">
+									<li class="inner-phone-header__item">
+										<a href="tel:+0501334545" class="inner-phone-header__link">050 133-45-45</a>
+									</li>
+									<li class="inner-phone-header__item">
+										<a href="tel:+0931707545" class="inner-phone-header__link">093 170-75-45</a>
+									</li>
+								</ul>
+								<button type="button" class="inner-phone-header__call-me">Передзвоніть мені</button>
+							</div>
+						</div>
+						<div class="middle-header__actions">
+							<button type="button" class="middle-header__button _icon-favorite"></button>
+							<button type="button" class="middle-header__button _icon-cart"></button>
+						</div>
+					</div>
+
+				</div>
+				<div class="header-bottom bottom-header">
+					<div class="bottom-header__container">
+						<ul class="bottom-header__sales sales-bottom-header">
+							<li class="sales-bottom-header__item">
+								<a href="#" class="sales-bottom-header__link sales-bottom-header__link--shares">Акції</a>
+							</li>
+							<li class="sales-bottom-header__item">
+								<a href="#" class="sales-bottom-header__link sales-bottom-header__link--sales sales-bottom-header__link--big-icon">Розпродаж</a>
+							</li>
+							<li class="sales-bottom-header__item">
+								<a href="#" class="sales-bottom-header__link sales-bottom-header__link--credit">Купити в кредит</a>
+							</li>
+						</ul>
+						<ul class="bottom-header__room room-bottom-header">
+							<li class="room-bottom-header__item">
+								<a href="#" class="room-bottom-header__link">Дитяча</a>
+							</li>
+							<li class="room-bottom-header">
+								<a href="#" class="room-bottom-header__link">Кухня</a>
+							</li>
+							<li class="room-bottom-header">
+								<a href="#" class="room-bottom-header__link">Ванна</a>
+							</li>
+							<li class="room-bottom-header">
+								<a href="#" class="room-bottom-header__link">Спальня</a>
+							</li>
+							<li class="room-bottom-header">
+								<a href="#" class="room-bottom-header__link">Передпокій</a>
+							</li>
+							<li class="room-bottom-header">
+								<a href="#" class="room-bottom-header__link">Вітальня</a>
+							</li>
+							<li class="room-bottom-header">
+								<a href="#" class="room-bottom-header__link">Офіс</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
 			<main class="page"></main>
 			<footer class="footer">
 				<div class="footer__top top-footer">
 					<div class="top-footer__container">
 						<div class="top-footer__social social-top-footer">
 							<img src="img/logo-footer.svg" alt="KROVATO" class="social-top-footer__img">
-							<div class="social-top-footer__item social-top-footer__item--mb-30">
+							<div class="social-top-footer__item">
 								<div class="social-top-footer__text">Приєднуйтесь:</div>
 								<div class="social-top-footer__links">
 									<a href="#" class="social-top-footer__link">
@@ -30,7 +206,7 @@
 									</a>
 								</div>
 							</div>
-							<div class="social-top-footer__item">
+							<div class="social-top-footer__item social-top-footer__item--mb">
 								<div class="social-top-footer__text">Допомога і консультація:</div>
 								<div class="social-top-footer__links">
 									<a href="#" class="social-top-footer__link">
@@ -53,9 +229,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="top-footer__menu menu-top-footer">
+						<div data-spollers="600,max" data-accordion class="top-footer__menu menu-top-footer">
 							<div class="menu-top-footer__item">
-								<div class="menu-top-footer__title">Інформація</div>
+								<button data-spoller tabindex="-1" type="button" class="menu-top-footer__title _icon-arrow-down --active">Інформація</button>
 								<ul class="menu-top-footer__list">
 									<li class="menu-top-footer__list-item">
 										<a href="#" target="_blank">Про нас</a>
@@ -81,7 +257,7 @@
 								</ul>
 							</div>
 							<div class="menu-top-footer__item">
-								<div class="menu-top-footer__title">Категорії</div>
+								<button data-spoller tabindex="-1" type="button" class="menu-top-footer__title _icon-arrow-down">Категорії</button>
 								<ul class="menu-top-footer__list">
 									<li class="menu-top-footer__list-item">
 										<a href="#" target="_blank">Ліжка</a>
@@ -116,7 +292,7 @@
 								</ul>
 							</div>
 							<div class="menu-top-footer__item">
-								<div class="menu-top-footer__title">Клієнтам</div>
+								<button data-spoller tabindex="-1" type="button" class="menu-top-footer__title _icon-arrow-down">Клієнтам</button>
 								<ul class="menu-top-footer__list">
 									<li class="menu-top-footer__list-item">
 										<a href="#" target="_blank">Акції</a>
@@ -143,7 +319,7 @@
 							</div>
 						</div>
 						<address class="top-footer__contacts contacts-top-footer">
-							<div class="contacts-top-footer__section section-contacts _icon-phone">
+							<div class="contacts-top-footer__section section-contacts section-contacts--shrink _icon-phone">
 								<ul class="section-contacts__list">
 									<li class="section-contacts__item">
 										<a href="tel:+380679294545">+38 067 929-45-45</a>
@@ -155,7 +331,7 @@
 										<a href="tel:+380679294545">+38 093 170-75-45</a>
 									</li>
 								</ul>
-								<div class="section-contacts__call-back">Передзвоніть мені</div>
+								<button type="button" class="section-contacts__call-back">Передзвоніть мені</button>
 							</div>
 							<div class="contacts-top-footer__section section-contacts _icon-address">м. Київ, провулок Ізяславський 52, поверх 2</div>
 							<div class="contacts-top-footer__section section-contacts _icon-calendar">Працюємо щодня з 9:00 до 18:00</div>

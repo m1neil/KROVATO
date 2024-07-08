@@ -55,8 +55,8 @@ $mobileSmall: toEm(479.98);
 // Компоненты
 @import "common";
 // Окремі сторінки
-// @import "home";
+@import "home";
 // Окремі компоненти
-// @import "header";
+@import "header";
 @import "footer";
 // ...
