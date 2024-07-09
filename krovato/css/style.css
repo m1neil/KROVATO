@@ -1512,35 +1512,53 @@ body {
   left: 0;
   padding-inline: 0.9375rem;
 }
-.menu-catalog__wrapper {
+.menu-catalog__list {
+  padding-block: 0.5rem;
+  position: relative;
   max-width: 18.75rem;
   background-color: #fff;
   border-radius: 0.5rem;
   -webkit-transition: border-radius 0.3s;
   transition: border-radius 0.3s;
 }
-@media (any-hover: hover) {
-  .menu-catalog__wrapper:hover {
-    border-radius: 0.5rem 0 0 0.5rem;
-  }
+.menu-catalog__list::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: calc(100% - 1rem);
+  top: 0.5rem;
+  left: 100%;
+  background-color: #ffbc57;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-transition: width 0.2s 0s;
+  transition: width 0.2s 0s;
 }
-.menu-catalog__list {
-  position: relative;
-  padding-block: 0.5rem;
+.menu-catalog__list:has(.menu-catalog__link:hover, .menu-catalog__sub-list:hover) {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.menu-catalog__list:has(.menu-catalog__link:hover, .menu-catalog__sub-list:hover)::before {
+  width: 0.3125rem;
+  -webkit-transition: width 0.2s 0.2s;
+  transition: width 0.2s 0.2s;
 }
 .menu-catalog__item {
   display: grid;
   grid-template-columns: 1fr auto;
   padding-right: 0.9375rem;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
 }
 @media (any-hover: hover) {
-  .menu-catalog__item:hover {
+  .menu-catalog__item:hover .menu-catalog__link {
     background-color: #ffbc57;
   }
   .menu-catalog__item:hover .menu-catalog__button::before {
     color: #2b2929;
+  }
+  .menu-catalog__item:hover .menu-catalog__sub-list {
+    left: 100%;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
   }
 }
 .menu-catalog__link {
@@ -1558,6 +1576,11 @@ body {
   min-height: 3.75rem;
   margin-right: -2.4375rem;
   outline-offset: -0.3125rem;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
 }
 .menu-catalog__text {
   font-size: 1.25rem;
@@ -1577,6 +1600,8 @@ body {
           align-items: center;
   height: 100%;
   pointer-events: none;
+  position: relative;
+  z-index: 2;
 }
 .menu-catalog__button::before {
   color: #ffbc57;
@@ -1592,21 +1617,16 @@ body {
   width: 100%;
   height: 100%;
   top: 0;
-  left: 100%;
+  left: 0;
   background-color: #fff;
   padding-block: 1.25rem;
   padding-inline: 1.875rem 1.25rem;
-  overflow: auto;
+  overflow-y: auto;
   border-radius: 0 0.5rem 0.5rem 0;
-}
-.menu-catalog__sub-list::before {
-  content: "";
-  position: absolute;
-  width: 0.3125rem;
-  height: calc(100% - 1rem);
-  top: 0.5rem;
-  left: 0;
-  background-color: #ffbc57;
+  visibility: hidden;
+  pointer-events: none;
+  -webkit-transition: visibility 0.4s, left 0.4s;
+  transition: visibility 0.4s, left 0.4s;
 }
 .footer {
   background-color: #2b2929;

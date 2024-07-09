@@ -663,34 +663,55 @@
 	padding-inline: toRem(15);
 	// .menu-catalog__wrapper
 	&__wrapper {
+	}
+	// .menu-catalog__list
+	&__list {
+		padding-block: toRem(8);
+		position: relative;
 		max-width: toRem(300);
 		background-color: #fff;
 		border-radius: toRem(8);
 		transition: border-radius 0.3s;
-		@media (any-hover: hover) {
-			&:hover {
-				border-radius: toRem(8) 0 0 toRem(8);
-			}
+		&::before {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: calc(100% - toRem(16));
+			top: toRem(8);
+			left: 100%;
+			background-color: $yellowColor;
+			z-index: 2;
+			pointer-events: none;
+			transition: width 0.2s 0s;
 		}
-	}
-	// .menu-catalog__list
-	&__list {
-		position: relative;
-		padding-block: toRem(8);
+		&:has(.menu-catalog__link:hover, .menu-catalog__sub-list:hover) {
+			&::before {
+				width: toRem(5);
+				transition: width 0.2s 0.2s;
+			}
+			border-radius: toRem(8) 0 0 toRem(8);
+		}
 	}
 	// .menu-catalog__item
 	&__item {
 		display: grid;
 		grid-template-columns: 1fr auto;
 		padding-right: toRem(15);
-		transition: background-color 0.3s;
 		@media (any-hover: hover) {
 			&:hover {
-				background-color: $yellowColor;
+				.menu-catalog__link {
+					background-color: $yellowColor;
+				}
 				.menu-catalog__button {
 					&::before {
 						color: $mainColor;
 					}
+				}
+				.menu-catalog__sub-list {
+					left: 100%;
+					visibility: visible;
+					pointer-events: auto;
+					z-index: 1;
 				}
 			}
 		}
@@ -705,6 +726,10 @@
 		min-height: toRem(60);
 		margin-right: toRem(-39);
 		outline-offset: toRem(-5);
+		position: relative;
+		z-index: 2;
+		background-color: #fff;
+		transition: background-color 0.3s;
 	}
 	// .menu-catalog__icon
 	&__icon {
@@ -723,6 +748,8 @@
 		align-items: center;
 		height: 100%;
 		pointer-events: none;
+		position: relative;
+		z-index: 2;
 		&::before {
 			color: $yellowColor;
 			font-size: toRem(11);
@@ -736,21 +763,17 @@
 		width: 100%;
 		height: 100%;
 		top: 0;
-		left: 100%;
+		left: 0;
 		background-color: #fff;
 		padding-block: toRem(20);
 		padding-inline: toRem(30) toRem(20);
-		overflow: auto;
+		overflow-y: auto;
 		border-radius: 0 toRem(8) toRem(8) 0;
-		&::before {
-			content: "";
-			position: absolute;
-			width: toRem(5);
-			height: calc(100% - toRem(16));
-			top: toRem(8);
-			left: 0;
-			background-color: $yellowColor;
-		}
+		visibility: hidden;
+		pointer-events: none;
+		transition:
+			visibility 0.4s,
+			left 0.4s;
 	}
 	// .menu-catalog__sub-item
 	&__sub-item {

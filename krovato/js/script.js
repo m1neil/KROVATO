@@ -54,11 +54,10 @@ function initSpollers() {
 	if (!spollerBlocks.length) return;
 
 	const regularSpollerBlocks = Array.from(spollerBlocks).filter(item => !item.dataset.spollers.split(',')[0]);
-	initSpollerBody(regularSpollerBlocks);
-
 	const mediaSpollerBlocks = Array.from(spollerBlocks).filter(item => item.dataset.spollers.split(',')[0]);
-
 	const breakpoints = [];
+
+	initSpollerBody(regularSpollerBlocks);
 
 	mediaSpollerBlocks.forEach(item => {
 		const options = item.dataset.spollers.split(',');
@@ -87,7 +86,6 @@ function initSpollers() {
 		const matchMedia = window.matchMedia(media);
 		initSpollerBody(currentSpollersBlock, matchMedia);
 		matchMedia.addEventListener('change', () => initSpollerBody(currentSpollersBlock, matchMedia));
-
 	});
 
 }
