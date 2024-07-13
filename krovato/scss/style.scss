@@ -25,10 +25,17 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 $mainFont: "Proxima Nova";
 @import "base/colors";
 
+:root {
+	--menu-catalog-top: 0;
+}
+
 body {
 	background-color: $lightColor;
 	color: $mainColor;
 	font-family: $mainFont, sans-serif;
+	.lock & {
+		overflow: hidden;
+	}
 }
 .wrapper {
 	min-height: 100%;
@@ -38,6 +45,7 @@ body {
 }
 .wrapper > .page {
 	flex-grow: 1;
+	padding-top: toRem(221.6);
 }
 
 /* ------------------------- */

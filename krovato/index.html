@@ -13,7 +13,7 @@
 	<body>
 		<div class="wrapper">
 			<header class="header">
-				<div class="header__top top-header">
+				<div data-fixed class="header__top top-header">
 					<div class="top-header__container">
 						<nav class="top-header__menu menu">
 							<ul class="menu__list">
@@ -57,10 +57,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="header__middle middle-header">
+				<div data-fixed class="header__middle middle-header">
 					<div class="middle-header__container">
+						<button type="button" class="middle-header__icon-menu icon-menu"><span></span></button>
 						<a href="#" class="middle-header__logo">
-							<img src="img/logo.svg" alt="KROVATO">
+							<picture>
+								<source media="(max-width: 47.99875em)" srcset="img/logo-header-mobile.svg">
+								<img src="img/logo.svg" alt="KROVATO">
+							</picture>
 						</a>
 						<div class="middle-header__catalog catalog-header">
 							<button type="button" class="catalog-header__button">
@@ -70,54 +74,442 @@
 								</span>
 								<span class="catalog-header__text">Каталог</span>
 							</button>
-							<div class="catalog-header__menu menu-catalog">
-								<!-- ? Навіщо потрібна ця обгортка? -->
+							<div class="catalog-header__menu menu-catalog" data-scroll-top>
 								<div class="menu-catalog__wrapper">
-									<ul class="menu-catalog__list">
+									<ul data-spollers="767.98,max" data-accordion class="menu-catalog__list">
 										<li class="menu-catalog__item">
 											<a href="#" class="menu-catalog__link">
 												<div class="menu-catalog__icon">
-													<img src="img/icons/menu-catalog/01.svg" alt="#">
+													<img src="img/icons/menu-catalog/01.svg" alt="Ліжка">
 												</div>
 												<div class="menu-catalog__text">Ліжка</div>
 											</a>
-											<button type="button" class="menu-catalog__button _icon-arrow-down"></button>
-											<ul class="menu-catalog__sub-list">
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Футони</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
-												</li>
-												<li class="menu-catalog__sub-item">
-													<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
-												</li>
-											</ul>
+											<button data-spoller type="button" class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/02.svg" alt="Матраци">
+												</div>
+												<div class="menu-catalog__text">Матраци</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/03.svg" alt="М’які меблі">
+												</div>
+												<div class="menu-catalog__text">М’які меблі</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/04.svg" alt="Шафи">
+												</div>
+												<div class="menu-catalog__text">Шафи</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/05.svg" alt="Комоди">
+												</div>
+												<div class="menu-catalog__text">Комоди</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/06.svg" alt="Тумби">
+												</div>
+												<div class="menu-catalog__text">Тумби</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/07.svg" alt="Столи">
+												</div>
+												<div class="menu-catalog__text">Столи</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/08.svg" alt="Стільці">
+												</div>
+												<div class="menu-catalog__text">Стільці</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/09.svg" alt="Меблеві стіни">
+												</div>
+												<div class="menu-catalog__text">Меблеві стіни</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="menu-catalog__item">
+											<a href="#" class="menu-catalog__link">
+												<div class="menu-catalog__icon">
+													<img src="img/icons/menu-catalog/10.svg" alt="Кухні">
+												</div>
+												<div class="menu-catalog__text">Кухні</div>
+											</a>
+											<button type="button" data-spoller class="menu-catalog__button _icon-arrow-down"></button>
+											<div class="menu-catalog__inner">
+												<ul class="menu-catalog__sub-list">
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Односпальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Двоспальні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Bonnel</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Пружинний блок Pocket Spring</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Безпружинні матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци з ефектом Зима-Літо</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Футони</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Дитячі матраци</a>
+													</li>
+													<li class="menu-catalog__sub-item">
+														<a href="#" class="menu-catalog__sub-link">Матраци Економ</a>
+													</li>
+												</ul>
+											</div>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
 						<form action="#" class="middle-header__search search-header">
-							<input type="text" placeholder="Пошук товарів" class="search-header__input">
+							<input minlength="3" type="text" placeholder="Пошук товарів" class="search-header__input">
 							<button type="submit" class="search-header__button _icon-search"></button>
 						</form>
 						<div class="middle-header__phone phone-header">
@@ -125,7 +517,7 @@
 								<button type="button" class="phone-header__button _icon-phone"></button>
 								<div class="phone-header__body">
 									<div class="phone-header__schedule">Щодня з 9:00 до 18:00</div>
-									<a href="tel:+0679294545" class="phone-header__link">067 929-45-45</a>
+									<a href="tel:+0679294545" class="phone-header__link _icon-phone">067 929-45-45</a>
 								</div>
 								<button type="button" class="phone-header__arrow">
 									<span class="_icon-arrow-down"></span>
@@ -145,52 +537,105 @@
 							</div>
 						</div>
 						<div class="middle-header__actions">
+							<button type="button" class="middle-header__button middle-header__button--search">
+								<span class="_icon-search"></span>
+								<span class="_icon-crosshair"></span>
+							</button>
 							<button type="button" class="middle-header__button _icon-favorite"></button>
 							<button type="button" class="middle-header__button _icon-cart"></button>
+							<div class="middle-header__cart cart-header">
+								<div class="cart-header__header">
+									<h4 class="cart-header__title">Ваш кошик <span>4</span></h4>
+									<button type="button" class="cart-header__close _icon-crosshair"></button>
+								</div>
+								<div class="cart-header__items">
+									<article class="cart-header__product product-cart-header">
+										<img src="img/products/01.webp" alt=# class="product-cart-header__img">
+										<div class="product-cart-header__body">
+											<div class="product-cart-header__size">Розмір: 61 x 184 x 2130 мм</div>
+											<h3 class="product-cart-header__title"><a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a></h3>
+											<div class="product-cart-header__stock _icon-in-stack">В наявності</div>
+										</div>
+										<button type="button" class="product-cart-header__remove _icon-crosshair"></button>
+										<div class="product-cart-header__quantity quantity">
+											<button type="button" class="quantity__button quantity__button--reduce _icon-minus"></button>
+											<input value="1" type="text" class="quantity__value">
+											<button type="button" class="quantity__button quantity__button--increase _icon-plus"></button>
+										</div>
+										<div class="product-cart-header__prices">
+											<div class="product-cart-header__current-price">15 400 грн.</div>
+											<div class="product-cart-header__old-price">25 400 грн.</div>
+										</div>
+									</article>
+									<article class="cart-header__product product-cart-header">
+										<img src="img/products/01.webp" alt=# class="product-cart-header__img">
+										<div class="product-cart-header__body">
+											<div class="product-cart-header__size">Розмір: 61 x 184 x 2130 мм</div>
+											<h3 class="product-cart-header__title"><a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a></h3>
+											<div class="product-cart-header__stock _icon-in-stack">В наявності</div>
+										</div>
+										<button type="button" class="product-cart-header__remove _icon-crosshair"></button>
+										<div class="product-cart-header__quantity quantity">
+											<button type="button" class="quantity__button quantity__button--reduce _icon-minus"></button>
+											<input value="1" type="text" class="quantity__value">
+											<button type="button" class="quantity__button quantity__button--increase _icon-plus"></button>
+										</div>
+										<div class="product-cart-header__prices">
+											<div class="product-cart-header__current-price">15 400 грн.</div>
+											<div class="product-cart-header__old-price">25 400 грн.</div>
+										</div>
+									</article>
+								</div>
+							</div>
 						</div>
 					</div>
-
 				</div>
-				<div class="header-bottom bottom-header">
+				<div data-fixed class="header-bottom bottom-header">
 					<div class="bottom-header__container">
-						<ul class="bottom-header__sales sales-bottom-header">
-							<li class="sales-bottom-header__item">
-								<a href="#" class="sales-bottom-header__link sales-bottom-header__link--shares">Акції</a>
-							</li>
-							<li class="sales-bottom-header__item">
-								<a href="#" class="sales-bottom-header__link sales-bottom-header__link--sales sales-bottom-header__link--big-icon">Розпродаж</a>
-							</li>
-							<li class="sales-bottom-header__item">
-								<a href="#" class="sales-bottom-header__link sales-bottom-header__link--credit">Купити в кредит</a>
-							</li>
-						</ul>
-						<ul class="bottom-header__room room-bottom-header">
-							<li class="room-bottom-header__item">
-								<a href="#" class="room-bottom-header__link">Дитяча</a>
-							</li>
-							<li class="room-bottom-header">
-								<a href="#" class="room-bottom-header__link">Кухня</a>
-							</li>
-							<li class="room-bottom-header">
-								<a href="#" class="room-bottom-header__link">Ванна</a>
-							</li>
-							<li class="room-bottom-header">
-								<a href="#" class="room-bottom-header__link">Спальня</a>
-							</li>
-							<li class="room-bottom-header">
-								<a href="#" class="room-bottom-header__link">Передпокій</a>
-							</li>
-							<li class="room-bottom-header">
-								<a href="#" class="room-bottom-header__link">Вітальня</a>
-							</li>
-							<li class="room-bottom-header">
-								<a href="#" class="room-bottom-header__link">Офіс</a>
-							</li>
-						</ul>
+						<div class="bottom-header__menu">
+							<ul class="bottom-header__sales sales-bottom-header">
+								<li class="sales-bottom-header__item">
+									<a href="#" class="sales-bottom-header__link sales-bottom-header__link--shares">Акції</a>
+								</li>
+								<li class="sales-bottom-header__item">
+									<a href="#" class="sales-bottom-header__link sales-bottom-header__link--sales sales-bottom-header__link--big-icon">Розпродаж</a>
+								</li>
+								<li class="sales-bottom-header__item">
+									<a href="#" class="sales-bottom-header__link sales-bottom-header__link--credit">Купити в кредит</a>
+								</li>
+							</ul>
+							<ul class="bottom-header__room room-bottom-header">
+								<li class="room-bottom-header__item">
+									<a href="#" class="room-bottom-header__link">Дитяча</a>
+								</li>
+								<li class="room-bottom-header__item">
+									<a href="#" class="room-bottom-header__link">Кухня</a>
+								</li>
+								<li class="room-bottom-header__item">
+									<a href="#" class="room-bottom-header__link">Ванна</a>
+								</li>
+								<li class="room-bottom-header__item">
+									<a href="#" class="room-bottom-header__link">Спальня</a>
+								</li>
+								<li class="room-bottom-header__item">
+									<a href="#" class="room-bottom-header__link">Передпокій</a>
+								</li>
+								<li class="room-bottom-header__item">
+									<a href="#" class="room-bottom-header__link">Вітальня</a>
+								</li>
+								<li class="room-bottom-header__item">
+									<a href="#" class="room-bottom-header__link">Офіс</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</header>
-			<main class="page"></main>
+			<!-- main -->
+			<main class="page">
+
+			</main>
+			<!-- footer -->
 			<footer class="footer">
 				<div class="footer__top top-footer">
 					<div class="top-footer__container">
@@ -232,7 +677,7 @@
 						</div>
 						<div data-spollers="600,max" data-accordion class="top-footer__menu menu-top-footer">
 							<div class="menu-top-footer__item">
-								<button data-spoller tabindex="-1" type="button" class="menu-top-footer__title _icon-arrow-down --active">Інформація</button>
+								<button data-spoller tabindex="-1" type="button" class="menu-top-footer__title _icon-arrow-down">Інформація</button>
 								<ul class="menu-top-footer__list">
 									<li class="menu-top-footer__list-item">
 										<a href="#" target="_blank">Про нас</a>
