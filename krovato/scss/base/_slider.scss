@@ -1,0 +1,81 @@
+.swiper {
+	position: relative;
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.swiper-pagination {
+	position: static;
+	display: inline-flex;
+	column-gap: toRem(10);
+	z-index: 10;
+}
+
+button.swiper-pagination-bullet {
+	width: toRem(15);
+	height: toRem(15);
+	border-radius: 50%;
+	background-color: $lightColor;
+	background: $lightColor;
+	border: toRem(3) solid $lightColor;
+	transition: background-color 0.3s;
+	opacity: 1;
+}
+
+button.swiper-pagination-bullet-active {
+	background-color: $yellowColor;
+	opacity: 1;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+	margin: unset;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+	width: unset;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	text-transform: unset;
+	bottom: unset;
+	left: unset;
+	right: unset;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: toRem(60);
+	height: toRem(60);
+	position: static;
+	color: $yellowColor;
+	margin: unset;
+	z-index: 10;
+	background-color: #fff;
+	border-radius: 50%;
+	transition: background-color 0.3s;
+	&::before {
+		transition: color 0.3s;
+		font-size: toRem(20);
+		text-transform: unset;
+	}
+	&:after {
+		display: none;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $yellowColor;
+			color: #fff;
+		}
+	}
+}
+.swiper-button-prev {
+	left: 0;
+}
+.swiper-button-next {
+	right: 0;
+}

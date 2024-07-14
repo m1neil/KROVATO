@@ -28,17 +28,28 @@ function windowLoaded() {
 
 	// init =========================================================================================
 	initSpollers();
+	initSliders();
 
 	// document actions ====================================================================================
 	function documentAction(e) {
 		const target = e.target;
 
+		// reduce and increase ==================================================================
 		if (target.closest('.quantity__button--reduce')) {
 			const input = target.closest('.quantity__button--reduce').nextElementSibling;
 			input.value = input.value > 1 ? --input.value : 1;
 		} else if (target.closest('.quantity__button--increase')) {
 			const input = target.closest('.quantity__button--increase').previousElementSibling;
 			input.value = input.value > 0 ? ++input.value : 1;
+		}
+
+		// cart ==============================================================
+		if (target.closest('.middle-header__button._icon-cart')) {
+			document.documentElement.classList.toggle('cart-open');
+		} else if (!target.closest('.cart-header') ||
+			target.closest('.cart-header__close') ||
+			target.closest('[data-cart-continue]')) {
+			document.documentElement.classList.remove('cart-open');
 		}
 
 		// toggle burger menu ===========================================
@@ -96,23 +107,11 @@ function windowLoaded() {
 			document.documentElement.style.setProperty('--menu-catalog-top', `${(menuCatalogTop + paddingBottom) / 16}rem`);
 			document.documentElement.classList.toggle('catalog-open');
 
-			if (document.documentElement.classList.contains('catalog-open')) {
-				const scrollWidth = window.innerWidth - document.documentElement.offsetWidth;
-				document.body.style.paddingRight = `${scrollWidth / 16}rem`;
-				if (fixedElements.length > 0) {
-					fixedElements.forEach(element => {
-						element.style.paddingRight = `${scrollWidth / 16}rem`;
-					});
-				}
-			} else {
-				removePaddingScrollFixedElement();
-				if (matchMedia.matches) {
-					hideSpollers(document.querySelector('.menu-catalog__list'));
-				}
+			if (!document.documentElement.classList.contains('catalog-open') && matchMedia.matches) {
+				hideSpollers(document.querySelector('.menu-catalog__list'));
 			}
 		} else if (!target.closest('.menu-catalog__wrapper')) {
 			document.documentElement.classList.remove('catalog-open');
-			removePaddingScrollFixedElement();
 			if (matchMedia.matches) {
 				hideSpollers(document.querySelector('.menu-catalog__list'));
 			}
@@ -128,17 +127,20 @@ function windowLoaded() {
 		// toggle lock body =======================================================
 		if (document.documentElement.classList.contains('search-open') ||
 			document.documentElement.classList.contains('catalog-open') ||
-			document.documentElement.classList.contains('menu-open')) {
+			document.documentElement.classList.contains('menu-open') ||
+			document.documentElement.classList.contains('cart-open')) {
+			addPaddingScrollFixedElement();
 			document.documentElement.classList.add('lock')
 		} else {
-			document.documentElement.classList.remove('lock')
+			removePaddingScrollFixedElement();
+			document.documentElement.classList.remove('lock');
 		}
 	}
 
 	// key actions ====================================================================================
 	function keyActions(e) {
 		if (e.key === 'Escape') {
-			document.documentElement.classList.remove('catalog-open', 'lock', 'search-open');
+			document.documentElement.classList.remove('catalog-open', 'lock', 'search-open', 'cart-open');
 			removePaddingScrollFixedElement();
 
 			if (isMobile.matches && matchMediaTablet.matches && !matchMedia.matches) {
@@ -175,6 +177,28 @@ function windowLoaded() {
 		document.body.style.removeProperty('padding-right');
 		fixedElements.forEach(element => {
 			element.style.removeProperty('padding-right');
+		});
+	}
+
+	function addPaddingScrollFixedElement() {
+		const box = document.createElement('div');
+		box.style.cssText = `
+			width: 50px;
+			height: 50px;
+			overflow-y: scroll;
+			visibility: hidden;
+			opacity: 0;
+			position: absolute:
+			top: 0;
+			left: -100%;
+		`;
+		document.body.append(box);
+		const scrollWidth = box.offsetWidth - box.clientWidth;
+		box.remove();
+		// const scrollWidth = window.innerWidth - document.documentElement.offsetWidth;
+		document.body.style.paddingRight = `${scrollWidth / 16}rem`;
+		fixedElements.forEach(element => {
+			element.style.paddingRight = `${scrollWidth / 16}rem`;
 		});
 	}
 }
@@ -254,7 +278,7 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 			spollerBlock.classList.add('_init');
 			spollerBlock.addEventListener('click', setSpollerAction);
 			const titles = spollerBlock.querySelectorAll('[data-spoller]');
-			if (titles.length) {
+			if (titles.length > 0) {
 				titles.forEach(title => {
 					if (!title.classList.contains('--active')) {
 						title.removeAttribute('tabindex');
@@ -267,7 +291,7 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 		arraySpollerBlocks.forEach(spollerBlock => {
 			spollerBlock.item.classList.remove('_init');
 			const titles = spollerBlock.item.querySelectorAll('[data-spoller]');
-			if (titles.length) {
+			if (titles.length > 0) {
 				titles.forEach(title => {
 					title.setAttribute('tabindex', -1);
 					title.nextElementSibling.hidden = false;
@@ -377,4 +401,42 @@ function slideToggleSpoller(spoller, duration) {
 	} else {
 		slideUp(spoller, duration);
 	}
+}
+
+function initSliders() {
+	new Swiper('.hero__slider', {
+		loop: true,
+		spaceBetween: 60,
+		speed: 800,
+		touchAngle: 45,
+		touchRatio: 0.8,
+		pagination: {
+			el: '.hero__pagination',
+			clickable: true,
+			renderBullet: function (index, className) {
+				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`;
+			}
+		},
+		navigation: {
+			nextEl: '.hero__button--next',
+			prevEl: '.hero__button--prev',
+		},
+		autoplay: {
+			delay: 3000,
+			pauseOnMouseEnter: true
+		},
+		breakpoints: {
+			320: {
+				speed: 400,
+				spaceBetween: 20
+			},
+			600: {
+				speed: 800,
+				spaceBetween: 40
+			},
+			991.98: {
+				spaceBetween: 60
+			}
+		}
+	});
 }

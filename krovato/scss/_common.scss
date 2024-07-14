@@ -1,8 +1,13 @@
+@import "base/_slider";
+
 // Title =====================================================================
 .title {
 	font-size: toRem(40);
 	font-weight: 600;
 	line-height: 1.2;
+	@media (max-width: toEm(600)) {
+		font-size: toRem(30);
+	}
 }
 
 // List social =====================================================================
@@ -64,7 +69,7 @@
 		transform: translate(-50%, 0px);
 		background-color: $lightColor;
 		// background-color: $yellowColor;
-		@media (max-width: toEm(574.98)) {
+		@media (max-width: toEm(539.98)) {
 			bottom: percent(-85, 200);
 			width: 100%;
 		}
@@ -104,14 +109,14 @@
 				opacity 0.3s;
 			transform: scale(0.8);
 			opacity: 0;
-			@media (max-width: toEm(574.98)) {
+			@media (max-width: toEm(539.98)) {
 				width: toRem(40);
 				height: toRem(40);
 				font-size: toRem(9);
 			}
 		}
-		@media (max-width: toEm(574.98)) {
-			aspect-ratio: 200 / 240;
+		@media (max-width: toEm(539.98)) {
+			aspect-ratio: 220 / 260;
 			padding: toRem(15);
 		}
 	}
@@ -130,7 +135,7 @@
 		font-size: toRem(20);
 		font-weight: 600;
 		// line-height: 1.4;
-		@media (max-width: toEm(574.98)) {
+		@media (max-width: toEm(539.98)) {
 			font-size: toRem(19);
 		}
 	}
@@ -140,7 +145,7 @@
 		font-weight: 600;
 		// line-height: 1.4;
 		color: $greyLightColor;
-		@media (max-width: toEm(574.98)) {
+		@media (max-width: toEm(539.98)) {
 			font-size: toRem(19);
 		}
 	}
@@ -387,6 +392,14 @@
 	justify-content: space-between;
 	column-gap: toRem(30);
 	row-gap: toRem(15);
+	&--margin {
+		&:not(:last-child) {
+			margin-bottom: toRem(40);
+			@media (max-width: $mobileSmall) {
+				margin-bottom: toRem(30);
+			}
+		}
+	}
 	// .block-header__body
 	&__body {
 		display: flex;

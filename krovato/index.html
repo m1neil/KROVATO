@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Кодування тексту -->
 		<meta charset="UTF-8">
-		<!-- Налаштування в'юпорту (адаптиву, масштабу тощо) -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Підключення окремого файлу стилів -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="css/style.css">
-		<!-- Заголовок сторінки в браузері -->
 		<title>KROVATO</title>
 	</head>
 	<body>
@@ -582,9 +579,12 @@
 										</div>
 										<div class="product-cart-header__prices">
 											<div class="product-cart-header__current-price">15 400 грн.</div>
-											<div class="product-cart-header__old-price">25 400 грн.</div>
 										</div>
 									</article>
+								</div>
+								<div class="cart-header__footer">
+									<button type="button" class="cart-header__button">оформити ЗАМОВЛЕННЯ</button>
+									<button data-cart-continue type="button" class="cart-header__button cart-header__button--border">Продовжити покупки</button>
 								</div>
 							</div>
 						</div>
@@ -633,7 +633,158 @@
 			</header>
 			<!-- main -->
 			<main class="page">
-
+				<div class="page__hero hero">
+					<div class="hero__container">
+						<div class="hero__slider swiper">
+							<div class="hero__wrapper swiper-wrapper">
+								<div class="hero__slide swiper-slide">
+									<a href="#" class="hero__link">
+										<picture>
+											<source media="(max-width: 37.5em)" srcset="img/home/hero/promo-mobile.jpg">
+											<img src="img/home/hero/promo.jpg" alt="#">
+										</picture>
+									</a>
+								</div>
+								<div class="hero__slide swiper-slide">
+									<a href="#" class="hero__link">
+										<picture>
+											<source media="(max-width: 37.5em)" srcset="img/home/hero/promo-mobile.jpg">
+											<img src="img/home/hero/promo.jpg" alt="#">
+										</picture>
+									</a>
+								</div>
+								<div class="hero__slide swiper-slide">
+									<a href="#" class="hero__link">
+										<picture>
+											<source media="(max-width: 37.5em)" srcset="img/home/hero/promo-mobile.jpg">
+											<img src="img/home/hero/promo.jpg" alt="#">
+										</picture>
+									</a>
+								</div>
+								<div class="hero__slide swiper-slide">
+									<a href="#" class="hero__link">
+										<picture>
+											<source media="(max-width: 37.5em)" srcset="img/home/hero/promo-mobile.jpg">
+											<img src="img/home/hero/promo.jpg" alt="#">
+										</picture>
+									</a>
+								</div>
+								<div class="hero__slide swiper-slide">
+									<a href="#" class="hero__link">
+										<picture>
+											<source media="(max-width: 37.5em)" srcset="img/home/hero/promo-mobile.jpg">
+											<img src="img/home/hero/promo.jpg" alt="#">
+										</picture>
+									</a>
+								</div>
+							</div>
+							<div class="hero__pagination swiper-pagination"></div>
+							<button type="button" class="hero__button hero__button--prev swiper-button-prev _icon-arrow-slider"></button>
+							<button type="button" class="hero__button hero__button--next swiper-button-next _icon-arrow-slider"></button>
+						</div>
+					</div>
+				</div>
+				<section class="page__popular-categories popular-categories">
+					<div class="popular-categories__container">
+						<div class="popular-categories__block-header block-header block-header--margin">
+							<div class="block-header__body">
+								<h2 class="block-header__title title">Популярні категорії</h2>
+							</div>
+						</div>
+						<div class="popular-categories__items">
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+							<article class="popular-categories__item item-category">
+								<a href="#" class="item-category__link _icon-arrow-link">
+									<div class="item-category__header">
+										<h3 class="item-category__title">Меблеві стіни</h3>
+										<div class="item-category__quantity">725</div>
+									</div>
+									<img src="img/categories/01.png" alt="Меблеві стіни" class="item-category__image">
+								</a>
+							</article>
+						</div>
+					</div>
+				</section>
 			</main>
 			<!-- footer -->
 			<footer class="footer">
@@ -789,7 +940,7 @@
 				</div>
 			</footer>
 		</div>
-		<!-- Підключення JS-файлу з кодом -->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="js/script.js"></script>
 	</body>
 </html>
