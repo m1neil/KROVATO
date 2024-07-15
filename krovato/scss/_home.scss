@@ -1,10 +1,4 @@
 .page {
-	// .page__hero
-	&__hero {
-	}
-	// .page__popular-categories
-	&__popular-categories {
-	}
 	& > section {
 		padding-block: toRem(40);
 		@media (max-width: $tablet) {
@@ -13,6 +7,18 @@
 		@media (max-width: $mobile) {
 			padding-block: toRem(20);
 		}
+	}
+	// .page__hero
+	&__hero {
+	}
+	// .page__popular-categories
+	&__popular-categories {
+	}
+	// .page__popular-products
+	&__popular-products {
+	}
+	// .page__sales
+	&__sales {
 	}
 }
 
@@ -102,6 +108,7 @@
 	}
 }
 
+//=====================================================================
 .popular-categories {
 	padding-block: toRem(40);
 	// .popular-categories__container
@@ -126,20 +133,71 @@
 	}
 }
 
-.item-category {
-	// .item-category__link
+//=====================================================================
+.popular-products {
+	// .popular-products__container
+	&__container {
+	}
+	// .popular-products__block-header
+	&__block-header {
+	}
+	// .popular-products__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+		gap: toRem(30);
+	}
+	// .popular-products__item
+	&__item {
+	}
+}
+//=====================================================================
+
+.sales {
+	// .sales__container
+	&__container {
+	}
+	// .sales__block-header
+	&__block-header {
+		.block-header__actions {
+			display: none;
+			@media (min-width: toEm(601)) {
+				display: flex;
+			}
+		}
+	}
+	// .sales__slider
+	&__slider {
+	}
+	// .sales__wrapper
+	&__wrapper {
+	}
+	// .sales__slide
+	&__slide {
+	}
+	// .sales__link
 	&__link {
+		display: block;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			aspect-ratio: 410 / 280;
+		}
 	}
-	// .item-category__header
-	&__header {
-	}
-	// .item-category__title
-	&__title {
-	}
-	// .item-category__quantity
-	&__quantity {
-	}
-	// .item-category__image
-	&__image {
+	// .sales__pagination
+	&__pagination {
+		display: none;
+		@media (max-width: toEm(600)) {
+			display: flex;
+			justify-content: center;
+			margin-top: toRem(20);
+			button.swiper-pagination-bullet {
+				border-color: $greyLightColor;
+			}
+			button.swiper-pagination-bullet-active {
+				border-color: #fff;
+			}
+		}
 	}
 }

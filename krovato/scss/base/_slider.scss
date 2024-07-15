@@ -19,7 +19,9 @@ button.swiper-pagination-bullet {
 	background-color: $lightColor;
 	background: $lightColor;
 	border: toRem(3) solid $lightColor;
-	transition: background-color 0.3s;
+	transition:
+		background-color 0.3s,
+		border-color 0.3s;
 	opacity: 1;
 }
 
