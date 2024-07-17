@@ -52,6 +52,12 @@ function windowLoaded() {
 			document.documentElement.classList.remove('cart-open');
 		}
 
+		if (target.closest('.product-cart-header__remove')) {
+			const item = target.closest('.cart-header__product');
+			if (!item) return;
+			item.remove();
+		}
+
 		// toggle burger menu ===========================================
 		if (target.closest('.icon-menu')) {
 			document.documentElement.classList.toggle('menu-open');
@@ -403,6 +409,7 @@ function slideToggleSpoller(spoller, duration) {
 }
 
 function initSliders() {
+	// hero slider
 	new Swiper('.hero__slider', {
 		loop: true,
 		spaceBetween: 60,
@@ -439,6 +446,7 @@ function initSliders() {
 		}
 	});
 
+	// sales
 	new Swiper('.sales__slider', {
 		loop: true,
 		speed: 800,
@@ -473,6 +481,73 @@ function initSliders() {
 			991.98: {
 				spaceBetween: 30,
 				slidesPerView: 3,
+			}
+		}
+	});
+
+	// reviews slider
+	new Swiper('.reviews__slider', {
+		speed: 1200,
+		touchAngle: 45,
+		touchRatio: 0.8,
+		spaceBetween: 30,
+		// pagination: {
+		// 	el: '.sales__pagination',
+		// 	clickable: true,
+		// 	renderBullet: function (index, className) {
+		// 		return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`;
+		// 	}
+		// },
+		// grabCursor: true,
+		slidesPerView: "auto",
+
+		scrollbar: {
+			el: ".reviews__swiper-scrollbar",
+			hide: false,
+			draggable: true,
+			dragClass: '.reviews__swiper-scrollbar-drag swiper-scrollbar-drag _icon-arrow-scroll',
+			dragSize: 60,
+			snapOnRelease: false
+		},
+		breakpoints: {
+			320: {
+				speed: 400,
+				slidesPerView: 1,
+				spaceBetween: 15,
+				freeMode: false,
+			},
+			574.98: {
+				slidesPerView: 1.3,
+				spaceBetween: 15,
+				freeMode: {
+					enabled: true,
+					minimumVelocity: 0.02,
+					momentumBounceRatio: 0.3,
+					momentum: true,
+					momentumBounce: false
+				},
+			},
+			767.98: {
+				slidesPerView: 2,
+				spaceBetween: 15,
+				freeMode: {
+					enabled: true,
+					minimumVelocity: 0.02,
+					momentumBounceRatio: 0.3,
+					momentum: true,
+					momentumBounce: false
+				},
+			},
+			991.98: {
+				spaceBetween: 30,
+				slidesPerView: "auto",
+				freeMode: {
+					enabled: true,
+					minimumVelocity: 0.02,
+					momentumBounceRatio: 0.3,
+					momentum: true,
+					momentumBounce: false
+				},
 			}
 		}
 	});
