@@ -519,6 +519,10 @@
 		align-items: center;
 		grid-template-columns: auto 1fr;
 	}
+
+	&:not(:has(.rating__value)) {
+		line-height: 0;
+	}
 	// .rating__value
 	&__value {
 		color: #f90;
@@ -528,50 +532,37 @@
 	}
 	// .rating__stars
 	&__stars {
+		display: inline-block;
 		position: relative;
-		inline-size: toRem(116);
-		block-size: toRem(20);
-		@media (max-width: $mobileSmall) {
-			inline-size: toRem(80);
-			block-size: toRem(15);
+		justify-self: start;
+		&:not(.rating__stars--orange) {
+			@media (max-width: toEm(374.98)) {
+				.rating__star {
+					inline-size: toRem(90);
+				}
+			}
 		}
+	}
+	&__active,
+	&__passive {
+		line-height: 0;
 	}
 	// .rating__active
 	&__active {
 		position: absolute;
-		inline-size: 40%;
-		block-size: 100%;
-		inset-block-start: 0;
-		inset-inline-start: 0;
+		width: 0;
+		height: 100%;
+		top: 0;
+		left: 0;
 		overflow: hidden;
-		&::before {
-			content: "";
-			display: block;
-			inline-size: toRem(116);
-			block-size: toRem(20);
-			background: url("../img/icons/rating/stars-orange.svg") 0 0 / 100% no-repeat;
-			@media (max-width: $mobileSmall) {
-				inline-size: toRem(80);
-				block-size: toRem(15);
-			}
-		}
 	}
-	// .rating__star
 
 	// .rating__passive
 	&__passive {
-		line-height: 0;
-		&::before {
-			content: "";
-			display: block;
-			inline-size: toRem(116);
-			block-size: toRem(20);
-			background: url("../img/icons/rating/stars-grey.svg") 0 0 / 100% no-repeat;
-			@media (max-width: $mobileSmall) {
-				inline-size: toRem(80);
-				block-size: toRem(15);
-			}
-		}
+	}
+	// .rating__star
+	&__star {
+		inline-size: toRem(120);
 	}
 	// .rating__text
 	&__text {
@@ -595,6 +586,9 @@
 	row-gap: toRem(30);
 	@media (max-width: $tablet) {
 		row-gap: toRem(20);
+	}
+	@media (max-width: $mobileSmall) {
+		padding: toRem(20);
 	}
 	// .item-review__header
 	&__header {
@@ -620,7 +614,7 @@
 		align-self: center;
 		color: $greyColor;
 		@media (max-width: $mobileSmall) {
-			flex-basis: toRem(30);
+			flex-basis: toRem(40);
 		}
 	}
 	// .item-review__body
@@ -693,6 +687,10 @@
 		block-size: toRem(50);
 		border-radius: 50%;
 		object-fit: cover;
+		@media (max-width: $mobileSmall) {
+			inline-size: toRem(40);
+			block-size: toRem(40);
+		}
 	}
 	// .item-review__name
 	&__name {
@@ -708,6 +706,9 @@
 			&:hover {
 				color: $yellowColor;
 			}
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(17);
 		}
 	}
 }

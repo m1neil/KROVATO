@@ -17,8 +17,7 @@ button.swiper-pagination-bullet {
 	height: toRem(15);
 	border-radius: 50%;
 	background-color: $lightColor;
-	background: $lightColor;
-	border: toRem(3) solid $lightColor;
+	border: toRem(3) solid $greyLightColor;
 	transition:
 		background-color 0.3s,
 		border-color 0.3s;
@@ -27,7 +26,7 @@ button.swiper-pagination-bullet {
 
 button.swiper-pagination-bullet-active {
 	background-color: $yellowColor;
-	opacity: 1;
+	border-color: #fff;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,

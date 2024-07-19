@@ -19,6 +19,26 @@ function windowLoaded() {
 	document.addEventListener('click', documentAction);
 	document.addEventListener('keydown', keyActions)
 
+	// ? testing
+	const header = document.querySelector('header');
+	let isBlockScroll = false;
+	document.addEventListener('scroll', () => {
+		if (!isBlockScroll) {
+			if (window.scrollY > header.offsetHeight + 150) {
+				header.style.top = '-100%';
+				header.style.transition = 'top 0.3s';
+			} else {
+				header.style.top = 0;
+			}
+			console.log('event');
+			isBlockScroll = true;
+			setTimeout(() => {
+				isBlockScroll = false;
+			}, 200);
+		}
+	});
+	// ========================================
+
 	// move elements ====================================================================
 	moveFooterSocial();
 	matchMedia.addEventListener('change', moveFooterSocial);
@@ -29,6 +49,7 @@ function windowLoaded() {
 	// init =========================================================================================
 	initSpollers();
 	initSliders();
+	initRating();
 
 	// document actions ====================================================================================
 	function documentAction(e) {
@@ -129,7 +150,6 @@ function windowLoaded() {
 		} else if (!target.closest('.middle-header__search')) {
 			document.documentElement.classList.remove('search-open');
 		}
-
 		// toggle lock body =======================================================
 		if (document.documentElement.classList.contains('search-open') ||
 			document.documentElement.classList.contains('catalog-open') ||
@@ -491,16 +511,14 @@ function initSliders() {
 		touchAngle: 45,
 		touchRatio: 0.8,
 		spaceBetween: 30,
-		// pagination: {
-		// 	el: '.sales__pagination',
-		// 	clickable: true,
-		// 	renderBullet: function (index, className) {
-		// 		return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`;
-		// 	}
-		// },
-		// grabCursor: true,
+		pagination: {
+			el: '.reviews__swiper-pagination',
+			clickable: true,
+			renderBullet: function (index, className) {
+				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`;
+			}
+		},
 		slidesPerView: "auto",
-
 		scrollbar: {
 			el: ".reviews__swiper-scrollbar",
 			hide: false,
@@ -552,3 +570,16 @@ function initSliders() {
 		}
 	});
 }
+
+function initRating() {
+	const blockRatings = document.querySelectorAll('[data-rating]');
+	if (blockRatings.length > 0) {
+		blockRatings.forEach(rating => {
+			const value = rating.dataset.rating ? +rating.dataset.rating : 5;
+			const activeLine = rating.querySelector('.rating__active');
+			if (activeLine) {
+				activeLine.style.inlineSize = value / 0.05 + '%';
+			}
+		});
+	}
+}	
