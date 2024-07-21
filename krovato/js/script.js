@@ -23,7 +23,7 @@ function windowLoaded() {
 		document.documentElement.classList.add('--firefox');
 	}
 
-	// ? testing
+	// ? testing ==========================================
 	const header = document.querySelector('header');
 	let isBlockScroll = false;
 	document.addEventListener('scroll', () => {
@@ -34,7 +34,7 @@ function windowLoaded() {
 			} else {
 				header.style.top = 0;
 			}
-			console.log('event');
+
 			isBlockScroll = true;
 			setTimeout(() => {
 				isBlockScroll = false;
@@ -168,25 +168,26 @@ function windowLoaded() {
 		}
 
 		// toggle show more
-		if (target.closest('.show-more__button')) {
-			const block = target.closest('.show-more');
-			const text = block.querySelector('.show-more__text');
+		if (target.closest('[data-show-more-trigger]')) {
+			const block = target.closest('[data-show-more]');
+			const content = block.querySelector('[data-show-more-content]');
 			block.classList.toggle('--hide');
+			const height = content.dataset.showMoreContent ? +content.dataset.showMoreContent : 280;
 
 			if (block.classList.contains('--hide')) {
-				text.style.height = `${text.offsetHeight / 16}rem`;
-				text.offsetHeight;
-				text.style.transition = 'height 0.3s'
-				text.style.height = `${280 / 16}rem`;
+				content.style.height = `${content.offsetHeight / 16}rem`;
+				content.offsetHeight;
+				content.style.transition = 'height 0.3s'
+				content.style.height = `${height / 16}rem`;
 				setTimeout(() => {
-					text.style.removeProperty('transition');
+					content.style.removeProperty('transition');
 				}, 300);
 			} else {
-				text.style.transition = 'height 0.3s'
-				text.style.height = `${text.scrollHeight / 16}rem`;
+				content.style.transition = 'height 0.3s'
+				content.style.height = `${content.scrollHeight / 16}rem`;
 				setTimeout(() => {
-					text.style.removeProperty('height');
-					text.style.removeProperty('transition');
+					content.style.removeProperty('height');
+					content.style.removeProperty('transition');
 				}, 300);
 			}
 		}
@@ -654,14 +655,16 @@ function initRating() {
 }
 
 function initShowMore() {
-	const block = document.querySelector('.show-more');
-	if (!block) return;
-	const text = block.querySelector('.show-more__text');
-	if (text.offsetHeight > 280) {
-		block.classList.add('--init', '--hide');
-		text.style.height = `${280 / 16}rem`;
-	} else {
-		block.classList.remove('--init');
-	}
-
+	const blocks = document.querySelectorAll('[data-show-more]');
+	if (!blocks.length) return;
+	blocks.forEach(block => {
+		const content = block.querySelector('[data-show-more-content]');
+		const height = content.dataset.showMoreContent ? +content.dataset.showMoreContent : 280;
+		if (content.offsetHeight > height) {
+			block.classList.add('--init', '--hide');
+			content.style.height = `${height / 16}rem`;
+		} else {
+			block.classList.remove('--init', '--hide');
+		}
+	});
 }
