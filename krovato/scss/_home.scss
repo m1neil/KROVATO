@@ -1,5 +1,5 @@
 .page {
-	& > section:not(.reviews) {
+	& > section:not(.reviews, .news, .home-text) {
 		padding-block: toRem(40);
 		@media (max-width: $tablet) {
 			padding-block: toRem(30);
@@ -22,6 +22,12 @@
 	}
 	// .page__reviews
 	&__reviews {
+	}
+	// .page__news
+	&__news {
+	}
+	// .page__home-text
+	&__home-text {
 	}
 }
 
@@ -385,5 +391,82 @@
 	}
 	// .body-reviews__link
 	&__link {
+	}
+}
+//=====================================================================
+.news {
+	padding-block: toRem(70);
+	@media (max-width: $tablet) {
+		padding-block: toRem(60);
+	}
+	@media (max-width: $mobileSmall) {
+		padding-block: toRem(40);
+	}
+	// .news__container
+	&__container {
+	}
+	// .news__block-header
+	&__block-header {
+		.block-header__actions {
+			display: none;
+			@media (min-width: $mobile) {
+				display: flex;
+			}
+		}
+		@media (max-width: toEm(599.98)) {
+			&:not(:last-child) {
+				margin-bottom: toRem(25);
+			}
+		}
+	}
+	// .news__slider
+	&__slider {
+		margin: toRem(-20);
+		padding: toRem(20);
+	}
+	// .news__wrapper
+	&__wrapper {
+	}
+	// .news__slide
+	&__slide {
+		height: auto;
+	}
+	// .news__article
+	&__article {
+		// height: 100%;
+	}
+	// .news__swiper-pagination
+	&__swiper-pagination {
+		display: none;
+		@media (max-width: $mobile) {
+			margin-top: toRem(20);
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
+//=====================================================================
+.home-text {
+	padding-block: toRem(70) toRem(30);
+	background-color: #fff;
+	@include gridContainer(0, 1070);
+	@media (max-width: $tablet) {
+		padding-block-start: toRem(60);
+	}
+	@media (max-width: $mobile) {
+		padding-block-start: toRem(40);
+	}
+	// .home-text__container
+	&__container {
+	}
+	// .home-text__block-header
+	&__block-header {
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: toRem(30);
+		}
+	}
+	// .home-text__show-more
+	&__show-more {
 	}
 }

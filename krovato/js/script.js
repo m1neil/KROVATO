@@ -19,6 +19,10 @@ function windowLoaded() {
 	document.addEventListener('click', documentAction);
 	document.addEventListener('keydown', keyActions)
 
+	if (navigator.userAgent.includes("Firefox")) {
+		document.documentElement.classList.add('--firefox');
+	}
+
 	// ? testing
 	const header = document.querySelector('header');
 	let isBlockScroll = false;
@@ -50,6 +54,7 @@ function windowLoaded() {
 	initSpollers();
 	initSliders();
 	initRating();
+	initShowMore();
 
 	// document actions ====================================================================================
 	function documentAction(e) {
@@ -160,6 +165,30 @@ function windowLoaded() {
 		} else {
 			removePaddingScrollFixedElement();
 			document.documentElement.classList.remove('lock');
+		}
+
+		// toggle show more
+		if (target.closest('.show-more__button')) {
+			const block = target.closest('.show-more');
+			const text = block.querySelector('.show-more__text');
+			block.classList.toggle('--hide');
+
+			if (block.classList.contains('--hide')) {
+				text.style.height = `${text.offsetHeight / 16}rem`;
+				text.offsetHeight;
+				text.style.transition = 'height 0.3s'
+				text.style.height = `${280 / 16}rem`;
+				setTimeout(() => {
+					text.style.removeProperty('transition');
+				}, 300);
+			} else {
+				text.style.transition = 'height 0.3s'
+				text.style.height = `${text.scrollHeight / 16}rem`;
+				setTimeout(() => {
+					text.style.removeProperty('height');
+					text.style.removeProperty('transition');
+				}, 300);
+			}
 		}
 	}
 
@@ -532,7 +561,7 @@ function initSliders() {
 				speed: 400,
 				slidesPerView: 1,
 				spaceBetween: 15,
-				freeMode: false,
+				freeMode: false
 			},
 			574.98: {
 				slidesPerView: 1.3,
@@ -569,6 +598,46 @@ function initSliders() {
 			}
 		}
 	});
+
+	// articles slider
+	new Swiper('.news__slider', {
+		loop: true,
+		speed: 800,
+		touchAngle: 45,
+		touchRatio: 0.8,
+		pagination: {
+			el: '.news__swiper-pagination',
+			clickable: true,
+			renderBullet: function (index, className) {
+				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`;
+			}
+		},
+		navigation: {
+			nextEl: '.news .block-header__next',
+			prevEl: '.news .block-header__prev',
+		},
+		autoplay: {
+			delay: 3000,
+			pauseOnMouseEnter: true
+		},
+		slidesPerView: 1,
+		spaceBetween: 15,
+		breakpoints: {
+			320: {
+				speed: 400,
+				slidesPerView: 1,
+				spaceBetween: 15,
+			},
+			600: {
+				slidesPerView: 2,
+				spaceBetween: 15,
+			},
+			1089.98: {
+				spaceBetween: 30,
+				slidesPerView: 3,
+			}
+		}
+	});
 }
 
 function initRating() {
@@ -582,4 +651,17 @@ function initRating() {
 			}
 		});
 	}
-}	
+}
+
+function initShowMore() {
+	const block = document.querySelector('.show-more');
+	if (!block) return;
+	const text = block.querySelector('.show-more__text');
+	if (text.offsetHeight > 280) {
+		block.classList.add('--init', '--hide');
+		text.style.height = `${280 / 16}rem`;
+	} else {
+		block.classList.remove('--init');
+	}
+
+}
