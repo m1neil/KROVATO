@@ -23,7 +23,8 @@ function windowLoaded() {
 		document.documentElement.classList.add('--firefox');
 	}
 
-	// ? testing ==========================================
+	// ! testing ==========================================
+	/*
 	const header = document.querySelector('header');
 	let isBlockScroll = false;
 	document.addEventListener('scroll', () => {
@@ -41,7 +42,8 @@ function windowLoaded() {
 			}, 200);
 		}
 	});
-	// ========================================
+	*/
+	//! ========================================
 
 	// move elements ====================================================================
 	moveFooterSocial();

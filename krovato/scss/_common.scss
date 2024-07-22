@@ -430,12 +430,15 @@
 			}
 		}
 	}
+	&--gc {
+		@include gridContainer();
+	}
 
 	// .block-header__body
 	&__body {
 		align-self: center;
 		line-height: 2.52;
-		&:has(.block-header__more) {
+		&:has(.block-header__more, .block-header__quantity) {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
@@ -449,6 +452,17 @@
 	&__more {
 		flex-shrink: 0;
 		line-height: 2.7; /* 48/19 */
+		@media (max-width: toEm(600)) {
+			line-height: 2.2;
+		}
+	}
+	// .block-header__quantity {
+	&__quantity {
+		flex-shrink: 0;
+		line-height: 2.7; /* 48/19 */
+		color: $greyLightColor;
+		font-size: toRem(19);
+		font-weight: 600;
 		@media (max-width: toEm(600)) {
 			line-height: 2.2;
 		}
@@ -740,7 +754,7 @@
 	}
 }
 
-// .show-more  =====================================================================
+// .show-more =====================================================================
 .show-more {
 	&.--init {
 		position: relative;
@@ -793,6 +807,62 @@
 		}
 		.--hide & {
 			transform: rotate(0);
+		}
+	}
+}
+
+// .breadcrumbs =====================================================================
+.breadcrumbs {
+	padding-block: toRem(14);
+	// .breadcrumbs__container
+	&__container {
+	}
+	// .breadcrumbs__list
+	&__list {
+		display: flex;
+		column-gap: toRem(10);
+	}
+	// .breadcrumbs__item
+	&__item {
+		color: $greyColor;
+		&:not(:last-child) {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			column-gap: toRem(10);
+			&::before {
+				font-family: "icons";
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				@extend ._icon-arrow-down;
+				font-size: toRem(12);
+				transform: rotate(-90deg);
+			}
+		}
+		&:last-child {
+			color: $yellowColor;
+		}
+	}
+	// .breadcrumbs__link
+	&__link {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			inline-size: 0;
+			height: toRem(1);
+			inset-block-end: toRem(-1);
+			inset-inline-start: 0;
+			background-color: $greyColor;
+			transition: inline-size 0.3s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				&::after {
+					inline-size: 100%;
+				}
+			}
 		}
 	}
 }

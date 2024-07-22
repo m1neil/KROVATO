@@ -57,7 +57,8 @@ $tablet: toEm(991.98);
 $mobile: toEm(767.98);
 $mobileSmall: toEm(479.98);
 
-.wrapper > .page {
+.wrapper > .page,
+.wrapper > .category {
 	flex-grow: 1;
 	padding-top: toRem(221.6);
 	@media (max-width: $tablet) {
@@ -75,6 +76,7 @@ $mobileSmall: toEm(479.98);
 @import "common";
 // Окремі сторінки
 @import "home";
+@import "category";
 // Окремі компоненти
 @import "header";
 @import "footer";
