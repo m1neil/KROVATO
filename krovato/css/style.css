@@ -1388,7 +1388,6 @@ button.swiper-pagination-bullet-active {
 }
 .breadcrumbs__item:not(:last-child)::before {
   font-family: "icons";
-  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0.75rem;
@@ -1989,6 +1988,11 @@ button.swiper-pagination-bullet-active {
 .category__breadcrumbs:not(:last-child) {
   margin-bottom: 1rem;
 }
+.category__type:not(:last-child) {
+  -webkit-margin-after: 4.375rem;
+          margin-block-end: 4.375rem;
+}
+
 .type-category__more {
   position: relative;
   overflow: hidden;
@@ -2005,6 +2009,7 @@ button.swiper-pagination-bullet-active {
   opacity: 0;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
+  pointer-events: none;
 }
 .type-category__more.--hide::after {
   opacity: 1;
@@ -2079,12 +2084,12 @@ button.swiper-pagination-bullet-active {
 }
 
 .card-type-category {
-  height: 100%;
+  block-size: 100%;
   -webkit-box-shadow: -0.1875rem 0.25rem 0.9375rem 0 rgba(0, 0, 0, 0.06);
           box-shadow: -0.1875rem 0.25rem 0.9375rem 0 rgba(0, 0, 0, 0.06);
 }
 .card-type-category__link {
-  height: 100%;
+  block-size: 100%;
   display: block;
   background-color: #fff;
   padding-inline: 1.25rem;
@@ -2098,22 +2103,22 @@ button.swiper-pagination-bullet-active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 0.3125rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  row-gap: 0.3125rem;
   position: relative;
 }
 .card-type-category__link::before {
   content: "";
   position: absolute;
-  width: 1.25rem;
-  height: 0.3125rem;
-  top: 0;
-  left: 50%;
+  inline-size: 1.25rem;
+  block-size: 0.3125rem;
+  inset-block-start: 0;
+  inset-inline-start: 50%;
   background-color: #ffbc57;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -2129,7 +2134,7 @@ button.swiper-pagination-bullet-active {
   font-size: 1.1875rem;
   font-weight: 600;
   line-height: 1.26;
-  min-height: 3rem;
+  min-block-size: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

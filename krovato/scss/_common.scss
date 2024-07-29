@@ -832,7 +832,7 @@
 			column-gap: toRem(10);
 			&::before {
 				font-family: "icons";
-				/* Better Font Rendering =========== */
+				// Better Font Rendering
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
 				@extend ._icon-arrow-down;
