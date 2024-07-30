@@ -1418,6 +1418,332 @@ button.swiper-pagination-bullet-active {
   }
 }
 
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+.noUi-target,
+.noUi-target * {
+  background-color: #ffbc57;
+  -ms-touch-action: none;
+      touch-action: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.noUi-target {
+  position: relative;
+}
+
+.noUi-base,
+.noUi-connects {
+  width: auto;
+  position: relative;
+  z-index: 1;
+  block-size: 0.1875rem;
+}
+
+.noUi-base {
+  margin-inline: 0.5rem;
+}
+
+.noUi-connects {
+  margin-inline: -0.5rem;
+}
+
+/* Wrapper for all connect elements.
+ */
+.noUi-connects {
+  overflow: hidden;
+  z-index: 0;
+}
+
+.noUi-connect,
+.noUi-origin {
+  will-change: transform;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  -ms-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  -webkit-transform-style: preserve-3d;
+  transform-origin: 0 0;
+  -webkit-transform-style: flat;
+          transform-style: flat;
+}
+
+/* Offset direction
+ */
+.noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
+  left: 0;
+  right: auto;
+}
+
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.noUi-vertical .noUi-origin {
+  top: -100%;
+  width: 0;
+}
+
+.noUi-horizontal .noUi-origin {
+  height: 0;
+}
+
+.noUi-handle {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.noUi-touch-area {
+  height: 100%;
+  width: 100%;
+}
+
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+  -webkit-transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+  height: 18px;
+}
+
+.noUi-horizontal .noUi-handle {
+  inline-size: 1.0625rem;
+  block-size: 1.0625rem;
+  border-radius: 50%;
+  overflow: hidden;
+  right: -0.5rem;
+  cursor: pointer;
+  top: -7px;
+}
+
+.noUi-vertical {
+  width: 18px;
+}
+
+/* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+.noUi-target {
+  background-color: transparent;
+  block-size: 0.6875rem;
+}
+
+.noUi-connects {
+  border-radius: 3px;
+}
+
+.noUi-connect {
+  background-color: #535353;
+}
+
+/* Handles and cursors;
+ */
+.noUi-draggable {
+  cursor: ew-resize;
+}
+
+.noUi-vertical .noUi-draggable {
+  cursor: ns-resize;
+}
+
+/* Handle stripes;
+ */
+/* Disabled state;
+ */
+[disabled] .noUi-connect {
+  background: #b8b8b8;
+}
+
+[disabled].noUi-target,
+[disabled].noUi-handle,
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+}
+
+/* Base;
+ *
+ */
+.noUi-pips,
+.noUi-pips * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.noUi-pips {
+  position: absolute;
+  color: #999;
+}
+
+/* Values;
+ *
+ */
+.noUi-value {
+  position: absolute;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.noUi-value-sub {
+  color: #ccc;
+  font-size: 10px;
+}
+
+/* Markings;
+ *
+ */
+.noUi-marker {
+  position: absolute;
+  background: #ccc;
+}
+
+.noUi-marker-sub {
+  background: #aaa;
+}
+
+.noUi-marker-large {
+  background: #aaa;
+}
+
+/* Horizontal layout;
+ *
+ */
+.noUi-pips-horizontal {
+  padding: 10px 0;
+  height: 80px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.noUi-value-horizontal {
+  -webkit-transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, 50%);
+      transform: translate(-50%, 50%);
+}
+
+.noUi-rtl .noUi-value-horizontal {
+  -webkit-transform: translate(50%, 50%);
+  -ms-transform: translate(50%, 50%);
+      transform: translate(50%, 50%);
+}
+
+.noUi-marker-horizontal.noUi-marker {
+  margin-left: -1px;
+  width: 2px;
+  height: 5px;
+}
+
+.noUi-marker-horizontal.noUi-marker-sub {
+  height: 10px;
+}
+
+.noUi-marker-horizontal.noUi-marker-large {
+  height: 15px;
+}
+
+/* Vertical layout;
+ *
+ */
+.noUi-pips-vertical {
+  padding: 0 10px;
+  height: 100%;
+  top: 0;
+  left: 100%;
+}
+
+.noUi-value-vertical {
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+  padding-left: 25px;
+}
+
+.noUi-rtl .noUi-value-vertical {
+  -webkit-transform: translate(0, 50%);
+  -ms-transform: translate(0, 50%);
+      transform: translate(0, 50%);
+}
+
+.noUi-marker-vertical.noUi-marker {
+  width: 5px;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.noUi-marker-vertical.noUi-marker-sub {
+  width: 10px;
+}
+
+.noUi-marker-vertical.noUi-marker-large {
+  width: 15px;
+}
+
+.noUi-tooltip {
+  display: block;
+  position: absolute;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  background: #fff;
+  color: #000;
+  padding: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.noUi-horizontal .noUi-tooltip {
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+  left: 50%;
+  bottom: 120%;
+}
+
+.noUi-vertical .noUi-tooltip {
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+  top: 50%;
+  right: 120%;
+}
+
+.noUi-horizontal .noUi-origin > .noUi-tooltip {
+  -webkit-transform: translate(50%, 0);
+  -ms-transform: translate(50%, 0);
+      transform: translate(50%, 0);
+  left: auto;
+  bottom: 10px;
+}
+
+.noUi-vertical .noUi-origin > .noUi-tooltip {
+  -webkit-transform: translate(0, -18px);
+  -ms-transform: translate(0, -18px);
+      transform: translate(0, -18px);
+  top: auto;
+  right: 28px;
+}
+
 .page > section:not(.reviews, .news, .seo-text) {
   padding-block: 2.5rem;
 }
@@ -1992,7 +2318,6 @@ button.swiper-pagination-bullet-active {
   -webkit-margin-after: 4.375rem;
           margin-block-end: 4.375rem;
 }
-
 .type-category__more {
   position: relative;
   overflow: hidden;
@@ -2153,6 +2478,208 @@ button.swiper-pagination-bullet-active {
   max-inline-size: 100%;
 }
 
+.products-category__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 1.875rem;
+     -moz-column-gap: 1.875rem;
+          column-gap: 1.875rem;
+}
+.products-category__filter {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 18.75rem;
+          flex: 0 0 18.75rem;
+}
+.products-category__content {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 60rem;
+          flex: 0 1 60rem;
+}
+
+.filter-products {
+  border-radius: 0.5rem 0.5rem 0 0;
+  border: 0.0625rem solid #e3e2e2;
+  background-color: #fff;
+}
+.title-filter {
+  padding: 1.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 1rem;
+     -moz-column-gap: 1rem;
+          column-gap: 1rem;
+  inline-size: 100%;
+  border-bottom: 0.0625rem solid #e3e2e2;
+  cursor: default;
+}
+._init .title-filter {
+  cursor: pointer;
+}
+.title-filter__icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 1.375rem;
+          flex: 0 0 1.375rem;
+  block-size: 1.1875rem;
+  position: relative;
+}
+.title-filter__icon::before, .title-filter__icon::after {
+  content: "";
+}
+.title-filter__icon::before, .title-filter__icon::after,
+.title-filter__icon span {
+  position: absolute;
+  inline-size: 100%;
+  block-size: 0.1875rem;
+  border-radius: 0.625rem;
+  background-color: #535353;
+  inset-inline-start: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.title-filter__icon::before {
+  inset-block-start: 0;
+}
+.title-filter__icon span {
+  inset-block-start: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  inline-size: 1.0625rem;
+}
+.title-filter__icon::after {
+  inline-size: 0.875rem;
+  inset-block-end: 0;
+}
+.--active .title-filter__icon::before {
+  inline-size: 100%;
+  inset-block-start: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+      -ms-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+.--active .title-filter__icon span {
+  inline-size: 0;
+}
+.--active .title-filter__icon::after {
+  inset-block-end: 50%;
+  inline-size: 100%;
+  -webkit-transform: translate(-50%, 50%) rotate(-45deg);
+      -ms-transform: translate(-50%, 50%) rotate(-45deg);
+          transform: translate(-50%, 50%) rotate(-45deg);
+}
+.title-filter__text {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.26;
+}
+
+.item-filter__content {
+  padding: 0.9375rem 0.9375rem 1.25rem;
+}
+.item-filter__form:not(:last-child) {
+  -webkit-margin-after: 0.9375rem;
+          margin-block-end: 0.9375rem;
+}
+.title-filter-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  inline-size: 100%;
+  padding-block: 1.125rem;
+  -webkit-padding-start: 0.9375rem;
+          padding-inline-start: 0.9375rem;
+  -webkit-padding-end: 1.3125rem;
+          padding-inline-end: 1.3125rem;
+  background-color: #f8f8f8;
+  -webkit-column-gap: 0.75rem;
+     -moz-column-gap: 0.75rem;
+          column-gap: 0.75rem;
+}
+.title-filter-item__text {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.26;
+}
+.title-filter-item__icon {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0.90625rem;
+          flex: 0 0 0.90625rem;
+  block-size: 0.9375rem;
+  overflow: hidden;
+}
+.title-filter-item__icon::before, .title-filter-item__icon::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inline-size: 0.5625rem;
+  block-size: 0.125rem;
+  background-color: #2b2929;
+  border-radius: 0.625rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.title-filter-item__icon::before {
+  inset-inline-start: 0;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.title-filter-item__icon::after {
+  inset-inline-end: 0;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.--active .title-filter-item__icon::before, .--active .title-filter-item__icon::after {
+  inline-size: 0.9375rem;
+}
+
+.form-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  -webkit-column-gap: 0.875rem;
+     -moz-column-gap: 0.875rem;
+          column-gap: 0.875rem;
+}
+.form-filter__input {
+  inline-size: 100%;
+  block-size: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #b1b1b1;
+  background-color: #fff;
+  padding-inline: 0.9375rem;
+  text-align: center;
+}
+.form-filter__button {
+  text-transform: uppercase;
+  background-color: #ffbc57;
+  color: #fff;
+  padding-inline: 1.0625rem;
+  padding-block: 0.6875rem 0.5625rem;
+  border-radius: 0.5rem;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+@media (any-hover: hover) {
+  .form-filter__button:hover {
+    background-color: #535353;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -2189,6 +2716,11 @@ button.swiper-pagination-bullet-active {
   padding-block: 0.9375rem;
   background-color: #f8f8f8;
   position: relative;
+  -webkit-transition: padding-block 0.2s;
+  transition: padding-block 0.2s;
+}
+.--sticky .top-header {
+  padding-block: 0.8125rem;
 }
 @media (min-width: 47.99875em) {
   .top-header {
@@ -2509,6 +3041,11 @@ button.swiper-pagination-bullet-active {
           column-gap: 1.875rem;
   position: relative;
   padding-block: 1.5625rem;
+  -webkit-transition: padding-block 0.3s;
+  transition: padding-block 0.3s;
+}
+.--sticky .middle-header__container {
+  padding-block: 0.625rem;
 }
 @media (min-width: 61.99875em) {
   .middle-header__container {
@@ -3428,6 +3965,9 @@ button.swiper-pagination-bullet-active {
 }
 .bottom-header__container {
   padding-block: 1.125rem;
+}
+.--sticky .bottom-header__container {
+  padding-block: 0.625rem;
 }
 @media (max-width: 61.99875em) {
   .bottom-header__container {

@@ -43,6 +43,10 @@
 	padding-block: toRem(15);
 	background-color: $lightColor;
 	position: relative;
+	transition: padding-block 0.2s;
+	.--sticky & {
+		padding-block: toRem(13);
+	}
 	@media (min-width: $mobile) {
 		z-index: 3;
 	}
@@ -310,6 +314,10 @@
 		column-gap: toRem(30);
 		position: relative;
 		padding-block: toRem(25);
+		transition: padding-block 0.3s;
+		.--sticky & {
+			padding-block: toRem(10);
+		}
 		@media (min-width: $tablet) {
 			display: flex;
 			align-items: center;
@@ -1086,6 +1094,9 @@
 	// .bottom-header__container
 	&__container {
 		padding-block: toRem(18);
+		.--sticky & {
+			padding-block: toRem(10);
+		}
 		@media (max-width: $tablet) {
 			padding-block: toRem(12);
 			display: flex;

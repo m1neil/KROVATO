@@ -14,6 +14,9 @@
 			margin-block-end: toRem(70);
 		}
 	}
+	// .category__products
+	&__products {
+	}
 }
 
 .type-category {
@@ -156,5 +159,214 @@
 	// .card-type-category__img
 	&__img {
 		max-inline-size: 100%;
+	}
+}
+
+// .products-category  =====================================================================
+.products-category {
+	// .products-category__container
+	&__container {
+		display: flex;
+		column-gap: toRem(30);
+	}
+	// .products-category__filter
+	&__filter {
+		flex: 0 0 toRem(300);
+	}
+	// .products-category__content
+	&__content {
+		flex: 0 1 toRem(960);
+	}
+}
+.filter-products {
+	border-radius: toRem(8) toRem(8) 0 0;
+	border: toRem(1) solid #e3e2e2;
+	background-color: #fff;
+	// overflow: hidden;
+	// .filter-products__title
+	&__title {
+	}
+	// .filter-products__content
+	&__content {
+	}
+	// .filter-products__item
+	&__item {
+	}
+}
+
+.title-filter {
+	padding: toRem(20);
+	display: flex;
+	column-gap: toRem(16);
+	inline-size: 100%;
+	border-bottom: toRem(1) solid #e3e2e2;
+	cursor: default;
+	._init & {
+		cursor: pointer;
+	}
+	// .title-filter__icon
+	&__icon {
+		flex: 0 0 toRem(22);
+		block-size: toRem(19);
+		position: relative;
+		&::before,
+		&::after {
+			content: "";
+		}
+		&::before,
+		&::after,
+		span {
+			position: absolute;
+			inline-size: 100%;
+			block-size: toRem(3);
+			border-radius: toRem(10);
+			background-color: #535353;
+			inset-inline-start: 50%;
+			transform: translate(-50%, 0);
+			transition: all 0.3s;
+		}
+		&::before {
+			inset-block-start: 0;
+		}
+		span {
+			inset-block-start: 50%;
+			transform: translate(-50%, -50%);
+			inline-size: toRem(17);
+		}
+		&::after {
+			inline-size: toRem(14);
+			inset-block-end: 0;
+		}
+		.--active & {
+			&::before {
+				inline-size: 100%;
+				inset-block-start: 50%;
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
+			span {
+				inline-size: 0;
+			}
+			&::after {
+				inset-block-end: 50%;
+				inline-size: 100%;
+				transform: translate(-50%, 50%) rotate(-45deg);
+			}
+		}
+	}
+	// .title-filter__text
+	&__text {
+		font-size: toRem(19);
+		font-weight: 600;
+		line-height: 1.26;
+	}
+}
+
+.item-filter {
+	// .item-filter__title
+	&__title {
+		// text-align: left;
+		// inline-size: 100%;
+	}
+	// .item-filter__content
+	&__content {
+		padding: toRem(15) toRem(15) toRem(20);
+	}
+	// .item-filter__form
+	&__form {
+		&:not(:last-child) {
+			margin-block-end: toRem(15);
+		}
+	}
+	// .item-filter__range
+	&__range {
+	}
+}
+
+.title-filter-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	inline-size: 100%;
+	padding-block: toRem(18);
+	padding-inline-start: toRem(15);
+	padding-inline-end: toRem(21);
+	background-color: $lightColor;
+	column-gap: toRem(12);
+	// .title-filter__text
+	&__text {
+		font-size: toRem(19);
+		font-weight: 600;
+		line-height: 1.26;
+	}
+	// .title-filter__icon
+	&__icon {
+		position: relative;
+		flex: 0 0 toRem(14.5);
+		block-size: toRem(15);
+		overflow: hidden;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			inset-block-start: 50%;
+			inline-size: toRem(9);
+			block-size: toRem(2);
+			background-color: $mainColor;
+			border-radius: toRem(10);
+			transition: all 0.3s;
+		}
+		&::before {
+			inset-inline-start: 0;
+			transform: rotate(45deg);
+		}
+		&::after {
+			inset-inline-end: 0;
+			transform: rotate(-45deg);
+		}
+		.--active & {
+			&::before,
+			&::after {
+				inline-size: toRem(15);
+			}
+		}
+	}
+}
+
+.form-filter {
+	display: grid;
+	grid-template-columns: 1fr 1fr auto;
+	column-gap: toRem(14);
+	// .form-filter__input
+	&__input {
+		inline-size: 100%;
+		block-size: toRem(40);
+		border-radius: toRem(8);
+		border: toRem(1) solid $greyLightColor;
+		background-color: #fff;
+		padding-inline: toRem(15);
+		text-align: center;
+		// .form-filter__input--min
+		&--min {
+		}
+		// .form-filter__input--max
+		&--max {
+		}
+	}
+	// .form-filter__button
+	&__button {
+		text-transform: uppercase;
+		background-color: $yellowColor;
+		color: #fff;
+		padding-inline: toRem(17);
+		padding-block: toRem(11) toRem(9);
+		border-radius: toRem(8);
+		font-size: toRem(19);
+		font-weight: 600;
+		transition: background-color 0.3s;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $greyColor;
+			}
+		}
 	}
 }

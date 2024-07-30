@@ -743,17 +743,23 @@
 				</div>
 				<div class="category__products products-category">
 					<div class="products-category__container">
-						<aside data-spollers="600,max" class="products-category__filter filter-products">
-							<button data-spoller class="filter-products__title">
-								Фільтр пошуку
+						<aside data-spollers="600,max" data-sub-spollers class="products-category__filter filter-products">
+							<button type="button" data-spoller class="filter-products__title title-filter">
+								<span class="title-filter__icon">
+									<span></span>
+								</span>
+								<span class="title-filter__text">Фільтр пошуку</span>
 							</button>
 							<div data-spollers class="filter-products__content">
 								<div class="filter-products__item item-filter">
-									<button data-spoller class="item-filter__title">Ціна, грн</button>
+									<button type="button" data-spoller class="item-filter__title title-filter-item --active">
+										<span class="title-filter-item__text">Ціна, грн</span>
+										<div class="title-filter-item__icon"></div>
+									</button>
 									<div class="item-filter__content">
 										<form action="#" class="item-filter__form form-filter">
-											<input type="text" class="form-filter__input form-filter__input--min">
-											<input type="text" class="form-filter__input form-filter__input--max">
+											<input type="text" class="form-filter__input">
+											<input type="text" class="form-filter__input">
 											<button type="button" class="form-filter__button">Ок</button>
 										</form>
 										<div class="item-filter__range"></div>
@@ -1200,7 +1206,8 @@
 				</div>
 			</footer>
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-		<script src="js/script.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script defer src="js/nouislider.min.js"></script>
+		<script defer src="js/script.js"></script>
 	</body>
 </html>

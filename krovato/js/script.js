@@ -23,27 +23,12 @@ function windowLoaded() {
 		document.documentElement.classList.add("--firefox")
 	}
 
-	// ! testing ==========================================
-	/*
-	const header = document.querySelector('header');
-	let isBlockScroll = false;
-	document.addEventListener('scroll', () => {
-		if (!isBlockScroll) {
-			if (window.scrollY > header.offsetHeight + 150) {
-				header.style.top = '-100%';
-				header.style.transition = 'top 0.3s';
-			} else {
-				header.style.top = 0;
-			}
+	const header = document.querySelector('.header')
 
-			isBlockScroll = true;
-			setTimeout(() => {
-				isBlockScroll = false;
-			}, 200);
-		}
-	});
-	*/
-	//! ========================================
+	window.addEventListener('scroll', () => {
+		header.classList.toggle('--sticky', scrollY > 100)
+	})
+
 
 	// move elements ====================================================================
 	moveFooterSocial()
@@ -179,7 +164,7 @@ function windowLoaded() {
 			const content = block.querySelector("[data-show-more-content]")
 			block.classList.toggle("--hide")
 			const height = content.dataset.showMoreContent ? +content.dataset.showMoreContent : 280
-			1
+
 			if (block.classList.contains("--hide")) {
 				content.style.height = `${content.offsetHeight / 16}rem`
 				content.offsetHeight
@@ -338,8 +323,9 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 			spollerBlock.classList.add("_init")
 			spollerBlock.addEventListener("click", setSpollerAction)
 			let titles = spollerBlock.querySelectorAll("[data-spoller]")
-			titles = Array.from(titles)
-				.filter(item => item.closest('[data-spollers]') === spollerBlock)
+			if (spollerBlock.hasAttribute('data-sub-spollers'))
+				titles = Array.from(titles)
+					.filter(item => item.closest('[data-spollers]') === spollerBlock)
 			if (titles.length > 0) {
 				titles.forEach((title) => {
 					if (!title.classList.contains("--active")) {
@@ -354,8 +340,9 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 			const spollerBlock = element.item ? element.item : element
 			spollerBlock.classList.remove("_init")
 			let titles = spollerBlock.querySelectorAll("[data-spoller]")
-			titles = Array.from(titles)
-				.filter(item => item.closest('[data-spollers]') === spollerBlock)
+			if (spollerBlock.hasAttribute('data-sub-spollers'))
+				titles = Array.from(titles)
+					.filter(item => item.closest('[data-spollers]') === spollerBlock)
 			if (titles.length > 0) {
 				titles.forEach((title) => {
 					title.setAttribute("tabindex", -1)
@@ -649,6 +636,52 @@ function initSliders() {
 			},
 		},
 	})
+
+	// init range slider
+
+
+	const stepsSlider = document.querySelector('.item-filter__range')
+	const inputs = document.querySelectorAll('.form-filter__input')
+	const regExpNotNumber = /\D/
+
+	const formatForSlider = {
+		from: (formattedValue) => {
+			return Number(formattedValue);
+		},
+		to: (numericValue) => {
+			return Math.round(numericValue);
+		}
+	};
+
+	if (stepsSlider) {
+		noUiSlider.create(stepsSlider, {
+			start: [20, 80],
+			connect: true,
+			range: {
+				'min': 0,
+				'max': 100
+			},
+			format: formatForSlider
+		});
+
+		stepsSlider.noUiSlider.on('update', (values, index) => {
+			inputs[index].value = values[index]
+		});
+
+		inputs.forEach((input, index) => {
+			input.addEventListener('input', e => {
+				const target = e.target;
+				const value = target.value
+				if (value.match(regExpNotNumber))
+					target.value = value.replace(regExpNotNumber, '')
+			})
+
+			input.addEventListener('change', e => {
+				stepsSlider.noUiSlider.setHandle(index, e.target.value);
+			});
+		})
+	}
+
 }
 
 function initRating() {
