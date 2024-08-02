@@ -167,6 +167,7 @@
 	// .products-category__container
 	&__container {
 		display: flex;
+		align-items: flex-start;
 		column-gap: toRem(30);
 	}
 	// .products-category__filter
@@ -199,7 +200,6 @@
 	display: flex;
 	column-gap: toRem(16);
 	inline-size: 100%;
-	border-bottom: toRem(1) solid #e3e2e2;
 	cursor: default;
 	._init & {
 		cursor: pointer;
@@ -262,23 +262,82 @@
 }
 
 .item-filter {
+	border-top: toRem(1) solid #e3e2e2;
 	// .item-filter__title
 	&__title {
-		// text-align: left;
-		// inline-size: 100%;
 	}
 	// .item-filter__content
 	&__content {
 		padding: toRem(15) toRem(15) toRem(20);
 	}
-	// .item-filter__form
-	&__form {
+	// .item-filter__price
+	&__price {
 		&:not(:last-child) {
 			margin-block-end: toRem(15);
 		}
 	}
+	&__body {
+	}
 	// .item-filter__range
 	&__range {
+	}
+	// .item-filter__list
+	&__list {
+	}
+	// .item-filter__checkbox
+	&__checkbox {
+	}
+	// .item-filter__more
+	&__more {
+		position: relative;
+		color: $yellowColor;
+		font-weight: 600;
+		line-height: 1.5;
+		&::after {
+			content: "";
+			position: absolute;
+			inline-size: 100%;
+			inset-block-end: 0;
+			inset-inline-start: 0;
+			border-top: toRem(1) dashed $yellowColor;
+			transition: inline-size 0.3s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				&::after {
+					inline-size: 0;
+				}
+			}
+		}
+		span {
+			&:first-child {
+				display: none;
+			}
+			.--hide & {
+				&:first-child {
+					display: inline-block;
+				}
+				&:last-child {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.list-filter {
+	padding: toRem(15) toRem(15) toRem(20);
+	margin: toRem(-15) toRem(-15) toRem(-20);
+	overflow: hidden;
+	&:not(:last-child) {
+		padding-block-end: toRem(10);
+		margin-block-end: 0;
+	}
+	// .list-filter__item
+	&__item {
+		&:not(:last-child) {
+			margin-block-end: toRem(15);
+		}
 	}
 }
 
@@ -332,7 +391,7 @@
 	}
 }
 
-.form-filter {
+.price-filter {
 	display: grid;
 	grid-template-columns: 1fr 1fr auto;
 	column-gap: toRem(14);
@@ -368,5 +427,124 @@
 				background-color: $greyColor;
 			}
 		}
+	}
+}
+
+.content-products {
+	// .content-products__header
+	&__header {
+		&:not(:last-child) {
+			margin-block-end: toRem(40);
+		}
+	}
+	// .content-products__body
+	&__body {
+	}
+	// .content-products__items
+	&__items {
+		display: grid;
+		gap: toRem(30);
+		grid-template-columns: repeat(auto-fill, minmax(toRem(250), 1fr));
+	}
+	// .content-products__item-product
+	&__item-product {
+	}
+}
+
+.header-sort {
+	// .header-sort__select
+	&__select {
+		&:not(:last-child) {
+			margin-block-end: toRem(30);
+		}
+	}
+}
+.sort-filter {
+	display: flex;
+	align-items: center;
+	column-gap: toRem(10);
+	// .sort-filter__title
+	&__title {
+		flex-grow: 1;
+	}
+	&__title,
+	&__label {
+		font-size: toRem(19);
+		font-weight: 600;
+		line-height: 1.26;
+	}
+	// .sort-filter__label
+	&__label {
+		display: inline-flex;
+		column-gap: toRem(10);
+		line-height: 126%;
+		align-items: center;
+		&::before {
+			align-self: flex-start;
+			font-size: toRem(20);
+		}
+	}
+	// .sort-filter__select
+	&__select {
+		display: flex;
+		appearance: none;
+		background-color: transparent;
+		color: $greyColor;
+		position: relative;
+		font-size: toRem(17);
+		padding-inline-end: toRem(27);
+		background: url("../img/icons/icon-font/arrow-down.svg") right center / toRem(10) toRem(6) no-repeat;
+		margin-inline-end: toRem(7);
+	}
+	// .sort-filter__items
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(10);
+	}
+	// .sort-filter__item
+	&__item {
+		display: flex;
+		align-items: center;
+		flex-direction: row-reverse;
+		column-gap: toRem(13);
+		padding-block: toRem(7);
+		padding-inline: toRem(9) toRem(17);
+		border-radius: toRem(8);
+		border: toRem(1) solid $greyLightColor;
+		background-color: #fff;
+		font-size: toRem(15);
+		line-height: 100%;
+		transition:
+			background-color 0.3s,
+			border-color 0.3s,
+			color 0.3s;
+		&::before {
+			font-size: toRem(8);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $yellowColor;
+				border-color: $yellowColor;
+			}
+		}
+		// .sort-filter__item--bg-yellow
+		&--bg-yellow {
+			background-color: $yellowColor;
+			border-color: $yellowColor;
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: $greyLightColor;
+					border-color: $greyLightColor;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+.button {
+	// .button--yellow
+	&--yellow {
 	}
 }

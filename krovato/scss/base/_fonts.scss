@@ -37,93 +37,96 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-._icon-address::before {
+._icon-address:before {
 	content: "\e900";
 }
-._icon-add-review::before {
+._icon-add-review:before {
 	content: "\e901";
 }
-._icon-arrow-down::before {
+._icon-arrow-down:before {
 	content: "\e902";
 }
-._icon-arrow-hide::before {
+._icon-arrow-hide:before {
 	content: "\e903";
 }
-._icon-arrow-link::before {
+._icon-arrow-link:before {
 	content: "\e904";
 }
-._icon-arrow-navigation::before {
+._icon-arrow-navigation:before {
 	content: "\e905";
 }
-._icon-arrow-scroll::before {
+._icon-arrow-scroll:before {
 	content: "\e906";
 }
-._icon-arrow-slider::before {
+._icon-arrow-slider:before {
 	content: "\e907";
 }
-._icon-arrow-to::before {
+._icon-arrow-to:before {
 	content: "\e908";
 }
-._icon-calendar::before {
+._icon-calendar:before {
 	content: "\e909";
 }
-._icon-cart::before {
+._icon-cart:before {
 	content: "\e90a";
 }
-._icon-checkbox::before {
+._icon-checkbox:before {
 	content: "\e90b";
 }
-._icon-crosshair::before {
+._icon-crosshair:before {
 	content: "\e90c";
 }
-._icon-crosshair-catalog::before {
+._icon-crosshair-catalog:before {
 	content: "\e90d";
 }
-._icon-crosshair-hide::before {
+._icon-crosshair-hide:before {
 	content: "\e90e";
 }
-._icon-download-more::before {
+._icon-download-more:before {
 	content: "\e90f";
 }
-._icon-favorite::before {
+._icon-favorite:before {
 	content: "\e910";
 }
-._icon-in-stack::before {
+._icon-in-stack:before {
 	content: "\e911";
 }
-._icon-like::before {
+._icon-like:before {
 	content: "\e912";
 }
-._icon-list::before {
+._icon-list:before {
 	content: "\e913";
 }
-._icon-menu-catalog::before {
+._icon-menu-catalog:before {
 	content: "\e914";
 }
-._icon-minus::before {
+._icon-minus:before {
 	content: "\e915";
 }
-._icon-navigation-address::before {
+._icon-navigation-addres:before {
 	content: "\e916";
 }
-._icon-phone::before {
+._icon-phone:before {
 	content: "\e917";
 }
-._icon-plus::before {
+._icon-plus:before {
 	content: "\e918";
 }
-._icon-question::before {
+._icon-question:before {
 	content: "\e919";
 }
-._icon-review::before {
+._icon-review:before {
 	content: "\e91a";
 }
-._icon-search::before {
+._icon-search:before {
 	content: "\e91b";
 }
-._icon-show-more::before {
+._icon-show-more:before {
 	content: "\e91c";
 }
-._icon-user::before {
+._icon-sort:before {
 	content: "\e91d";
+}
+._icon-user:before {
+	content: "\e91e";
 }

@@ -57,15 +57,13 @@ function windowLoaded() {
 		}
 
 		// cart ==============================================================
-		if (target.closest(".middle-header__button._icon-cart")) {
+		if (target.closest(".middle-header__button._icon-cart"))
 			document.documentElement.classList.toggle("cart-open")
-		} else if (
+		else if (
 			!target.closest(".cart-header") ||
 			target.closest(".cart-header__close") ||
 			target.closest("[data-cart-continue]")
-		) {
-			document.documentElement.classList.remove("cart-open")
-		}
+		) document.documentElement.classList.remove("cart-open")
 
 		if (target.closest(".product-cart-header__remove")) {
 			const item = target.closest(".cart-header__product")
@@ -133,17 +131,16 @@ function windowLoaded() {
 			}
 		} else if (!target.closest(".menu-catalog__wrapper")) {
 			document.documentElement.classList.remove("catalog-open")
-			if (matchMedia.matches) {
+			if (matchMedia.matches)
 				hideSpollers(document.querySelector(".menu-catalog__list"))
-			}
 		}
 
 		// toggle search ==============================================================
-		if (target.closest(".middle-header__button--search")) {
+		if (target.closest(".middle-header__button--search"))
 			document.documentElement.classList.toggle("search-open")
-		} else if (!target.closest(".middle-header__search")) {
+		else if (!target.closest(".middle-header__search"))
 			document.documentElement.classList.remove("search-open")
-		}
+
 		// toggle lock body =======================================================
 		if (
 			document.documentElement.classList.contains("search-open") ||
@@ -163,7 +160,7 @@ function windowLoaded() {
 			const block = target.closest("[data-show-more]")
 			const content = block.querySelector("[data-show-more-content]")
 			block.classList.toggle("--hide")
-			const height = content.dataset.showMoreContent ? +content.dataset.showMoreContent : 280
+			const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
 
 			if (block.classList.contains("--hide")) {
 				content.style.height = `${content.offsetHeight / 16}rem`
@@ -641,7 +638,7 @@ function initSliders() {
 
 
 	const stepsSlider = document.querySelector('.item-filter__range')
-	const inputs = document.querySelectorAll('.form-filter__input')
+	const inputs = document.querySelectorAll('.price-filter__input')
 	const regExpNotNumber = /\D/
 
 	const formatForSlider = {
@@ -691,9 +688,8 @@ function initRating() {
 	blockRatings.forEach((rating) => {
 		const value = rating.dataset.rating ? parseFloat(rating.dataset.rating) : 5
 		const activeLine = rating.querySelector(".rating__active")
-		if (activeLine) {
+		if (activeLine)
 			activeLine.style.inlineSize = `${value / 0.05}%`
-		}
 	})
 }
 
