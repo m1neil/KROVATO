@@ -37,8 +37,8 @@
 
 // Button =====================================================================
 .button {
-	width: toRem(50);
-	height: toRem(50);
+	inline-size: toRem(50);
+	block-size: toRem(50);
 	border-radius: 50%;
 	font-size: toRem(25);
 	display: flex;
@@ -251,8 +251,10 @@
 		justify-content: space-between;
 		align-items: center;
 		column-gap: toRem(20);
-		flex-wrap: wrap;
 		row-gap: toRem(10);
+		@media (max-width: $mobileSmall) {
+			flex-wrap: wrap;
+		}
 	}
 	// .item-product__price
 	&__price {

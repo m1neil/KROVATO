@@ -26,7 +26,12 @@ function windowLoaded() {
 	const header = document.querySelector('.header')
 
 	window.addEventListener('scroll', () => {
-		header.classList.toggle('--sticky', scrollY > 100)
+		if (scrollY > 100 && !header.classList.contains('--sticky'))
+			header.classList.add('--sticky')
+		else if (scrollY <= 100 && header.classList.contains('--sticky'))
+			header.classList.remove('--sticky')
+
+
 	})
 
 
