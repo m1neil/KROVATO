@@ -743,7 +743,7 @@
 				</div>
 				<div class="category__products products-category">
 					<div class="products-category__container">
-						<aside data-spollers="600,max" data-sub-spollers class="products-category__filter filter-products">
+						<aside data-spollers="991.98,max" data-sub-spollers class="products-category__filter filter-products">
 							<button type="button" data-spoller class="filter-products__title title-filter">
 								<span class="title-filter__icon">
 									<span></span>
@@ -759,11 +759,11 @@
 									<div class="item-filter__body">
 										<div class="item-filter__content">
 											<div class="item-filter__price price-filter">
-												<input type="text" class="price-filter__input">
-												<input type="text" class="price-filter__input">
+												<input data-range-min="300" type="text" class="price-filter__input">
+												<input data-range-max="2000" type="text" class="price-filter__input">
 												<button type="button" class="price-filter__button">Ок</button>
 											</div>
-											<div class="item-filter__range"></div>
+											<div data-range-start="300" data-range-end="2000" class="item-filter__range"></div>
 										</div>
 									</div>
 								</div>
@@ -792,7 +792,7 @@
 									</div>
 								</div>
 								<div class="filter-products__item item-filter">
-									<button type="button" data-spoller class="item-filter__title title-filter-item">
+									<button type="button" data-spoller class="item-filter__title title-filter-item --active">
 										<span class="title-filter-item__text">Виробник</span>
 										<span class="title-filter-item__icon"></span>
 									</button>
@@ -921,17 +921,263 @@
 										</div>
 									</div>
 								</div>
+								<div class="filter-products__item item-filter">
+									<button type="button" data-spoller class="item-filter__title title-filter-item --active">
+										<span class="title-filter-item__text">Тип ліжка</span>
+										<span class="title-filter-item__icon"></span>
+									</button>
+									<div class="item-filter__body">
+										<div class="item-filter__content">
+											<ul class="item-filter__list list-filter">
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">Без узголов'я</span>
+														<input checked name="without-head" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<div class="checkbox__text">З узголів'ям</div>
+														<input name="with-headboard" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<div class="checkbox__text">Двоярусні </div>
+														<input name="bunk" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<div class="checkbox__text">Розкладачки</div>
+														<input name="closaces" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<div class="checkbox__text">Шафи</div>
+														<input name="cabinets" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="filter-products__item item-filter">
+									<button type="button" data-spoller class="item-filter__title title-filter-item --active">
+										<span class="title-filter-item__text">Розмір спального місця</span>
+										<span class="title-filter-item__icon"></span>
+									</button>
+									<div class="item-filter__body">
+										<div data-show-more class="item-filter__content">
+											<ul data-show-more-content="420" class="item-filter__list list-filter">
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">200x210 см</span>
+														<input checked name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">200x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">180x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">160x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">110x190 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">160x190 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">150x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">140x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">140x190 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+												<li class="list-filter__item">
+													<label class="item-filter__checkbox checkbox">
+														<span class="checkbox__text">120x200 см</span>
+														<input name="in-stock" type="checkbox" class="checkbox__input">
+													</label>
+												</li>
+											</ul>
+											<button data-show-more-trigger type="button" class="item-filter__more">
+												<span>Показати всі</span>
+												<span>Приховати</span>
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="filter-products__item item-filter">
+									<button type="button" data-spoller class="item-filter__title title-filter-item">
+										<span class="title-filter-item__text">Ширина спального місця</span>
+										<span class="title-filter-item__icon"></span>
+									</button>
+									<div class="item-filter__body">
+										<div class="item-filter__content">
+											<ul class="item-filter__list list-filter">
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="filter-products__item item-filter">
+									<button type="button" data-spoller class="item-filter__title title-filter-item">
+										<span class="title-filter-item__text">Довжина спального місця</span>
+										<span class="title-filter-item__icon"></span>
+									</button>
+									<div class="item-filter__body">
+										<div class="item-filter__content">
+											<ul class="item-filter__list list-filter">
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="filter-products__item item-filter">
+									<button type="button" data-spoller class="item-filter__title title-filter-item">
+										<span class="title-filter-item__text">Форма</span>
+										<span class="title-filter-item__icon"></span>
+									</button>
+									<div class="item-filter__body">
+										<div class="item-filter__content">
+											<ul class="item-filter__list list-filter">
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="filter-products__item item-filter">
+									<button type="button" data-spoller class="item-filter__title title-filter-item">
+										<span class="title-filter-item__text">Матеріал корпусу</span>
+										<span class="title-filter-item__icon"></span>
+									</button>
+									<div class="item-filter__body">
+										<div class="item-filter__content">
+											<ul class="item-filter__list list-filter">
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="filter-products__item item-filter">
+									<button type="button" data-spoller class="item-filter__title title-filter-item">
+										<span class="title-filter-item__text">Основа для матраца</span>
+										<span class="title-filter-item__icon"></span>
+									</button>
+									<div class="item-filter__body">
+										<div class="item-filter__content">
+											<ul class="item-filter__list list-filter">
+											</ul>
+										</div>
+									</div>
+								</div>
 							</form>
 						</aside>
 						<div class="products-category__content content-products">
 							<div class="content-products__header header-sort">
 								<div class="header-sort__select sort-filter">
 									<h5 class="sort-filter__title">Ви вибрали:</h5>
-									<label for="sort" class="sort-filter__label _icon-sort">Сортування:</label>
-									<select name="sort" class="sort-filter__select">
-										<option value="min">За зростанням ціни</option>
-										<option value="max">За зменшенням ціни</option>
-									</select>
+									<div data-da=".header-sort,574.87" class="sort-filter__wrap">
+										<label for="sort" class="sort-filter__label _icon-sort">Сортування:</label>
+										<select name="sort" class="sort-filter__select">
+											<option value="min">За зростанням ціни</option>
+											<option value="max">За зменшенням ціни</option>
+										</select>
+									</div>
 								</div>
 								<div class="sort-filter__items">
 									<button id="clear-filter" type="button" class="sort-filter__item sort-filter__item--bg-yellow _icon-crosshair">Очистити</button>
@@ -946,7 +1192,7 @@
 								<div class="content-products__items">
 									<article class="content-products__item-product item-product">
 										<a href="#" class="item-product__image">
-											<img src="img/products/01.webp" alt="#">
+											<img src="img/products/01.webp" alt="Ліжко Спарта / Sparta з підйомним механізмом">
 										</a>
 										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
 										<h2 class="item-product__title">
@@ -955,8 +1201,8 @@
 										<div class="item-product__stack _icon-in-stack">В наявності</div>
 										<div class="item-product__bottom">
 											<div class="item-product__price price-item-product">
-												<div class="price-item-product__old-price">155 400 грн.</div>
-												<div class="price-item-product__current-price">155 400 грн.</div>
+												<div class="price-item-product__old-price">25 400 грн.</div>
+												<div class="price-item-product__current-price">15 400 грн.</div>
 											</div>
 											<div class="item-product__actions">
 												<button class="item-product__favorite _icon-favorite button"></button>
@@ -966,17 +1212,16 @@
 									</article>
 									<article class="content-products__item-product item-product">
 										<a href="#" class="item-product__image">
-											<img src="img/products/01.webp" alt="#">
+											<img src="img/products/02.webp" alt="Ліжко Аргон з підйомним механізмом">
 										</a>
 										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
 										<h2 class="item-product__title">
-											<a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a>
+											<a href="#">Ліжко Аргон з підйомним механізмом</a>
 										</h2>
 										<div class="item-product__stack _icon-in-stack">В наявності</div>
 										<div class="item-product__bottom">
 											<div class="item-product__price price-item-product">
-												<div class="price-item-product__old-price">155 400 грн.</div>
-												<div class="price-item-product__current-price">155 400 грн.</div>
+												<div class="price-item-product__current-price">16 400 грн.</div>
 											</div>
 											<div class="item-product__actions">
 												<button class="item-product__favorite _icon-favorite button"></button>
@@ -986,17 +1231,16 @@
 									</article>
 									<article class="content-products__item-product item-product">
 										<a href="#" class="item-product__image">
-											<img src="img/products/01.webp" alt="#">
+											<img src="img/products/03.webp" alt="Ліжко Престиж з підйомним механізмом">
 										</a>
 										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
 										<h2 class="item-product__title">
-											<a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a>
+											<a href="#">Ліжко Престиж з підйомним механізмом</a>
 										</h2>
 										<div class="item-product__stack _icon-in-stack">В наявності</div>
 										<div class="item-product__bottom">
 											<div class="item-product__price price-item-product">
-												<div class="price-item-product__old-price">155 400 грн.</div>
-												<div class="price-item-product__current-price">155 400 грн.</div>
+												<div class="price-item-product__current-price">14 969 грн.</div>
 											</div>
 											<div class="item-product__actions">
 												<button class="item-product__favorite _icon-favorite button"></button>
@@ -1006,17 +1250,16 @@
 									</article>
 									<article class="content-products__item-product item-product">
 										<a href="#" class="item-product__image">
-											<img src="img/products/01.webp" alt="#">
+											<img src="img/products/04.webp" alt="Диван Токіо-2">
 										</a>
 										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
 										<h2 class="item-product__title">
-											<a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a>
+											<a href="#">Диван Токіо-2</a>
 										</h2>
 										<div class="item-product__stack _icon-in-stack">В наявності</div>
 										<div class="item-product__bottom">
 											<div class="item-product__price price-item-product">
-												<div class="price-item-product__old-price">155 400 грн.</div>
-												<div class="price-item-product__current-price">155 400 грн.</div>
+												<div class="price-item-product__current-price">13 211 грн.</div>
 											</div>
 											<div class="item-product__actions">
 												<button class="item-product__favorite _icon-favorite button"></button>
@@ -1026,17 +1269,17 @@
 									</article>
 									<article class="content-products__item-product item-product">
 										<a href="#" class="item-product__image">
-											<img src="img/products/01.webp" alt="#">
+											<img src="img/products/05.webp" alt="Матрац Largo SLIM / Ларго Слім">
 										</a>
 										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
 										<h2 class="item-product__title">
-											<a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a>
+											<a href="#">Матрац Largo SLIM / Ларго Слім</a>
 										</h2>
 										<div class="item-product__stack _icon-in-stack">В наявності</div>
 										<div class="item-product__bottom">
 											<div class="item-product__price price-item-product">
-												<div class="price-item-product__old-price">155 400 грн.</div>
-												<div class="price-item-product__current-price">155 400 грн.</div>
+												<div class="price-item-product__old-price">3 122 грн.</div>
+												<div class="price-item-product__current-price">2 810 грн.</div>
 											</div>
 											<div class="item-product__actions">
 												<button class="item-product__favorite _icon-favorite button"></button>
@@ -1046,17 +1289,55 @@
 									</article>
 									<article class="content-products__item-product item-product">
 										<a href="#" class="item-product__image">
-											<img src="img/products/01.webp" alt="#">
+											<img src="img/products/06.webp" alt="Матрац ARGENTUM AMALTEA / Аргентум Амалті">
 										</a>
 										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
 										<h2 class="item-product__title">
-											<a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a>
+											<a href="#">Матрац ARGENTUM AMALTEA / Аргентум Амалті</a>
 										</h2>
 										<div class="item-product__stack _icon-in-stack">В наявності</div>
 										<div class="item-product__bottom">
 											<div class="item-product__price price-item-product">
-												<div class="price-item-product__old-price">155 400 грн.</div>
-												<div class="price-item-product__current-price">155 400 грн.</div>
+												<div class="price-item-product__old-price">5 966 грн.</div>
+												<div class="price-item-product__current-price">5 071 грн.</div>
+											</div>
+											<div class="item-product__actions">
+												<button class="item-product__favorite _icon-favorite button"></button>
+												<button class="item-product__cart _icon-cart button button--yellow"></button>
+											</div>
+										</div>
+									</article>
+									<article class="content-products__item-product item-product">
+										<a href="#" class="item-product__image">
+											<img src="img/products/07.webp" alt="Диван Браво">
+										</a>
+										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
+										<h2 class="item-product__title">
+											<a href="#">Диван Браво</a>
+										</h2>
+										<div class="item-product__stack _icon-in-stack">В наявності</div>
+										<div class="item-product__bottom">
+											<div class="item-product__price price-item-product">
+												<div class="price-item-product__current-price">10 008 грн.</div>
+											</div>
+											<div class="item-product__actions">
+												<button class="item-product__favorite _icon-favorite button"></button>
+												<button class="item-product__cart _icon-cart button button--yellow"></button>
+											</div>
+										</div>
+									</article>
+									<article class="content-products__item-product item-product">
+										<a href="#" class="item-product__image">
+											<img src="img/products/08.webp" alt="Ліжко МК-5">
+										</a>
+										<div class="item-product__size">Розмір: 61 x 184 x 2130 мм</div>
+										<h2 class="item-product__title">
+											<a href="#">Ліжко МК-5</a>
+										</h2>
+										<div class="item-product__stack _icon-in-stack">В наявності</div>
+										<div class="item-product__bottom">
+											<div class="item-product__price price-item-product">
+												<div class="price-item-product__current-price">8 775 грн.</div>
 											</div>
 											<div class="item-product__actions">
 												<button class="item-product__favorite _icon-favorite button"></button>
@@ -1065,7 +1346,9 @@
 										</div>
 									</article>
 								</div>
-								<button type="button" class="content-products__more button-link _icon-download-more">Показати ще товари</button>
+								<button type="button" class="content-products__more button-link _icon-download-more">
+									Показати ще товари
+								</button>
 								<div class="content-products__pagination pagination-content">
 									<button type="button" class="pagination-content__button pagination-content__button--arrow pagination-content__button--prev _icon-arrow-down"></button>
 									<button type="button" class="pagination-content__button pagination-content__button--current">1</button>
@@ -1080,41 +1363,48 @@
 									<button type="button" class="pagination-content__button pagination-content__button--arrow pagination-content__button--next _icon-arrow-down"></button>
 								</div>
 							</div>
+							<section class="content-products__seo-text seo-text">
+								<div class="seo-text__content">
+									<div class="seo-text__block-header block-header">
+										<div class="block-header__body">
+											<h2 class="block-header__title title">Як правильно обрати ліжко?</h2>
+										</div>
+									</div>
+									<div data-show-more class="seo-text__show-more show-more">
+										<div data-show-more-content class="show-more__text">
+											<p>
+												При виборі ліжка в інтернет магазині Вам в першу чергу потрібно вибрати матеріал. Найбільшою популярністю користуються дерев'яні ліжка, виготовлені з вільхи, ясена чи дуба. Такі моделі чудово прикрасять Вашу спальню у квартирі чи приватному будинку. Для орендованих квартир, під здачу, більше підійде ліжко з металу, так як воно просто «не вбивається», а також має дуже демократичну ціну.
+											</p>
+											<p>
+												Для Вашої зручності ліжко може комплектуватись висувними ящиками або підйомним механізмом. Ящики можуть бути з одного боку ліжка або з двох. Також є моделі, з висувними ящиками спереду. Ліжка з підйомним механізмом, це відмінне рішення, для невеликих кімнат, вони дозволяють заощадити простір і мають велику нішу для зберігання постільної білизни. Всі дерев'яні ліжка комплектуються буковими ламелями. Спальне місце з ламельною основою може витримувати навантаження до 150 кг на одне спальне місце. Відстань між ламелями, у своїй має бути 2,5-3 див.
+											</p>
+											<p>
+												Кожне ліжко може бути забарвлене у різні кольори: чорні, білі, сірі, венге, у кольорі горіх. Завдяки цьому ліжко можна підібрати під будь-який інтер'єр.
+											</p>
+											<p>
+												Також багато ліжок можуть бути виготовлені за індивідуальним розміром, наприклад 200 або 220 см шириною . Спеціально для Ваших діток у нашому інтернет-магазині Krovato.com є великий вибір дитячих ліжечок: двоярусні, ліжка машинки, підліткові та інші.
+											</p>
+											<p>
+												Спальню відмінно доповнить комплект тумбочок і комода. Ми співпрацюємо тільки з найкращими виробниками меблів, такими як Хмельницька Меблева Фабрика, Legko, MiroMark, АрборДрев, Естелла, Novelty.
+
+											</p>
+											<p>
+												Наш магазин радує покупців постійними акціями. Наприклад, купивши ліжко з матрацом, Ви отримаєте безкоштовне складання ліжка, а також наматрацник у подарунок або знижку на матрац. Таким чином, ви отримуєте не тільки відмінну якість продукції, але і безліч бонусів, таких як безкоштовна доставка по Києву.
+											</p>
+											<p>
+												Ви можете замовити ліжко у нас з доставкою по Києву та Україні. Ми працюємо з доставками Нова Пошта, Делівері, ІнТайм, так само ви можете забрати Ваше замовлення у нас самовивозом.
+											</p>
+											<p>
+												Відгуки про всі товари Ви завжди можете прочитати у розділі Відгуки. Замовити Ви можете: зателефонувавши нам, залишивши замовлення на нашому сайті Krovato.com, або замовивши зворотній дзвінок. Наші менеджери завжди, з радістю, допоможуть Вам із вибором
+											</p>
+										</div>
+										<button data-show-more-trigger type="button" class="show-more__button _icon-show-more"></button>
+									</div>
+								</div>
+							</section>
 						</div>
 					</div>
 				</div>
-				<section class="category__seo-text seo-text seo-text--white">
-					<div class="seo-text__content">
-						<div class="seo-text__block-header block-header">
-							<div class="block-header__body">
-								<h1 class="block-header__title title">KROVATO - коли потрібні якісні меблі за доступною ціною!</h1>
-							</div>
-						</div>
-						<div data-show-more class="seo-text__show-more show-more">
-							<div data-show-more-content class="show-more__text">
-								<p>
-									Якщо в пошуковий рядок браузера ввести запит: «Куплю ліжко, шафу, диван», система видасть сотні продавців, що спеціалізуються з продажу цього товару. Але далеко не всі магазини та сайти в інтернеті можуть запропонувати такий самий різноманітний асортимент, як наша компанія.
-								</p>
-								<p>
-									Та й з нашими цінами конкурувати можуть мало хто. Адже товар ми отримуємо безпосередньо від виробників, не переплачуючи за послуги посередників. До того ж, продажі ми ведемо як онлайн, так і в салоні, при цьому ціна на асортимент онлайн та офлайн - однакова.
-								</p>
-								<p>
-									Ми співпрацюємо тільки з найкращими вітчизняними та зарубіжними фабриками та компаніями, які отримали визнання покупців та експертів меблевої справи. Для нас важливо, щоб товар, який ми продаємо, відповідав міжнародним стандартам якості, був із сертифікованих матеріалів – довговічних, красивих та екологічно чистих. Ми з особливою ретельністю відбираємо пропозиції для магазину, тому можемо поручитися за їхню якість і впевнено рекомендувати клієнтам. У нас ви легко знайдете меблеві серії в класичному та модерному стилі, лінійки для оформлення житла в дусі романтики або скандинавського лаконізму.
-								</p>
-								<p>
-									Якщо в пошуковий рядок браузера ввести запит: «Куплю ліжко, шафу, диван», система видасть сотні продавців, що спеціалізуються з продажу цього товару. Але далеко не всі магазини та сайти в інтернеті можуть запропонувати такий самий різноманітний асортимент, як наша компанія.
-								</p>
-								<p>
-									Та й з нашими цінами конкурувати можуть мало хто. Адже товар ми отримуємо безпосередньо від виробників, не переплачуючи за послуги посередників. До того ж, продажі ми ведемо як онлайн, так і в салоні, при цьому ціна на асортимент онлайн та офлайн - однакова.
-								</p>
-								<p>
-									Ми співпрацюємо тільки з найкращими вітчизняними та зарубіжними фабриками та компаніями, які отримали визнання покупців та експертів меблевої справи. Для нас важливо, щоб товар, який ми продаємо, відповідав міжнародним стандартам якості, був із сертифікованих матеріалів – довговічних, красивих та екологічно чистих. Ми з особливою ретельністю відбираємо пропозиції для магазину, тому можемо поручитися за їхню якість і впевнено рекомендувати клієнтам. У нас ви легко знайдете меблеві серії в класичному та модерному стилі, лінійки для оформлення житла в дусі романтики або скандинавського лаконізму.
-								</p>
-							</div>
-							<button data-show-more-trigger type="button" class="show-more__button _icon-show-more"></button>
-						</div>
-					</div>
-				</section>
 				<section class="category__reviews reviews">
 					<div class="reviews__content">
 						<div class="reviews__body body-reviews">
@@ -1343,8 +1633,108 @@
 						</div>
 					</div>
 				</section>
-
-				<div class="category__benefits benefits benefits--white">
+				<section class="category__faqs faqs">
+					<div class="faqs__content">
+						<div class="faqs__block-header block-header block-header--margin">
+							<div class="block-header__body">
+								<h2 class="block-header__title title title--center">Питання, які часто задають про Ліжка</h2>
+							</div>
+						</div>
+						<div data-spollers data-accordion class="faqs__items">
+							<div class="faqs__item">
+								<button data-spoller tabindex="-1" type="button" class="faqs__title _icon-arrow-down">
+									Яке ліжко краще підійде для “хрущьовки”?
+								</button>
+								<div class="faqs__wrap">
+									<div class="faqs__answer">
+										<p>
+											Односпальне ліжко — оптимальний варіант для сну однієї людини. Вироби представлені в декількох стандартних розмірах по ширині: 80-90, рідше — 100 сантиметрів.
+										</p>
+										<p>
+											Полуторні ліжка нагадують односпальні, але зі збільшеною шириною — в середньому 120-140 сантиметрів. Меблі підійдуть для одиночного сну людям з великою статурою або для худорлявої пари.
+										</p>
+										<p>
+											Двоспальне місце для сну відрізняється простором і комфортом для двох дорослих, а також сімей, в яких діти люблять засинати разом з батьками. Ширина ліжка — від 160 см при стандартній довжині, а в розмірі king size — понад 200 см.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="faqs__item">
+								<button data-spoller tabindex="-1" type="button" class="faqs__title _icon-arrow-down --active">
+									Як підібрати розмір ліжка
+								</button>
+								<div class="faqs__wrap">
+									<div class="faqs__answer">
+										<p>
+											Односпальне ліжко — оптимальний варіант для сну однієї людини. Вироби представлені в декількох стандартних розмірах по ширині: 80-90, рідше — 100 сантиметрів.
+										</p>
+										<p>
+											Полуторні ліжка нагадують односпальні, але зі збільшеною шириною — в середньому 120-140 сантиметрів. Меблі підійдуть для одиночного сну людям з великою статурою або для худорлявої пари.
+										</p>
+										<p>
+											Двоспальне місце для сну відрізняється простором і комфортом для двох дорослих, а також сімей, в яких діти люблять засинати разом з батьками. Ширина ліжка — від 160 см при стандартній довжині, а в розмірі king size — понад 200 см.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="faqs__item">
+								<button data-spoller tabindex="-1" type="button" class="faqs__title _icon-arrow-down">
+									У покупку ліжка входить її доставка, збирання та встановлення в кімнаті?
+								</button>
+								<div class="faqs__wrap">
+									<div class="faqs__answer">
+										<p>
+											Односпальне ліжко — оптимальний варіант для сну однієї людини. Вироби представлені в декількох стандартних розмірах по ширині: 80-90, рідше — 100 сантиметрів.
+										</p>
+										<p>
+											Полуторні ліжка нагадують односпальні, але зі збільшеною шириною — в середньому 120-140 сантиметрів. Меблі підійдуть для одиночного сну людям з великою статурою або для худорлявої пари.
+										</p>
+										<p>
+											Двоспальне місце для сну відрізняється простором і комфортом для двох дорослих, а також сімей, в яких діти люблять засинати разом з батьками. Ширина ліжка — від 160 см при стандартній довжині, а в розмірі king size — понад 200 см.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="faqs__item">
+								<button data-spoller tabindex="-1" type="button" class="faqs__title _icon-arrow-down">
+									Найдешевші ліжка - це обов’язково погана якість?
+								</button>
+								<div class="faqs__wrap">
+									<div class="faqs__answer">
+										<p>
+											Односпальне ліжко — оптимальний варіант для сну однієї людини. Вироби представлені в декількох стандартних розмірах по ширині: 80-90, рідше — 100 сантиметрів.
+										</p>
+										<p>
+											Полуторні ліжка нагадують односпальні, але зі збільшеною шириною — в середньому 120-140 сантиметрів. Меблі підійдуть для одиночного сну людям з великою статурою або для худорлявої пари.
+										</p>
+										<p>
+											Двоспальне місце для сну відрізняється простором і комфортом для двох дорослих, а також сімей, в яких діти люблять засинати разом з батьками. Ширина ліжка — від 160 см при стандартній довжині, а в розмірі king size — понад 200 см.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="faqs__item">
+								<button data-spoller tabindex="-1" type="button" class="faqs__title _icon-arrow-down">
+									Можно замовити ліжко під свої розміри?
+								</button>
+								<div class="faqs__wrap">
+									<div class="faqs__answer">
+										<p>
+											Односпальне ліжко — оптимальний варіант для сну однієї людини. Вироби представлені в декількох стандартних розмірах по ширині: 80-90, рідше — 100 сантиметрів.
+										</p>
+										<p>
+											Полуторні ліжка нагадують односпальні, але зі збільшеною шириною — в середньому 120-140 сантиметрів. Меблі підійдуть для одиночного сну людям з великою статурою або для худорлявої пари.
+										</p>
+										<p>
+											Двоспальне місце для сну відрізняється простором і комфортом для двох дорослих, а також сімей, в яких діти люблять засинати разом з батьками. Ширина ліжка — від 160 см при стандартній довжині, а в розмірі king size — понад 200 см.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="category__benefits benefits">
 					<div class="benefits__container">
 						<div class="benefits__item">
 							<img src="img/icons/benefits/preim-1.svg" alt="Безкоштовна доставка" class="benefits__icon">

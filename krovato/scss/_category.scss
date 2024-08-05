@@ -2,7 +2,7 @@
 	// .category__breadcrumbs
 	&__breadcrumbs {
 		&:not(:last-child) {
-			margin-bottom: toRem(16);
+			margin-block-end: toRem(16);
 		}
 	}
 	// .category__block-header
@@ -16,6 +16,10 @@
 	}
 	// .category__products
 	&__products {
+	}
+
+	// .category__faqs
+	&__faqs {
 	}
 }
 
@@ -165,9 +169,12 @@
 // .products-category  =====================================================================
 .products-category {
 	padding-block-end: toRem(70);
+	@media (max-width: $mobile) {
+		padding-block-end: toRem(60);
+	}
 	// .products-category__container
 	&__container {
-		@media (min-width: toEm(1125)) {
+		@media (min-width: $tablet) {
 			display: flex;
 			align-items: flex-start;
 			column-gap: toRem(30);
@@ -176,6 +183,11 @@
 	// .products-category__filter
 	&__filter {
 		flex: 0 0 toRem(300);
+		@media (max-width: toEm(1124.98)) {
+			&:not(:last-child) {
+				margin-block-end: toRem(40);
+			}
+		}
 	}
 	// .products-category__content
 	&__content {
@@ -272,14 +284,13 @@
 	// .item-filter__content
 	&__content {
 		padding: toRem(15) toRem(15) toRem(20);
-		// @media (max-width: toEm(1124.98)) {
-		// 	display: grid;
-		// 	justify-items: center;
-		// }
 	}
 	// .item-filter__price
 	&__price {
 		max-inline-size: toRem(286);
+		@media (max-width: toEm(639.98)) {
+			margin: 0 auto;
+		}
 		&:not(:last-child) {
 			margin-block-end: toRem(15);
 		}
@@ -288,6 +299,10 @@
 	}
 	// .item-filter__range
 	&__range {
+		inline-size: 100%;
+		@media (max-width: toEm(639.98)) {
+			margin: 0 auto;
+		}
 		max-inline-size: toRem(286);
 	}
 	// .item-filter__list
@@ -360,6 +375,7 @@
 	padding-inline-end: toRem(21);
 	background-color: $lightColor;
 	column-gap: toRem(12);
+	text-align: left;
 	// .title-filter__text
 	&__text {
 		font-size: toRem(19);
@@ -404,6 +420,9 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr auto;
 	column-gap: toRem(14);
+	@media (max-width: $mobileSmall) {
+		column-gap: toRem(7);
+	}
 	// .form-filter__input
 	&__input {
 		inline-size: 100%;
@@ -452,15 +471,18 @@
 	}
 	// .content-products__body
 	&__body {
-		display: grid;
+		margin-block-end: 0;
 	}
 	// .content-products__items
 	&__items {
 		display: grid;
 		gap: toRem(30);
-		grid-template-columns: repeat(auto-fill, minmax(toRem(300), 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(toRem(290), 1fr));
 		&:not(:last-child) {
 			margin-block-end: toRem(40);
+			@media (max-width: toEm(574.98)) {
+				margin-block-end: toRem(30);
+			}
 		}
 	}
 	// .content-products__item-product
@@ -468,39 +490,60 @@
 	}
 	// .content-products__more
 	&__more {
-		justify-self: center;
-		padding-inline: toRem(40);
+		display: flex;
+		margin-inline: auto;
+		@media (min-width: $mobileSmall) {
+			padding-inline: toRem(40);
+		}
+		@media (max-width: toEm(574.98)) {
+			inline-size: 100%;
+		}
 		&:not(:last-child) {
 			margin-block-end: toRem(30);
 		}
 	}
 	// .content-products__pagination
 	&__pagination {
-		justify-self: center;
+	}
+	&__seo-text {
+		padding-block-end: 0;
 	}
 }
 
 .header-sort {
+	> * {
+		margin-block-end: toRem(30);
+		@media (max-width: toEm(574.98)) {
+			margin-block-end: toRem(20);
+		}
+	}
+	> *:last-child {
+		margin-block-end: 0;
+	}
 	// .header-sort__select
 	&__select {
-		&:not(:last-child) {
-			margin-block-end: toRem(30);
-		}
 	}
 }
 .sort-filter {
 	display: flex;
 	align-items: center;
-	column-gap: toRem(10);
-	// .sort-filter__title
+	justify-content: space-between;
+	column-gap: toRem(20);
+
 	&__title {
-		flex-grow: 1;
+		flex-shrink: 0;
 	}
+	// .sort-filter__title
 	&__title,
 	&__label {
 		font-size: toRem(19);
 		font-weight: 600;
 		line-height: 1.26;
+	}
+	&__wrap {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(10);
 	}
 	// .sort-filter__label
 	&__label {
@@ -521,7 +564,7 @@
 		color: $greyColor;
 		position: relative;
 		font-size: toRem(17);
-		padding-inline-end: toRem(27);
+		padding-inline-end: toRem(15);
 		background: url("../img/icons/icon-font/arrow-down.svg") right center / toRem(10) toRem(6) no-repeat;
 		margin-inline-end: toRem(7);
 	}
@@ -576,6 +619,7 @@
 .pagination-content {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: toRem(10);
 	// .pagination-content__button
 	&__button {
@@ -621,5 +665,99 @@
 				color: #fff;
 			}
 		}
+		@media (max-width: $mobile) {
+			inline-size: toRem(40);
+		}
+	}
+}
+
+// .faqs =====================================================================
+.faqs {
+	padding-block: toRem(70) toRem(30);
+	@include gridContainer(0, 1070);
+	@media (max-width: $mobile) {
+		padding-block-start: toRem(60);
+	}
+	@media (max-width: $mobileSmall) {
+		padding-block-start: toRem(45);
+	}
+	// .faqs__content
+	&__content {
+	}
+	// .faqs__block-header
+	&__block-header {
+	}
+	// .faqs__items
+	&__items {
+	}
+	// .faqs__item
+	&__item {
+		background-color: #fff;
+		border-radius: toRem(8);
+		box-shadow: toRem(-3) toRem(4) toRem(15) 0 rgba(0, 0, 0, 0.06);
+		border: toRem(2) solid transparent;
+		transition: border-color 0.6s;
+		&:not(:last-child) {
+			margin-block-end: toRem(15);
+		}
+		&:has(.faqs__title.--active) {
+			border-color: $yellowColor;
+		}
+	}
+	// .faqs__title
+	&__title {
+		inline-size: 100%;
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: toRem(15);
+		padding: toRem(21) toRem(19) toRem(20) toRem(70);
+		font-size: toRem(19);
+		font-weight: 600;
+		line-height: 1.26;
+		text-align: left;
+		background: url("../img/icons/icon-font/question.svg") toRem(18) 50% / toRem(33) no-repeat;
+		transition: color 0.3s;
+		&.--active {
+			&::before {
+				transform: rotate(-180deg);
+			}
+		}
+		&::before {
+			color: $mainColor;
+			font-size: toRem(13);
+			line-height: 1;
+			transition: transform 0.6s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $yellowColor;
+				&::before {
+					color: $mainColor;
+				}
+			}
+		}
+		@media (max-width: $mobile) {
+			padding-block: toRem(15) toRem(13);
+		}
+		@media (max-width: $mobileSmall) {
+			padding-inline-start: toRem(62);
+			background: url("../img/icons/icon-font/question.svg") toRem(18) 50% / toRem(25) no-repeat;
+		}
+	}
+
+	// .faqs__answer
+	&__answer {
+		padding: 0 toRem(13) toRem(13);
+		line-height: 1.87;
+		opacity: 0;
+		transition: opacity 0.6s;
+		p:not(:last-child) {
+			margin-block-end: toRem(10);
+		}
+	}
+	&__title.--active + &__wrap > &__answer {
+		opacity: 1;
 	}
 }

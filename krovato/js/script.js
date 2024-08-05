@@ -42,11 +42,14 @@ function windowLoaded() {
 	moveHeaderElements(matchMediaTablet.matches)
 	matchMediaTablet.addEventListener("change", () => moveHeaderElements(matchMediaTablet.matches))
 
+	moveSortSelect()
+
 	// init =========================================================================================
+	initShowMore()
 	initSpollers()
 	initSliders()
 	initRating()
-	initShowMore()
+
 
 	// document actions ====================================================================================
 	function documentAction(e) {
@@ -72,7 +75,6 @@ function windowLoaded() {
 
 		if (target.closest(".product-cart-header__remove")) {
 			const item = target.closest(".cart-header__product")
-			if (!item) return
 			item.remove()
 		}
 
@@ -164,8 +166,8 @@ function windowLoaded() {
 		if (target.closest("[data-show-more-trigger]")) {
 			const block = target.closest("[data-show-more]")
 			const content = block.querySelector("[data-show-more-content]")
-			block.classList.toggle("--hide")
 			const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
+			block.classList.toggle("--hide")
 
 			if (block.classList.contains("--hide")) {
 				content.style.height = `${content.offsetHeight / 16}rem`
@@ -195,7 +197,7 @@ function windowLoaded() {
 			if (isMobile.matches && matchMediaTablet.matches && !matchMedia.matches) {
 				const activeMenuCatalogItems = document.querySelectorAll(".menu-catalog__item.--active")
 				if (activeMenuCatalogItems.length > 0) {
-					activeMenuCatalogItems.forEach((item) => {
+					activeMenuCatalogItems.forEach(item => {
 						item.classList.remove("--active")
 					})
 				}
@@ -244,9 +246,8 @@ function windowLoaded() {
 		document.body.append(box)
 		const scrollWidth = box.offsetWidth - box.clientWidth
 		box.remove()
-		// const scrollWidth = window.innerWidth - document.documentElement.offsetWidth;
 		document.body.style.paddingRight = `${scrollWidth / 16}rem`
-		fixedElements.forEach((element) => {
+		fixedElements.forEach(element => {
 			element.style.paddingRight = `${scrollWidth / 16}rem`
 		})
 	}
@@ -330,8 +331,8 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 					.filter(item => item.closest('[data-spollers]') === spollerBlock)
 			if (titles.length > 0) {
 				titles.forEach((title) => {
+					title.removeAttribute("tabindex")
 					if (!title.classList.contains("--active")) {
-						title.removeAttribute("tabindex")
 						title.nextElementSibling.hidden = true
 					}
 				})
@@ -640,12 +641,6 @@ function initSliders() {
 	})
 
 	// init range slider
-
-
-	const stepsSlider = document.querySelector('.item-filter__range')
-	const inputs = document.querySelectorAll('.price-filter__input')
-	const regExpNotNumber = /\D/
-
 	const formatForSlider = {
 		from: (formattedValue) => {
 			return Number(formattedValue);
@@ -655,13 +650,23 @@ function initSliders() {
 		}
 	};
 
+	const stepsSlider = document.querySelector('.item-filter__range')
+
 	if (stepsSlider) {
+		const inputs = document.querySelectorAll('.price-filter__input')
+		const regExpNotNumber = /\D/
+
+		const startRange = stepsSlider.dataset.rangeStart ? parseInt(stepsSlider.dataset.rangeStart) : 0
+		const endRange = stepsSlider.dataset.rangeEnd ? parseInt(stepsSlider.dataset.rangeEnd) : 0
+		const minRange = inputs[0].dataset.rangeMin ? parseInt(inputs[0].dataset.rangeMin) : 0
+		const maxRange = inputs[1].dataset.rangeMax ? parseInt(inputs[1].dataset.rangeMax) : 100
+
 		noUiSlider.create(stepsSlider, {
-			start: [20, 80],
+			start: [startRange, endRange],
 			connect: true,
 			range: {
-				'min': 0,
-				'max': 100
+				'min': minRange,
+				'max': maxRange
 			},
 			format: formatForSlider
 		});
@@ -704,11 +709,34 @@ function initShowMore() {
 	blocks.forEach((block) => {
 		const content = block.querySelector("[data-show-more-content]")
 		const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
-		if (content.offsetHeight > height) {
+		if (content.scrollHeight > height) {
 			block.classList.add("--init", "--hide")
 			content.style.height = `${height / 16}rem`
 		} else {
 			block.classList.remove("--init", "--hide")
 		}
 	})
+}
+
+function moveSortSelect() {
+	const sort = document.querySelector('.sort-filter__wrap')
+	if (sort) {
+		const options = sort.dataset.da.split(',')
+		const selectorWhereMove = options[0]
+		const valueBreakpoint = options[1]
+		const whereMoveItem = document.querySelector(selectorWhereMove)
+		const parent = sort.parentElement
+		const mediaRequest = window.matchMedia(`(max-width: ${valueBreakpoint / 16}em)`)
+
+		if (mediaRequest.matches)
+			whereMoveItem.append(sort)
+
+		mediaRequest.addEventListener('change', e => {
+			if (e.matches)
+				whereMoveItem.append(sort)
+			else {
+				parent.append(sort)
+			}
+		})
+	}
 }

@@ -449,37 +449,6 @@
 	}
 }
 //=====================================================================
-.seo-text {
-	padding-block: toRem(70) toRem(30);
-	background-color: #fff;
-	@include gridContainer(0, 1070);
-
-	&--white {
-		background-color: #fff;
-	}
-
-	@media (max-width: $tablet) {
-		padding-block-start: toRem(60);
-	}
-	@media (max-width: $mobile) {
-		padding-block-start: toRem(40);
-	}
-	// .home-text__container
-	&__container {
-	}
-	// .home-text__block-header
-	&__block-header {
-		@media (min-width: toEm(601)) {
-			text-align: center;
-		}
-		&:not(:last-child) {
-			margin-bottom: toRem(30);
-		}
-	}
-	// .home-text__show-more
-	&__show-more {
-	}
-}
 
 //=====================================================================
 .benefits {
