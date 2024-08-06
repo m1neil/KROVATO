@@ -270,28 +270,24 @@ body {
   margin-inline: auto;
 }
 
-.wrapper > .page,
-.wrapper > .category {
+.wrapper > main {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   padding-top: 13.85rem;
 }
 @media (max-width: 61.99875em) {
-  .wrapper > .page,
-  .wrapper > .category {
+  .wrapper > main {
     padding-top: 9.475rem;
   }
 }
 @media (max-width: 47.99875em) {
-  .wrapper > .page,
-  .wrapper > .category {
+  .wrapper > main {
     padding-top: 9.125rem;
   }
 }
 @media (max-width: 29.99875em) {
-  .wrapper > .page,
-  .wrapper > .category {
+  .wrapper > main {
     padding-top: 8.875rem;
   }
 }
@@ -377,8 +373,8 @@ button.swiper-pagination-bullet-active {
   display: none;
 }
 @media (any-hover: hover) {
-  .swiper-button-prev:hover,
-  .swiper-button-next:hover {
+  .swiper-button-prev:not(.swiper-button-disabled):hover,
+  .swiper-button-next:not(.swiper-button-disabled):hover {
     background-color: #ffbc57;
     color: #fff;
   }
@@ -1145,7 +1141,7 @@ button.swiper-pagination-bullet-active {
   }
 }
 
-.rating:has(.rating__value) {
+.rating:has(.rating__value, .rating__reviews) {
   display: inline-grid;
   -webkit-column-gap: 0.625rem;
      -moz-column-gap: 0.625rem;
@@ -1154,9 +1150,9 @@ button.swiper-pagination-bullet-active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto auto;
 }
-.rating:not(:has(.rating__value)) {
+.rating:not(:has(.rating__value, .rating__reviews)) {
   line-height: 0;
 }
 .rating__value {
@@ -3180,6 +3176,7 @@ button.swiper-pagination-bullet-active {
   color: #2b2929;
   font-size: 0.8125rem;
   line-height: 1;
+  font-weight: 400;
   -webkit-transition: -webkit-transform 0.6s;
   transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
@@ -3220,6 +3217,136 @@ button.swiper-pagination-bullet-active {
   opacity: 1;
 }
 
+.product__breadcrumbs:not(:last-child) {
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
+}
+
+.product-card__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 1.875rem;
+     -moz-column-gap: 1.875rem;
+          column-gap: 1.875rem;
+}
+.product-card__preview {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 6.25rem;
+          flex: 1 1 6.25rem;
+  min-inline-size: 0;
+}
+.product-card__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 6.25rem;
+          flex: 1 1 6.25rem;
+}
+
+.preview-product__main-slider:not(:last-child) {
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
+}
+.main-slider-product {
+  position: relative;
+}
+.main-slider-product__slide img {
+  border-radius: 0.5rem;
+  inline-size: 100%;
+  aspect-ratio: 630/538;
+  block-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-slider-product__swiper-pagination {
+  display: none;
+}
+.main-slider-product__button {
+  position: absolute;
+  inset-block-start: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  -webkit-transition: opacity 0.3s, background-color 0.3s;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+.main-slider-product__button--prev {
+  inset-inline-start: 1.25rem;
+}
+.main-slider-product__button--next {
+  -webkit-transform: translate(0, -50%) scale(-1, 1);
+      -ms-transform: translate(0, -50%) scale(-1, 1);
+          transform: translate(0, -50%) scale(-1, 1);
+  inset-inline-end: 1.25rem;
+}
+
+.sub-slider-product {
+  max-inline-size: 36.25rem;
+}
+.sub-slider-product__slide {
+  position: relative;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  inline-size: 6.25rem;
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.sub-slider-product__slide::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0.0625rem solid #b1b1b1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  border-radius: 0.5rem;
+}
+.sub-slider-product__slide::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0.1875rem solid #ffbc57;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  border-radius: 0.5rem;
+  opacity: 0;
+  z-index: 1;
+}
+.sub-slider-product__slide.swiper-slide-thumb-active::after {
+  opacity: 1;
+}
+.sub-slider-product__slide.swiper-slide-thumb-active::before {
+  opacity: 0;
+}
+.sub-slider-product__slide img {
+  inline-size: 100%;
+  block-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.body-product > * {
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
+}
+.body-product > *:last-child {
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+.body-product__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 2.5rem;
+     -moz-column-gap: 2.5rem;
+          column-gap: 2.5rem;
+}
 .header {
   position: fixed;
   top: 0;
@@ -3766,7 +3893,7 @@ button.swiper-pagination-bullet-active {
   top: calc(100% + 0.625rem);
   right: 0.9375rem;
   background-color: #fff;
-  width: 100%;
+  inline-size: 100%;
   -webkit-box-shadow: -0.1875rem 0.25rem 0.9375rem 0 rgba(0, 0, 0, 0.06);
           box-shadow: -0.1875rem 0.25rem 0.9375rem 0 rgba(0, 0, 0, 0.06);
   padding: 1.875rem;
@@ -3781,14 +3908,13 @@ button.swiper-pagination-bullet-active {
 }
 @media (min-width: 47.99875em) {
   .cart-header {
-    max-width: 32.5rem;
+    max-inline-size: 32.5rem;
     border-radius: 0.5rem;
   }
 }
 @media (max-width: 47.99875em) {
   .cart-header {
-    right: auto;
-    left: 0;
+    right: 0;
     padding: 1.25rem;
   }
 }
@@ -3837,6 +3963,11 @@ button.swiper-pagination-bullet-active {
   max-height: calc(100vh - 30rem);
 }
 @media (max-width: 47.99875em) {
+  .cart-header__items {
+    max-height: calc(100vh - 26.25rem);
+  }
+}
+@media (max-width: 29.99875em) {
   .cart-header__items {
     max-height: calc(100vh - 23.75rem);
   }

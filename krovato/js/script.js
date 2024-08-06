@@ -640,6 +640,52 @@ function initSliders() {
 		},
 	})
 
+	// product sub slider
+	const subSliderProduct = new Swiper(".sub-slider-product", {
+		speed: 500,
+		slidesPerView: 5,
+		spaceBetween: 20,
+		watchSlidesProgress: true,
+	})
+
+	// product slider
+	new Swiper(".main-slider-product", {
+		speed: 800,
+		pagination: {
+			el: ".main-slider-product__swiper-pagination",
+			clickable: true,
+			renderBullet: function (index, className) {
+				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+			},
+		},
+		navigation: {
+			nextEl: ".main-slider-product__button--next",
+			prevEl: ".main-slider-product__button--prev",
+		},
+		thumbs: {
+			swiper: subSliderProduct,
+		},
+		spaceBetween: 20,
+
+		// breakpoints: {
+		// 	320: {
+		// 		speed: 400,
+		// 		slidesPerView: 1,
+		// 		spaceBetween: 15,
+		// 	},
+		// 	600: {
+		// 		slidesPerView: 2,
+		// 		spaceBetween: 15,
+		// 	},
+		// 	1089.98: {
+		// 		spaceBetween: 30,
+		// 		slidesPerView: 3,
+		// 	},
+		// },
+	})
+
+
+
 	// init range slider
 	const formatForSlider = {
 		from: (formattedValue) => {
@@ -732,11 +778,7 @@ function moveSortSelect() {
 			whereMoveItem.append(sort)
 
 		mediaRequest.addEventListener('change', e => {
-			if (e.matches)
-				whereMoveItem.append(sort)
-			else {
-				parent.append(sort)
-			}
+			e.matches ? whereMoveItem.append(sort) : parent.append(sort)
 		})
 	}
 }

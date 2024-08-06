@@ -465,7 +465,7 @@
 	top: calc(100% + toRem(10));
 	right: toRem(15);
 	background-color: #fff;
-	width: 100%;
+	inline-size: 100%;
 	box-shadow: toRem(-3) toRem(4) toRem(15) 0 rgba(0, 0, 0, 0.06);
 	padding: toRem(30);
 	opacity: 0;
@@ -478,12 +478,11 @@
 		visibility: visible;
 	}
 	@media (min-width: $mobile) {
-		max-width: toRem(520);
+		max-inline-size: toRem(520);
 		border-radius: toRem(8);
 	}
 	@media (max-width: $mobile) {
-		right: auto;
-		left: 0;
+		right: 0;
 		padding: toRem(20);
 	}
 	// .cart-header__header
@@ -522,6 +521,9 @@
 		overflow-y: auto;
 		max-height: calc(100vh - toRem(480));
 		@media (max-width: $mobile) {
+			max-height: calc(100vh - toRem(420));
+		}
+		@media (max-width: $mobileSmall) {
 			max-height: calc(100vh - toRem(380));
 		}
 	}

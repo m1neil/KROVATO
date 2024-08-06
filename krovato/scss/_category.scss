@@ -728,6 +728,7 @@
 			color: $mainColor;
 			font-size: toRem(13);
 			line-height: 1;
+			font-weight: 400;
 			transition: transform 0.6s;
 		}
 		@media (any-hover: hover) {

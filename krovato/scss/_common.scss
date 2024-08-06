@@ -553,15 +553,15 @@
 
 // .rating =====================================================================
 .rating {
-	&:has(.rating__value) {
+	&:has(.rating__value, .rating__reviews) {
 		display: inline-grid;
 		column-gap: toRem(10);
 		row-gap: toRem(7);
 		align-items: center;
-		grid-template-columns: auto 1fr;
+		grid-template-columns: auto auto;
 	}
 
-	&:not(:has(.rating__value)) {
+	&:not(:has(.rating__value, .rating__reviews)) {
 		line-height: 0;
 	}
 	// .rating__value

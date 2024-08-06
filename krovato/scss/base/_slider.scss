@@ -68,7 +68,7 @@ button.swiper-pagination-bullet-active {
 		display: none;
 	}
 	@media (any-hover: hover) {
-		&:hover {
+		&:not(.swiper-button-disabled):hover {
 			background-color: $yellowColor;
 			color: #fff;
 		}
