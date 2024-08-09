@@ -15,6 +15,9 @@
 			margin-bottom: toRem(50);
 		}
 	}
+	// .product__about
+	&__about {
+	}
 }
 
 .product-card {
@@ -531,5 +534,43 @@
 	&__more {
 		font-size: toRem(15);
 		font-weight: 400;
+	}
+}
+//=====================================================================
+
+.about-product {
+	// .about-product__container
+	&__container {
+	}
+	// .about-product__body
+	&__body {
+	}
+	// .about-product__add-review
+	&__add-review {
+	}
+}
+.body-about {
+}
+.add-review-product {
+	// .add-review-product__title
+	&__title {
+	}
+	// .add-review-product__form
+	&__form {
+	}
+	// .add-review-product__fields
+	&__fields {
+	}
+	// .add-review-product__input
+	&__input {
+	}
+	// .add-review-product__textarea
+	&__textarea {
+	}
+	// .add-review-product__rating
+	&__rating {
+	}
+	// .add-review-product__button
+	&__button {
 	}
 }

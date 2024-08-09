@@ -558,10 +558,16 @@
 		border-width: toRem(1);
 		border-color: $greyColor;
 	}
+	// .button-link--full-width
+	&--full-width {
+	}
 }
 
 // .rating =====================================================================
 .rating {
+	// .rating__title
+	&__title {
+	}
 	&:has(.rating__value, .rating__reviews) {
 		display: inline-grid;
 		column-gap: toRem(10);

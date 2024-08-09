@@ -30,8 +30,6 @@ function windowLoaded() {
 			header.classList.add('--sticky')
 		else if (scrollY <= 100 && header.classList.contains('--sticky'))
 			header.classList.remove('--sticky')
-
-
 	})
 
 
