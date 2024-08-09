@@ -50,6 +50,16 @@ function windowLoaded() {
 	initSliders()
 	initRating()
 
+	const inputPhone = document.querySelector('.bottom-product__input')
+	if (inputPhone) {
+		const value = inputPhone.value
+		inputPhone.addEventListener('focusout', e => {
+			const target = e.target
+			if (target.value < 4) target.value = value
+		})
+		Inputmask({ "mask": "+380  99  999  99  99", "placeholder": "-" }).mask(inputPhone)
+	}
+
 
 	// document actions ====================================================================================
 	function documentAction(e) {
@@ -330,7 +340,7 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 				titles = Array.from(titles)
 					.filter(item => item.closest('[data-spollers]') === spollerBlock)
 			if (titles.length > 0) {
-				titles.forEach((title) => {
+				titles.forEach(title => {
 					title.removeAttribute("tabindex")
 					if (!title.classList.contains("--active")) {
 						title.nextElementSibling.hidden = true

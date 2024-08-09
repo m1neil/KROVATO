@@ -647,17 +647,6 @@
 	}
 	// .product-cart-header__stock
 	&__stock {
-		display: flex;
-		column-gap: toRem(6);
-		align-items: center;
-		font-size: toRem(13);
-		font-weight: 300;
-		line-height: 169.231%;
-		&::before {
-			font-weight: 400;
-			font-size: toRem(20);
-			color: #82b09d;
-		}
 	}
 	// .product-cart-header__remove
 	&__remove {
@@ -706,36 +695,6 @@
 }
 
 //=====================================================================
-.quantity {
-	display: flex;
-	border-radius: toRem(8);
-	border: toRem(1) solid $greyLightColor;
-	background-color: $lightColor;
-	height: toRem(50);
-	justify-content: center;
-	// .quantity__button
-	&__button {
-		text-align: center;
-		width: toRem(26);
-		// .quantity__button--reduce
-		&--reduce {
-			font-size: toRem(10);
-		}
-		// .quantity__button--increase
-		&--increase {
-			font-size: toRem(10);
-		}
-	}
-	// .quantity__value
-	&__value {
-		width: toRem(30);
-		display: inline-block;
-		flex-shrink: 0;
-		text-align: center;
-		font-size: toRem(20);
-		font-weight: 600;
-	}
-}
 
 .catalog-header {
 	&__button {
@@ -1155,61 +1114,6 @@
 	}
 	// .sales-bottom-header__link
 	&__link {
-		display: flex;
-		align-items: center;
-		column-gap: toRem(10);
-		font-size: toRem(19);
-		font-weight: 600;
-		line-height: 1.26;
-		transition: color 0.3s;
-		&::before {
-			content: "";
-			flex-shrink: 0;
-			align-self: flex-start;
-			width: toRem(24);
-			height: toRem(24);
-			background-position: center;
-			background-size: toRem(20);
-			background-repeat: no-repeat;
-			@media (max-width: toEm(1100)) and (min-width: $tablet) {
-				width: toRem(20.16);
-				height: toRem(20.16);
-			}
-		}
-		// .sales-bottom-header__link--shares
-		&--shares {
-			&::before {
-				background-image: url("../img/icons/sales/shares.svg");
-			}
-		}
-		// .sales-bottom-header__link--sales
-		&--sales {
-			&::before {
-				background-image: url("../img/icons/sales/sales.svg");
-			}
-		}
-		// .sales-bottom-header__link--credit
-		&--credit {
-			&::before {
-				background-image: url("../img/icons/sales/credit.svg");
-			}
-		}
-		&--big-icon {
-			&::before {
-				background-size: 100%;
-			}
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $yellowColor;
-			}
-		}
-		@media (max-width: toEm(1100)) and (min-width: $tablet) {
-			font-size: toRem(16);
-		}
-		@media (max-width: $tablet) {
-			font-size: toRem(20);
-		}
 	}
 }
 .room-bottom-header {

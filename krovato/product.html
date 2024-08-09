@@ -551,7 +551,7 @@
 										<div class="product-cart-header__body">
 											<div class="product-cart-header__size">Розмір: 61 x 184 x 2130 мм</div>
 											<h3 class="product-cart-header__title"><a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a></h3>
-											<div class="product-cart-header__stock _icon-in-stack">В наявності</div>
+											<div class="product-cart-header__stock stock _icon-in-stock">В наявності</div>
 										</div>
 										<button type="button" class="product-cart-header__remove _icon-crosshair"></button>
 										<div class="product-cart-header__quantity quantity">
@@ -569,7 +569,7 @@
 										<div class="product-cart-header__body">
 											<div class="product-cart-header__size">Розмір: 61 x 184 x 2130 мм</div>
 											<h3 class="product-cart-header__title"><a href="#">Ліжко Спарта / Sparta з підйомним механізмом</a></h3>
-											<div class="product-cart-header__stock _icon-in-stack">В наявності</div>
+											<div class="product-cart-header__stock stock _icon-in-stock">В наявності</div>
 										</div>
 										<button type="button" class="product-cart-header__remove _icon-crosshair"></button>
 										<div class="product-cart-header__quantity quantity">
@@ -595,13 +595,13 @@
 						<div class="bottom-header__menu">
 							<ul class="bottom-header__sales sales-bottom-header">
 								<li class="sales-bottom-header__item">
-									<a href="#" class="sales-bottom-header__link sales-bottom-header__link--shares">Акції</a>
+									<a href="#" class="sales-bottom-header__link link-sales link-sales--shares">Акції</a>
 								</li>
 								<li class="sales-bottom-header__item">
-									<a href="#" class="sales-bottom-header__link sales-bottom-header__link--sales sales-bottom-header__link--big-icon">Розпродаж</a>
+									<a href="#" class="sales-bottom-header__link link-sales link-sales--sales link-sales--big-icon">Розпродаж</a>
 								</li>
 								<li class="sales-bottom-header__item">
-									<a href="#" class="sales-bottom-header__link sales-bottom-header__link--credit">Купити в кредит</a>
+									<a href="#" class="sales-bottom-header__link link-sales link-sales--credit">Купити в кредит</a>
 								</li>
 							</ul>
 							<ul class="bottom-header__room room-bottom-header">
@@ -649,7 +649,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="product-card">
+				<div class="product__info-card product-card">
 					<div class="product-card__container">
 						<div class="product-card__preview preview-product">
 							<div class="preview-product__main-slider main-slider-product swiper">
@@ -715,19 +715,167 @@
 						<div class="product-card__body body-product">
 							<h1 class="body-product__title title">Ліжко двоспальне МК-1 з підйомним механізмом</h1>
 							<div class="body-product__info">
-								<div class="body-product__stock _icon-in-stack">В наявності</div>
+								<div class="body-product__stock stock _icon-in-stock">В наявності</div>
 								<div data-rating="5" class="body-product__rating rating">
-									<div class="rating__stars rating__stars--orange">
+									<div class="rating__stars">
 										<div class="rating__active">
-											<img src="img/icons/rating/star-orange.svg" alt="star" class="rating__star">
+											<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
 										</div>
 										<div class="rating__passive">
 											<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
 										</div>
 									</div>
-									<div class="rating__reviews _icon-review">93 отзыва</div>
+									<a href="#" class="rating__reviews _icon-review">93 отзыва</a>
 								</div>
 								<div class="body-product__model">Модель: 62003836</div>
+							</div>
+							<form action="#" class="body-product__options options-product">
+								<div class="options-product__header">
+									<div class="options-product__prices">
+										<div class="options-product__current-price">15 400 грн.</div>
+										<div class="options-product__old-price">25 400 грн.</div>
+									</div>
+									<button type="button" class="options-product__favorite _icon-favorite">В обране</button>
+								</div>
+								<div class="options-product__wrap">
+									<div class="options-product__items">
+										<div class="options-product__item item-option-product">
+											<label title="Розмір" for="size" class="item-option-product__label _icon-question">Розмір</label>
+											<div class="item-option-product__wrap-select">
+												<select name="size" id="size" class="item-option-product__select">
+													<option selected disabled>Виберіть</option>
+													<option value="200x210">200x210 см</option>
+													<option value="200x200">200x200 см</option>
+													<option value="180x200">180x200 см</option>
+													<option value="160x200">160x200 см</option>
+												</select>
+											</div>
+										</div>
+										<div class="options-product__item item-option-product">
+											<label title="Ламельний блок" for="laple-block" class="item-option-product__label _icon-question">Ламельний блок</label>
+											<div class="item-option-product__wrap-select">
+												<select name="laple-block" id="laple-block" class="item-option-product__select">
+													<option selected disabled>Виберіть</option>
+													<option value="200x210">200x210 см</option>
+													<option value="200x200">200x200 см</option>
+													<option value="180x200">180x200 см</option>
+													<option value="160x200">160x200 см</option>
+												</select>
+											</div>
+										</div>
+										<div data-show-more class="options-product__item item-option-product">
+											<label title="Ламельний блок" for="fabric" class="item-option-product__label _icon-question">Ламельний блок</label>
+											<div data-show-more-content="70" class="item-option-product__radios">
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-01.jpg" alt="fabric">
+													<input checked type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-02.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-03.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-04.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-05.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-05.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-05.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-05.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+												<div class="item-option-product__radio">
+													<img class="item-option-product__img" src="img/fabric/fabric-05.jpg" alt="fabric">
+													<input type="radio" value="some fabric" name="fabric" id="#" class="item-option-product__input">
+												</div>
+											</div>
+											<button data-show-more-trigger type="button" class="item-option-product__button _icon-arrow-hide">Показати всі</button>
+										</div>
+									</div>
+								</div>
+								<div class="options-product__actions actions-product">
+									<div class="actions-product__quantity quantity">
+										<button type="button" class="quantity__button quantity__button--reduce _icon-minus"></button>
+										<input value="1" type="text" class="quantity__value">
+										<button type="button" class="quantity__button quantity__button--increase _icon-plus"></button>
+									</div>
+									<button type="submit" class="actions-product__buy button-link _icon-cart">Купити</button>
+									<button type="submit" class="actions-product__buy-credit button-link button-link--border">
+										<span class="link-sales link-sales--credit">Купити в кредит</span>
+									</button>
+								</div>
+							</form>
+							<form action="#" class="body-product__bottom bottom-product">
+								<label class="bottom-product__phone _icon-phone">
+									<input minlength="4" value="+380" placeholder="+380  --  ---  --  --" type="tel" class="bottom-product__input">
+								</label>
+								<button type="submit" class="bottom-product__button button-link button-link--grey button-link--border button-link--border-grey">Купити в 1 клік</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="product__service service">
+					<div class="service__container">
+						<div class="service__item">
+							<div class="service__icon">
+								<img src="img/icons/service/delivery.svg" alt="Доставка">
+							</div>
+							<div class="service__content">
+								<h5 class="service__title">Доставка</h5>
+								<div class="service__text">
+									Доставка по Києву або по всій Україні
+								</div>
+								<a href="#" class="service__more more">Детальніше</a>
+							</div>
+						</div>
+						<div class="service__item">
+							<div class="service__icon">
+								<img src="img/icons/service/pay.svg" alt="Оплата">
+							</div>
+							<div class="service__content">
+								<h5 class="service__title">Оплата</h5>
+								<div class="service__text">
+									Карткою на сайті, готівкою або через термінал
+								</div>
+								<a href="#" class="service__more more">Детальніше</a>
+							</div>
+						</div>
+						<div class="service__item">
+							<div class="service__icon">
+								<img src="img/icons/service/guarantee.svg" alt="Гарантія">
+							</div>
+							<div class="service__content">
+								<h5 class="service__title">Гарантія</h5>
+								<div class="service__text">
+									Гарантія від виробника до 2 років
+								</div>
+								<a href="#" class="service__more more">Детальніше</a>
+							</div>
+						</div>
+						<div class="service__item">
+							<div class="service__icon">
+								<img src="img/icons/service/support.svg" alt="Підтримка">
+							</div>
+							<div class="service__content">
+								<h5 class="service__title">Підтримка</h5>
+								<div class="service__text">
+									Безкоштовна консультація по вибору товара
+								</div>
+								<a href="#" class="service__more more">Детальніше</a>
 							</div>
 						</div>
 					</div>
@@ -907,6 +1055,7 @@
 				</div>
 			</footer>
 		</div>
+		<script defer src="js/inputmask.min.js"></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script defer src="js/script.js"></script>
 	</body>
