@@ -8,6 +8,9 @@
 	&--center {
 		text-align: center;
 	}
+	&--mini {
+		font-size: toRem(30);
+	}
 	@media (max-width: toEm(600)) {
 		font-size: toRem(30);
 	}
@@ -546,6 +549,13 @@
 			background-color 0.3s,
 			border-color 0.3s,
 			color 0.3s;
+
+		&:has(.link-sales) {
+			transition:
+				background-color 0.3s,
+				border-color 0.3s;
+		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				background-color: $greyColor;
@@ -560,15 +570,13 @@
 	}
 	// .button-link--full-width
 	&--full-width {
+		inline-size: 100%;
 	}
 }
 
 // .rating =====================================================================
 .rating {
-	// .rating__title
-	&__title {
-	}
-	&:has(.rating__value, .rating__reviews) {
+	&:has(.rating__value, .rating__reviews, .rating__middle-value) {
 		display: inline-grid;
 		column-gap: toRem(10);
 		row-gap: toRem(7);
@@ -576,7 +584,21 @@
 		grid-template-columns: auto auto;
 	}
 
-	&:not(:has(.rating__value, .rating__reviews)) {
+	&--center {
+		text-align: center;
+	}
+	// .rating__title
+	&__title {
+		color: $greyColor;
+		font-size: toRem(19);
+		font-weight: 600;
+		line-height: 1.26;
+		&:not(:last-child) {
+			margin-block-end: toRem(10);
+		}
+	}
+
+	&:not(:has(.rating__value, .rating__reviews, .middle-value)) {
 		line-height: 0;
 	}
 	// .rating__value
@@ -625,11 +647,12 @@
 	// .rating__active
 	&__active {
 		position: absolute;
-		width: 0;
-		height: 100%;
+		inline-size: 0;
+		block-size: 100%;
 		top: 0;
 		left: 0;
 		overflow: hidden;
+		transition: inline-size 0.3s;
 	}
 
 	// .rating__passive
@@ -638,6 +661,9 @@
 	// .rating__star
 	&__star {
 		inline-size: toRem(120);
+		&--big {
+			inline-size: toRem(194);
+		}
 	}
 	// .rating__text
 	&__text {
@@ -646,6 +672,31 @@
 		font-size: toRem(13);
 		font-weight: 300;
 		line-height: 1.2;
+	}
+	&__radios {
+		position: absolute;
+		inline-size: 100%;
+		block-size: 100%;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		display: flex;
+	}
+	&__radio {
+		appearance: none;
+		cursor: pointer;
+		flex: 0 0 20%;
+		outline: toRem(2) solid transparent;
+		transition: outline-color 0.3s;
+		outline-offset: toRem(-1);
+		border-radius: toRem(5);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
+	}
+	&__middle-value {
+		color: $greyColor;
+		font-size: toRem(17);
+		line-height: 1.415;
 	}
 }
 
@@ -1043,5 +1094,92 @@
 		&::before {
 			background-size: 100%;
 		}
+	}
+}
+
+// characteristic
+
+.characteristic-product {
+	inline-size: 100%;
+	// .characteristic-product__body
+	&__body {
+	}
+	// .characteristic-product__row
+	&__row {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-block: toRem(15);
+		border-radius: toRem(8);
+		background-color: #fff;
+		&:not(:last-child) {
+			margin-block-end: toRem(5);
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			inline-size: 100%;
+			border-top: toRem(1) dashed #6a6a6a;
+			inset-block-start: 50%;
+			inset-inline-start: 0;
+			transform: translate(0, -50%);
+		}
+	}
+	&__title,
+	&__value {
+		padding-inline: toRem(10);
+		background-color: #fff;
+		color: $greyColor;
+		font-size: toRem(17);
+		line-height: 1.41;
+		position: relative;
+	}
+	// .characteristic-product__title
+	&__title {
+	}
+	// .characteristic-product__value
+	&__value {
+		text-align: right;
+		// flex-shrink: 0;
+	}
+	// .characteristic-product__column
+	&__column {
+	}
+}
+
+// User
+.user {
+	font-size: toRem(17);
+	line-height: 1.41%;
+	display: flex;
+	align-items: center;
+	column-gap: toRem(20);
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		inline-size: toRem(50);
+		block-size: toRem(50);
+		border-radius: 50%;
+		border: toRem(1) solid $yellowColor;
+		background: url("../img/icons/icon-font/user.svg") center / toRem(18) no-repeat;
+	}
+	&--krovato {
+		text-transform: uppercase;
+		&::before {
+			background: url("../img/logo-tiny.svg") center / toRem(36) no-repeat;
+		}
+	}
+}
+
+.date {
+	color: $greyColor;
+	font-size: toRem(17);
+}
+
+.text-review {
+	line-height: 1.87;
+	p:not(:last-child) {
+		margin-block-end: toRem(5);
 	}
 }

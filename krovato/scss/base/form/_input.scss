@@ -61,4 +61,30 @@
 
 // Field
 .input {
+	inline-size: 100%;
+	block-size: toRem(50);
+	border-radius: toRem(8);
+	border: toRem(1) solid #d1d5d5;
+	background-color: #fff;
+	padding-inline: toRem(20);
+	transition: outline-color 0.3s;
+	outline: toRem(2) solid transparent;
+	outline-offset: toRem(-2);
+	&::placeholder {
+		color: $greyColor;
+		transition: opacity 0.3s;
+	}
+	&:focus {
+		outline-color: $yellowColor;
+		&::placeholder {
+			opacity: 0;
+		}
+	}
+}
+
+textarea.input {
+	min-block-size: toRem(150);
+	padding-block: toRem(10);
+	resize: vertical;
+	line-height: 1.87;
 }

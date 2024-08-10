@@ -37,6 +37,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+._icon-answer:before {
+	content: "\e91f";
+}
 ._icon-address:before {
 	content: "\e900";
 }

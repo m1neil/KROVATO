@@ -156,20 +156,6 @@ function windowLoaded() {
 		else if (!target.closest(".middle-header__search"))
 			document.documentElement.classList.remove("search-open")
 
-		// toggle lock body =======================================================
-		if (
-			document.documentElement.classList.contains("search-open") ||
-			document.documentElement.classList.contains("catalog-open") ||
-			document.documentElement.classList.contains("menu-open") ||
-			document.documentElement.classList.contains("cart-open")
-		) {
-			addPaddingScrollFixedElement()
-			document.documentElement.classList.add("lock")
-		} else {
-			removePaddingScrollFixedElement()
-			document.documentElement.classList.remove("lock")
-		}
-
 		// toggle show more
 		if (target.closest("[data-show-more-trigger]")) {
 			const block = target.closest("[data-show-more]")
@@ -193,6 +179,25 @@ function windowLoaded() {
 					content.style.removeProperty("transition")
 				}, 300)
 			}
+		}
+
+		if (target.closest('.button-review') && !target.closest('.button-review._icon-like')) {
+			const button = target.closest('.button-review')
+			button.classList.toggle('--active')
+		}
+
+		// toggle lock body =======================================================
+		if (
+			document.documentElement.classList.contains("search-open") ||
+			document.documentElement.classList.contains("catalog-open") ||
+			document.documentElement.classList.contains("menu-open") ||
+			document.documentElement.classList.contains("cart-open")
+		) {
+			addPaddingScrollFixedElement()
+			document.documentElement.classList.add("lock")
+		} else {
+			removePaddingScrollFixedElement()
+			document.documentElement.classList.remove("lock")
 		}
 	}
 
@@ -750,10 +755,24 @@ function initRating() {
 	if (!blockRatings.length) return
 
 	blockRatings.forEach((rating) => {
-		const value = rating.dataset.rating ? parseFloat(rating.dataset.rating) : 5
+		let startValue = rating.dataset.rating ? parseFloat(rating.dataset.rating) : 5
 		const activeLine = rating.querySelector(".rating__active")
-		if (activeLine)
+		const wrapperRadioButtons = rating.querySelector('.rating__radios')
+		setRating()
+
+		if (wrapperRadioButtons) {
+			wrapperRadioButtons.addEventListener('mouseover', e => setRating(parseInt(e.target.value)))
+			wrapperRadioButtons.addEventListener('mouseleave', () => setRating())
+			wrapperRadioButtons.addEventListener('click', e => {
+				startValue = parseInt(e.target.value)
+				setRating()
+			})
+		}
+
+		function setRating(value = startValue) {
 			activeLine.style.inlineSize = `${value / 0.05}%`
+			console.log(value)
+		}
 	})
 }
 
