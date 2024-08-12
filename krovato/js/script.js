@@ -819,13 +819,13 @@ function initShowMore() {
 	if (!blocks.length) return
 	blocks.forEach((block) => {
 		const content = block.querySelector("[data-show-more-content]")
-		const options = content.getAttribute('data-show-more-media').split(',')
+		const options = content.hasAttribute('data-show-more-media') ? content.getAttribute('data-show-more-media').split(',') : []
 		const newHeight = options[0] ? parseInt(options[0]) : 0
 		const breakpoint = options[1] ? parseInt(options[1]) : 0
-		const matchMedia = window.matchMedia(`(max-width: ${breakpoint / 16}em)`)
+		const matchMedia = breakpoint ? window.matchMedia(`(max-width: ${breakpoint / 16}em)`) : null
 		const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
 
-		if (matchMedia.matches)
+		if (matchMedia && matchMedia.matches)
 			content.setAttribute('data-show-more-content', newHeight)
 		else
 			content.setAttribute('data-show-more-content', height)
@@ -839,22 +839,25 @@ function initShowMore() {
 			block.classList.remove("--init", "--hide")
 		}
 
-		matchMedia.addEventListener('change', e => {
-			if (e.matches) {
-				content.setAttribute('data-show-more-content', newHeight)
-			} else {
-				content.setAttribute('data-show-more-content', height)
-			}
+		if (matchMedia) {
+			matchMedia.addEventListener('change', e => {
+				if (e.matches) {
+					content.setAttribute('data-show-more-content', newHeight)
+				} else {
+					content.setAttribute('data-show-more-content', height)
+				}
 
-			const currentHeight = parseFloat(content.dataset.showMoreContent)
+				const currentHeight = parseFloat(content.dataset.showMoreContent)
 
-			if (block.classList.contains('--hide')) {
-				content.style.height = `${currentHeight / 16}rem`
-			} else {
-				content.style.height = `${content.scrollHeight / 16}rem`
-				content.style.removeProperty('height')
-			}
-		})
+				if (block.classList.contains('--hide')) {
+					content.style.height = `${currentHeight / 16}rem`
+				} else {
+					content.style.height = `${content.scrollHeight / 16}rem`
+					content.style.removeProperty('height')
+				}
+			})
+		}
+
 	})
 }
 

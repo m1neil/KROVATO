@@ -315,8 +315,10 @@
 		position: relative;
 		padding-block: toRem(25);
 		transition: padding-block 0.3s;
-		.--sticky & {
-			padding-block: toRem(10);
+		@media (min-width: $mobile) {
+			.--sticky & {
+				padding-block: toRem(10);
+			}
 		}
 		@media (min-width: $tablet) {
 			display: flex;
@@ -1055,8 +1057,10 @@
 	// .bottom-header__container
 	&__container {
 		padding-block: toRem(18);
-		.--sticky & {
-			padding-block: toRem(10);
+		@media (min-width: $tablet) {
+			.--sticky & {
+				padding-block: toRem(10);
+			}
 		}
 		@media (max-width: $tablet) {
 			padding-block: toRem(12);
