@@ -14,6 +14,7 @@ function windowLoaded() {
 	// @media request ============================================================
 	const matchMediaTablet = window.matchMedia(`(max-width: ${991.98 / 16}em)`)
 	const matchMedia = window.matchMedia(`(max-width: ${767.98 / 16}em)`)
+	const matchMediaSmallPc = window.matchMedia(`(max-width: ${1149.98 / 16}em)`)
 
 	// listener ===========================================================================
 	document.addEventListener("click", documentAction)
@@ -38,9 +39,15 @@ function windowLoaded() {
 	matchMedia.addEventListener("change", moveFooterSocial)
 
 	moveHeaderElements(matchMediaTablet.matches)
-	matchMediaTablet.addEventListener("change", () => moveHeaderElements(matchMediaTablet.matches))
+
+	matchMediaTablet.addEventListener("change", () => {
+		moveHeaderElements(matchMediaTablet.matches)
+		moveReviewForm()
+	})
 
 	moveSortSelect()
+	moveProductItems()
+	moveReviewForm()
 
 	// init =========================================================================================
 	initShowMore()
@@ -234,6 +241,45 @@ function windowLoaded() {
 			footerContainer.prepend(footerSocial)
 			footerSocial.prepend(footerLogo)
 		}
+	}
+
+	// move title product
+	function moveProductItems() {
+		const bodyProductInfo = document.querySelector('.body-product__info')
+		const optionsProductFavorite = document.querySelector('.options-product__favorite')
+		if (!bodyProductInfo || !optionsProductFavorite) return
+		const parentBodyProductInfo = bodyProductInfo.parentElement
+		const containerForParentBodyProductInfo = document.querySelector('.product-card__container')
+		const containerForOptionsProductFavorite = document.querySelector('.actions-product')
+		const parentOptionsProductFavorite = optionsProductFavorite.parentElement
+		matchMediaSmallPc.addEventListener('change', () => {
+			if (matchMediaSmallPc.matches) {
+				containerForParentBodyProductInfo.prepend(bodyProductInfo)
+				containerForOptionsProductFavorite.append(optionsProductFavorite)
+			} else {
+				parentBodyProductInfo.prepend(bodyProductInfo)
+				parentOptionsProductFavorite.append(optionsProductFavorite)
+			}
+		})
+		if (matchMediaSmallPc.matches) {
+			containerForParentBodyProductInfo.prepend(bodyProductInfo)
+			containerForOptionsProductFavorite.append(optionsProductFavorite)
+		} else {
+			parentBodyProductInfo.prepend(bodyProductInfo)
+			parentOptionsProductFavorite.append(optionsProductFavorite)
+		}
+	}
+
+	// move add review form
+	function moveReviewForm() {
+		const addReviewProduct = document.querySelector('.add-review-product')
+		if (!addReviewProduct) return
+		const container = document.querySelector('.about-product__container')
+		const elementNearNeedPlace = document.querySelector('.body-about-product__characteristic')
+		if (matchMediaTablet.matches)
+			elementNearNeedPlace.after(addReviewProduct)
+		else
+			container.append(addReviewProduct)
 	}
 
 	// remove padding right ============================================
@@ -657,8 +703,15 @@ function initSliders() {
 	const subSliderProduct = new Swiper(".sub-slider-product", {
 		speed: 500,
 		slidesPerView: 5,
-		spaceBetween: 20,
 		watchSlidesProgress: true,
+		breakpoints: {
+			320: {
+				spaceBetween: 10,
+			},
+			768: {
+				spaceBetween: 20,
+			}
+		},
 	})
 
 	// product slider
@@ -671,6 +724,7 @@ function initSliders() {
 				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
 			},
 		},
+		autoHeight: true,
 		navigation: {
 			nextEl: ".main-slider-product__button--next",
 			prevEl: ".main-slider-product__button--prev",
@@ -679,22 +733,6 @@ function initSliders() {
 			swiper: subSliderProduct,
 		},
 		spaceBetween: 20,
-
-		// breakpoints: {
-		// 	320: {
-		// 		speed: 400,
-		// 		slidesPerView: 1,
-		// 		spaceBetween: 15,
-		// 	},
-		// 	600: {
-		// 		slidesPerView: 2,
-		// 		spaceBetween: 15,
-		// 	},
-		// 	1089.98: {
-		// 		spaceBetween: 30,
-		// 		slidesPerView: 3,
-		// 	},
-		// },
 	})
 
 
@@ -781,13 +819,42 @@ function initShowMore() {
 	if (!blocks.length) return
 	blocks.forEach((block) => {
 		const content = block.querySelector("[data-show-more-content]")
+		const options = content.getAttribute('data-show-more-media').split(',')
+		const newHeight = options[0] ? parseInt(options[0]) : 0
+		const breakpoint = options[1] ? parseInt(options[1]) : 0
+		const matchMedia = window.matchMedia(`(max-width: ${breakpoint / 16}em)`)
 		const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
-		if (content.scrollHeight > height) {
+
+		if (matchMedia.matches)
+			content.setAttribute('data-show-more-content', newHeight)
+		else
+			content.setAttribute('data-show-more-content', height)
+
+		const currentHeight = parseFloat(content.dataset.showMoreContent)
+
+		if (content.scrollHeight > currentHeight) {
 			block.classList.add("--init", "--hide")
-			content.style.height = `${height / 16}rem`
+			content.style.height = `${currentHeight / 16}rem`
 		} else {
 			block.classList.remove("--init", "--hide")
 		}
+
+		matchMedia.addEventListener('change', e => {
+			if (e.matches) {
+				content.setAttribute('data-show-more-content', newHeight)
+			} else {
+				content.setAttribute('data-show-more-content', height)
+			}
+
+			const currentHeight = parseFloat(content.dataset.showMoreContent)
+
+			if (block.classList.contains('--hide')) {
+				content.style.height = `${currentHeight / 16}rem`
+			} else {
+				content.style.height = `${content.scrollHeight / 16}rem`
+				content.style.removeProperty('height')
+			}
+		})
 	})
 }
 

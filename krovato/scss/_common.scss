@@ -14,6 +14,11 @@
 	@media (max-width: toEm(600)) {
 		font-size: toRem(30);
 	}
+	@media (max-width: $mobileSmall) {
+		&--mini {
+			font-size: toRem(23);
+		}
+	}
 }
 
 // List social =====================================================================
@@ -914,6 +919,11 @@
 	&__list {
 		display: flex;
 		column-gap: toRem(10);
+		@media (max-width: $mobile) {
+			overflow-x: auto;
+			white-space: nowrap;
+			padding-block-end: toRem(8);
+		}
 	}
 	// .breadcrumbs__item
 	&__item {
@@ -1112,6 +1122,7 @@
 		align-items: center;
 		padding-block: toRem(15);
 		border-radius: toRem(8);
+		column-gap: toRem(20);
 		background-color: #fff;
 		&:not(:last-child) {
 			margin-block-end: toRem(5);
