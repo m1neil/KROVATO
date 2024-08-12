@@ -3917,11 +3917,21 @@ textarea.input {
   font-size: 1.875rem;
   font-weight: 600;
 }
+@media (max-width: 29.99875em) {
+  .options-product__current-price {
+    font-size: 1.6875rem;
+  }
+}
 .options-product__old-price {
   color: #e03d3d;
   font-size: 1.25rem;
   font-weight: 600;
   text-decoration: line-through;
+}
+@media (max-width: 29.99875em) {
+  .options-product__old-price {
+    font-size: 1.125rem;
+  }
 }
 .options-product__favorite {
   color: #535353;
@@ -4237,6 +4247,17 @@ textarea.input {
     row-gap: 1.25rem;
   }
 }
+@media (max-width: 33.75em) {
+  .bottom-product {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+}
 .bottom-product__phone {
   position: relative;
 }
@@ -4375,6 +4396,12 @@ textarea.input {
   -webkit-margin-after: 1.875rem;
           margin-block-end: 1.875rem;
 }
+@media (max-width: 37.5em) {
+  .body-about-product > * {
+    -webkit-margin-after: 1.25rem;
+            margin-block-end: 1.25rem;
+  }
+}
 .body-about-product > *:last-child {
   -webkit-margin-after: 0;
           margin-block-end: 0;
@@ -4470,6 +4497,12 @@ textarea.input {
   -webkit-margin-after: 2.5rem;
           margin-block-end: 2.5rem;
 }
+@media (max-width: 29.99875em) {
+  .reviews-product > * {
+    -webkit-margin-after: 1.875rem;
+            margin-block-end: 1.875rem;
+  }
+}
 .reviews-product > *:last-child {
   -webkit-margin-after: 0;
           margin-block-end: 0;
@@ -4498,6 +4531,13 @@ textarea.input {
   -webkit-margin-start: 0.625rem;
           margin-inline-start: 0.625rem;
   color: #535353;
+}
+@media (max-width: 34.375em) {
+  .reviews-product__quantity {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
 }
 @media (max-width: 29.99875em) {
   .reviews-product__rating.rating:has(.rating__value, .rating__reviews, .rating__middle-value) {

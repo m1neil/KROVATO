@@ -281,6 +281,9 @@
 	&__current-price {
 		font-size: toRem(30);
 		font-weight: 600;
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(27);
+		}
 	}
 	// .options-product__old-price
 	&__old-price {
@@ -288,6 +291,9 @@
 		font-size: toRem(20);
 		font-weight: 600;
 		text-decoration: line-through;
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(18);
+		}
 	}
 	// .options-product__favorite
 	&__favorite {
@@ -530,7 +536,10 @@
 	padding-inline: toRem(20);
 	@media (max-width: toEm(600)) {
 		row-gap: toRem(20);
-		// flex-direction: column;
+	}
+	@media (max-width: toEm(540)) {
+		flex-direction: column;
+		align-items: stretch;
 	}
 	// .bottom-product__phone
 	&__phone {
@@ -659,6 +668,9 @@
 .body-about-product {
 	> * {
 		margin-block-end: toRem(30);
+		@media (max-width: toEm(600)) {
+			margin-block-end: toRem(20);
+		}
 	}
 	> *:last-child {
 		margin-block-end: 0;
@@ -758,6 +770,9 @@
 	}
 	& > * {
 		margin-block-end: toRem(40);
+		@media (max-width: $mobileSmall) {
+			margin-block-end: toRem(30);
+		}
 	}
 	& > *:last-child {
 		margin-block-end: 0;
@@ -783,6 +798,9 @@
 		span {
 			margin-inline-start: toRem(10);
 			color: $greyColor;
+		}
+		@media (max-width: toEm(550)) {
+			flex: 1 1 100%;
 		}
 	}
 	// .reviews-product__rating
