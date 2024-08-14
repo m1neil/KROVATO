@@ -510,20 +510,6 @@
 	}
 }
 
-.header-sort {
-	> * {
-		margin-block-end: toRem(30);
-		@media (max-width: toEm(574.98)) {
-			margin-block-end: toRem(20);
-		}
-	}
-	> *:last-child {
-		margin-block-end: 0;
-	}
-	// .header-sort__select
-	&__select {
-	}
-}
 .sort-filter {
 	display: flex;
 	align-items: center;
@@ -612,6 +598,27 @@
 				}
 			}
 		}
+	}
+}
+
+.header-sort {
+	> * {
+		margin-block-end: toRem(30);
+		@media (max-width: toEm(574.98)) {
+			margin-block-end: toRem(20);
+		}
+	}
+	> *:last-child {
+		margin-block-end: 0;
+	}
+	// .header-sort__select
+	&__select {
+	}
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(10);
+		justify-content: flex-start;
 	}
 }
 

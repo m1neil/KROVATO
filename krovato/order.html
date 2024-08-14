@@ -653,10 +653,10 @@
 							<div class="form-order__body body-form-order">
 								<div class="body-form-order__row">
 									<h4 class="body-form-order__title title-order">
-										<div class="title-order__icon">
+										<span class="title-order__icon">
 											<img src="img/icons/order/info.svg" alt="Інформація про покупця">
-										</div>
-										<div class="title-order__text">Інформація про покупця</div>
+										</span>
+										<span class="title-order__text">Інформація про покупця</span>
 									</h4>
 									<div class="body-form-order__fields">
 										<input required name="form[last-name]" placeholder="Прізвище" type="text" class="body-form-order__input input">
@@ -672,10 +672,10 @@
 								</div>
 								<div class="body-form-order__row">
 									<h4 class="body-form-order__title title-order">
-										<div class="title-order__icon">
+										<span class="title-order__icon">
 											<img src="img/icons/order/delivery.svg" alt="Вибір способу доставки">
-										</div>
-										<div class="title-order__text">Вибір способу доставки</div>
+										</span>
+										<span class="title-order__text">Вибір способу доставки</span>
 									</h4>
 									<div class="body-form-order__methods-delivery">
 										<label class="body-form-order__radio radio-delivery">
@@ -685,7 +685,7 @@
 												<span class="_icon-checkbox"></span>
 											</span>
 											<span class="radio-delivery__text">Самовивіз із магазину</span>
-											<div class="radio-delivery__cost radio-delivery__cost--free">Бесплатно</div>
+											<span class="radio-delivery__cost radio-delivery__cost--free">Бесплатно</span>
 										</label>
 										<label class="body-form-order__radio radio-delivery">
 											<input type="radio" value="nova-poshta" name="delivery" class="radio-delivery__input">
@@ -694,7 +694,7 @@
 												<span class="_icon-checkbox"></span>
 											</span>
 											<span class="radio-delivery__text">Доставка Нова Пошта</span>
-											<div class="radio-delivery__cost">&#8776; від 500 грн</div>
+											<span class="radio-delivery__cost">&#8776; від 500 грн</span>
 										</label>
 										<label class="body-form-order__radio radio-delivery">
 											<input type="radio" value="courier" name="delivery" class="radio-delivery__input">
@@ -703,13 +703,13 @@
 												<span class="_icon-checkbox"></span>
 											</span>
 											<span class="radio-delivery__text">Доставка кур'єром</span>
-											<div class="radio-delivery__cost">&#8776; від 200 грн</div>
+											<span class="radio-delivery__cost">&#8776; від 200 грн</span>
 										</label>
 									</div>
 									<address class="body-form-order__location location-form _icon-address">
 										<div class="location-form__body">
 											<div class="location-form__work-graphic">
-												Графік роботи: щодня з <time datetime="9:00">9:00</time> до <time datetime="8:00">18:00</time>
+												Графік роботи: щодня з <time datetime="09:00">9:00</time> до <time datetime="08:00">18:00</time>
 											</div>
 											<div class="location-form__address">м. Київ, пров. Ізяславський 52, пов. 2</div>
 										</div>
@@ -718,18 +718,18 @@
 								</div>
 								<div class="body-form-order__row">
 									<h4 class="body-form-order__title title-order">
-										<div class="title-order__icon">
+										<span class="title-order__icon">
 											<img src="img/icons/order/method-pay.svg" alt="Вибір способу оплати">
-										</div>
-										<div class="title-order__text">Вибір способу оплати</div>
+										</span>
+										<span class="title-order__text">Вибір способу оплати</span>
 									</h4>
 									<div class="body-form-order__methods-pay">
 										<label class="body-form-order__radio-payment radio-payment _icon-checkbox">
-											<input required name="method-pay" value="#" placeholder="Прізвище" type="radio" class="radio-payment__input">
+											<input required name="method-pay" value="#" type="radio" class="radio-payment__input">
 											<span class="radio-payment__text">Готівкою при отриманні (Післясплата)</span>
 										</label>
 										<label class="body-form-order__radio-payment radio-payment _icon-checkbox">
-											<input checked required name="method-pay" value="#" placeholder="Прізвище" type="radio" class="radio-payment__input">
+											<input checked required name="method-pay" value="#" type="radio" class="radio-payment__input">
 											<span class="radio-payment__text">Оплата карткою на сайті</span>
 											<span class="radio-payment__logos">
 												<span class="radio-payment__logo">
@@ -741,7 +741,7 @@
 											</span>
 										</label>
 										<label class="body-form-order__radio-payment radio-payment _icon-checkbox">
-											<input required name="method-pay" value="#" placeholder="Прізвище" type="radio" class="radio-payment__input">
+											<input required name="method-pay" value="#" type="radio" class="radio-payment__input">
 											<span class="radio-payment__text">Privat Pay</span>
 											<span class="radio-payment__logos">
 												<span class="radio-payment__logo">
@@ -750,11 +750,11 @@
 											</span>
 										</label>
 										<label class="body-form-order__radio-payment radio-payment _icon-checkbox">
-											<input required name="method-pay" value="#" placeholder="Прізвище" type="radio" class="radio-payment__input">
+											<input required name="method-pay" value="#" type="radio" class="radio-payment__input">
 											<span class="radio-payment__text">Кредит від Krovato</span>
 										</label>
 										<label class="body-form-order__radio-payment radio-payment _icon-checkbox">
-											<input required name="method-pay" value="#" placeholder="Прізвище" type="radio" class="radio-payment__input">
+											<input required name="method-pay" value="#" type="radio" class="radio-payment__input">
 											<span class="radio-payment__text">Оплата частинами ПриватБанк</span>
 											<span class="radio-payment__logos">
 												<span class="radio-payment__logo">
@@ -763,7 +763,7 @@
 											</span>
 										</label>
 										<label class="body-form-order__radio-payment radio-payment _icon-checkbox">
-											<input required name="method-pay" value="#" placeholder="Прізвище" type="radio" class="radio-payment__input">
+											<input required name="method-pay" value="#" type="radio" class="radio-payment__input">
 											<span class="radio-payment__text">Оплата частинами МоноБанк</span>
 											<span class="radio-payment__logos">
 												<span class="radio-payment__logo">
@@ -775,10 +775,10 @@
 								</div>
 								<div class="body-form-order__row">
 									<h4 class="body-form-order__title title-order">
-										<div class="title-order__icon">
+										<span class="title-order__icon">
 											<img src="img/icons/order/comment.svg" alt="Коментар до замовлення">
-										</div>
-										<div class="title-order__text">Коментар до замовлення</div>
+										</span>
+										<span class="title-order__text">Коментар до замовлення</span>
 									</h4>
 									<textarea name="comment" id="comment" placeholder="Ваш коментар" class="body-form-order__textarea input"></textarea>
 								</div>
