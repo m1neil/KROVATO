@@ -368,7 +368,7 @@ function initSpollers() {
 		const value = options[1]
 		const typeMedia = options[2]
 
-		const currentSpollersBlock = breakpoints.filter((breakpoint) => {
+		const currentSpollersBlock = breakpoints.filter(breakpoint => {
 			return breakpoint.value === value && breakpoint.typeMedia === typeMedia
 		})
 
@@ -871,8 +871,7 @@ function moveSortSelect() {
 		const parent = sort.parentElement
 		const mediaRequest = window.matchMedia(`(max-width: ${valueBreakpoint / 16}em)`)
 
-		if (mediaRequest.matches)
-			whereMoveItem.append(sort)
+		if (mediaRequest.matches) whereMoveItem.append(sort)
 
 		mediaRequest.addEventListener('change', e => {
 			e.matches ? whereMoveItem.append(sort) : parent.append(sort)

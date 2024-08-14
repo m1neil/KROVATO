@@ -27,7 +27,7 @@
 	}
 	&__service {
 		&:not(:last-child) {
-			margin-bottom: toRem(50);
+			margin-block-end: toRem(50);
 		}
 	}
 	// .product__about

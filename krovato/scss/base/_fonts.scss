@@ -37,6 +37,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+._icon-map:before {
+	content: "\e920";
+}
 ._icon-answer:before {
 	content: "\e91f";
 }
@@ -91,7 +94,7 @@
 ._icon-favorite:before {
 	content: "\e910";
 }
-._icon-in-stock:before {
+._icon-in-stack:before {
 	content: "\e911";
 }
 ._icon-like:before {

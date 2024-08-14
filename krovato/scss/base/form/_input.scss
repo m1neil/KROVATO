@@ -52,10 +52,26 @@
 		inset-block-start: 0;
 		opacity: 0;
 	}
-
+	// .checkbox__text
 	&__text {
 		display: inline-block;
 		margin-block-start: toRem(0.5);
+	}
+	&--light-grey {
+		&::before {
+			border-color: #d1d5d5;
+			border-radius: toRem(2);
+		}
+		.checkbox__text {
+			color: $greyColor;
+		}
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::before {
+				border-color: rgba(255, 188, 87, 0.6);
+			}
+		}
 	}
 }
 
