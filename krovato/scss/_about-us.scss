@@ -1,0 +1,238 @@
+.about-us {
+	& > * {
+		margin-block-end: toRem(70);
+		@media (max-width: $mobile) {
+			margin-block-end: toRem(60);
+		}
+		@media (max-width: $mobileSmall) {
+			margin-block-end: toRem(40);
+		}
+	}
+	& > *:last-child {
+		margin-block-end: 0;
+	}
+	// .about-us__promo
+	&__promo {
+	}
+	// .about-us__benefits
+	&__benefits {
+	}
+	// .about-us__visit
+	&__visit {
+	}
+}
+.promo-about-us {
+	@include gridContainer();
+	// .promo-about-us__container
+	&__content {
+		background-color: #fff;
+		border-radius: toRem(8);
+		padding: 0 toRem(22) toRem(10) toRem(50);
+		@media (max-width: $pc) {
+			padding-inline: toRem(15);
+		}
+		@media (min-width: $mobile) {
+			display: flex;
+			column-gap: toRem(20);
+		}
+		@media (max-width: $mobile) {
+			text-align: center;
+		}
+	}
+	// .promo-about-us__body
+	&__body {
+		@media (min-width: $mobile) {
+			flex-basis: toRem(450);
+			min-inline-size: toRem(320);
+			padding-block-start: percent(71, $maxWidthContainer);
+		}
+		@media (min-width: $tablet) {
+			flex-shrink: 0;
+		}
+		@media (max-width: $mobile) {
+			padding-block-start: toRem(40);
+		}
+	}
+	// .promo-about-us__img
+	&__img {
+		flex-basis: toRem(748);
+		align-self: center;
+		img {
+			inline-size: 100%;
+		}
+	}
+}
+
+.block-about-us {
+	> * {
+		margin-block-end: toRem(30);
+		@media (max-width: $mobileSmall) {
+			margin-block-end: toRem(20);
+		}
+	}
+	> *:last-child {
+		margin-block-end: 0;
+	}
+	// .promo-about-us__title
+	&__title {
+		@media (max-width: $tablet) {
+			font-size: toRem(30);
+		}
+	}
+	// .promo-about-us__main-text
+	&__main-text {
+		margin-block-end: toRem(20);
+		font-size: toRem(26);
+		font-weight: 600;
+		line-height: 1.3;
+		p:not(:last-child) {
+			margin-block-end: toRem(7);
+		}
+		@media (max-width: $tablet) {
+			font-size: toRem(20);
+		}
+	}
+	// .promo-about-us__sub-text
+	&__sub-text {
+		font-size: toRem(20);
+		font-weight: 600;
+		line-height: 1.4;
+		p:not(:last-child) {
+			margin-block-end: toRem(7);
+		}
+		@media (max-width: $tablet) {
+			font-size: toRem(16);
+		}
+	}
+	// .block-about-us__button
+	&__button {
+	}
+}
+
+//=====================================================================
+.benefits-about-us {
+	// .benefits-about-us__container
+	&__container {
+	}
+	// .benefits-about-us__block-header
+	&__block-header {
+	}
+	// .benefits-about-us__items
+	&__items {
+		display: grid;
+		gap: toRem(30);
+		justify-items: center;
+		grid-template-columns: repeat(auto-fit, minmax(toRem(290), 1fr));
+	}
+	// .benefits-about-us__item
+	&__item {
+	}
+}
+.item-about-us {
+	text-align: center;
+	& > *:not(:last-child) {
+		margin-block-end: toRem(20);
+	}
+	// .item-about-us__icon
+	&__icon {
+		position: relative;
+		margin-inline: auto;
+		inline-size: toRem(170);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			position: relative;
+			inline-size: percent(46, 170);
+			z-index: 2;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			inline-size: percent(105, 170);
+			border-radius: 50%;
+			aspect-ratio: 1;
+			border: toRem(6) solid $yellowColor;
+			inset-block-start: 50%;
+			inset-inline-start: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			inline-size: percent(101, 170);
+			border-radius: 50%;
+			aspect-ratio: 1;
+			inset-block-start: calc(50% + toRem(7));
+			inset-inline-start: calc(50% - toRem(7));
+			transform: translate(-50%, -50%);
+			background-color: $lightColor;
+		}
+		@media (max-width: $mobileSmall) {
+			inline-size: toRem(140);
+		}
+	}
+	// .item-about-us__title
+	&__title {
+		font-size: toRem(26);
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	// .item-about-us__text
+	&__text {
+		line-height: 1.87;
+		p:not(:last-child) {
+			margin-block-end: toRem(7);
+		}
+	}
+}
+
+//=====================================================================
+.visit-about-us {
+	margin-block-end: toRem(30);
+	@media (max-width: $tablet) {
+		margin-block-end: toRem(20);
+	}
+	@media (max-width: $mobileSmall) {
+		margin-block-end: 0;
+	}
+	// .visit-about-us__container
+	&__container {
+		@media (min-width: $mobile) {
+			display: flex;
+			align-items: center;
+			column-gap: toRem(30);
+		}
+	}
+	// .visit-about-us__body
+	&__body {
+		flex: 0 1 toRem(520);
+		@media (max-width: toEm(1130)) and (min-width: $tablet) {
+			flex-shrink: 0;
+			flex-basis: toRem(443);
+		}
+		@media (max-width: $tablet) and (min-width: $mobile) {
+			min-inline-size: toRem(350);
+		}
+		@media (max-width: $mobile) {
+			&:not(:last-child) {
+				margin-block-end: toRem(20);
+			}
+			display: grid;
+			.block-about-us__button {
+				justify-self: center;
+			}
+		}
+	}
+	// .visit-about-us__img
+	&__img {
+		flex: 0 1 toRem(740);
+		img {
+			inline-size: 100%;
+		}
+	}
+}

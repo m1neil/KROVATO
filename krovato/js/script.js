@@ -52,8 +52,10 @@ function windowLoaded() {
 	// init =========================================================================================
 	initShowMore()
 	initSpollers()
-	initSliders()
+	if (document.querySelector('[class*="slider"]'))
+		initSliders()
 	initRating()
+	initRange()
 
 	const inputPhone = document.querySelector('.bottom-product__input')
 	if (inputPhone) {
@@ -734,58 +736,6 @@ function initSliders() {
 		},
 		spaceBetween: 20,
 	})
-
-
-
-	// init range slider
-	const formatForSlider = {
-		from: (formattedValue) => {
-			return Number(formattedValue);
-		},
-		to: (numericValue) => {
-			return Math.round(numericValue);
-		}
-	};
-
-	const stepsSlider = document.querySelector('.item-filter__range')
-
-	if (stepsSlider) {
-		const inputs = document.querySelectorAll('.price-filter__input')
-		const regExpNotNumber = /\D/
-
-		const startRange = stepsSlider.dataset.rangeStart ? parseInt(stepsSlider.dataset.rangeStart) : 0
-		const endRange = stepsSlider.dataset.rangeEnd ? parseInt(stepsSlider.dataset.rangeEnd) : 0
-		const minRange = inputs[0].dataset.rangeMin ? parseInt(inputs[0].dataset.rangeMin) : 0
-		const maxRange = inputs[1].dataset.rangeMax ? parseInt(inputs[1].dataset.rangeMax) : 100
-
-		noUiSlider.create(stepsSlider, {
-			start: [startRange, endRange],
-			connect: true,
-			range: {
-				'min': minRange,
-				'max': maxRange
-			},
-			format: formatForSlider
-		});
-
-		stepsSlider.noUiSlider.on('update', (values, index) => {
-			inputs[index].value = values[index]
-		});
-
-		inputs.forEach((input, index) => {
-			input.addEventListener('input', e => {
-				const target = e.target;
-				const value = target.value
-				if (value.match(regExpNotNumber))
-					target.value = value.replace(regExpNotNumber, '')
-			})
-
-			input.addEventListener('change', e => {
-				stepsSlider.noUiSlider.setHandle(index, e.target.value);
-			});
-		})
-	}
-
 }
 
 function initRating() {
@@ -809,7 +759,6 @@ function initRating() {
 
 		function setRating(value = startValue) {
 			activeLine.style.inlineSize = `${value / 0.05}%`
-			console.log(value)
 		}
 	})
 }
@@ -875,6 +824,56 @@ function moveSortSelect() {
 
 		mediaRequest.addEventListener('change', e => {
 			e.matches ? whereMoveItem.append(sort) : parent.append(sort)
+		})
+	}
+}
+
+function initRange() {
+	const stepsSlider = document.querySelector('.item-filter__range')
+
+	if (stepsSlider) {
+		const formatForSlider = {
+			from: (formattedValue) => {
+				return Number(formattedValue);
+			},
+			to: (numericValue) => {
+				return Math.round(numericValue);
+			}
+		};
+
+		const inputs = document.querySelectorAll('.price-filter__input')
+		const regExpNotNumber = /\D/
+
+		const startRange = stepsSlider.dataset.rangeStart ? parseInt(stepsSlider.dataset.rangeStart) : 0
+		const endRange = stepsSlider.dataset.rangeEnd ? parseInt(stepsSlider.dataset.rangeEnd) : 0
+		const minRange = inputs[0].dataset.rangeMin ? parseInt(inputs[0].dataset.rangeMin) : 0
+		const maxRange = inputs[1].dataset.rangeMax ? parseInt(inputs[1].dataset.rangeMax) : 100
+
+		noUiSlider.create(stepsSlider, {
+			start: [startRange, endRange],
+			connect: true,
+			range: {
+				'min': minRange,
+				'max': maxRange
+			},
+			format: formatForSlider
+		});
+
+		stepsSlider.noUiSlider.on('update', (values, index) => {
+			inputs[index].value = values[index]
+		});
+
+		inputs.forEach((input, index) => {
+			input.addEventListener('input', e => {
+				const target = e.target;
+				const value = target.value
+				if (value.match(regExpNotNumber))
+					target.value = value.replace(regExpNotNumber, '')
+			})
+
+			input.addEventListener('change', e => {
+				stepsSlider.noUiSlider.setHandle(index, e.target.value);
+			});
 		})
 	}
 }

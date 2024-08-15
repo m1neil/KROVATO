@@ -530,7 +530,22 @@
 	@media (any-hover: hover) {
 		&:hover {
 			background-color: $greyColor;
+			&:has(.button-link__more) {
+				.button-link__more {
+					color: #fff;
+					&::before {
+						color: #fff;
+						transform: rotate(45deg);
+					}
+				}
+			}
 		}
+	}
+	&:has(.button-link__more) {
+		padding-inline: toRem(20) toRem(26);
+	}
+	&__more {
+		color: #fff;
 	}
 	// .button-link--grey
 	&--grey {
