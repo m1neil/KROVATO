@@ -610,23 +610,11 @@
 		font-size: toRem(17);
 		line-height: 1.41;
 		a {
+			display: inline;
 			color: $yellowColor;
-			position: relative;
-			&::before {
-				content: "";
-				position: absolute;
-				inline-size: 0;
-				block-size: toRem(1);
-				inset-block-end: toRem(1);
-				inset-inline-start: 0;
-				background-color: $yellowColor;
-				transition: inline-size 0.3s;
-			}
 			@media (any-hover: hover) {
 				&:hover {
-					&::before {
-						inline-size: 100%;
-					}
+					text-decoration: underline;
 				}
 			}
 		}

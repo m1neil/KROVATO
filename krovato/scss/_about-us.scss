@@ -11,6 +11,9 @@
 	& > *:last-child {
 		margin-block-end: 0;
 	}
+	&__breadcrumbs {
+		margin-block-end: toRem(16);
+	}
 	// .about-us__promo
 	&__promo {
 	}
@@ -19,93 +22,6 @@
 	}
 	// .about-us__visit
 	&__visit {
-	}
-}
-.promo-about-us {
-	@include gridContainer();
-	// .promo-about-us__container
-	&__content {
-		background-color: #fff;
-		border-radius: toRem(8);
-		padding: 0 toRem(22) toRem(10) toRem(50);
-		@media (max-width: $pc) {
-			padding-inline: toRem(15);
-		}
-		@media (min-width: $mobile) {
-			display: flex;
-			column-gap: toRem(20);
-		}
-		@media (max-width: $mobile) {
-			text-align: center;
-		}
-	}
-	// .promo-about-us__body
-	&__body {
-		@media (min-width: $mobile) {
-			flex-basis: toRem(450);
-			min-inline-size: toRem(320);
-			padding-block-start: percent(71, $maxWidthContainer);
-		}
-		@media (min-width: $tablet) {
-			flex-shrink: 0;
-		}
-		@media (max-width: $mobile) {
-			padding-block-start: toRem(40);
-		}
-	}
-	// .promo-about-us__img
-	&__img {
-		flex-basis: toRem(748);
-		align-self: center;
-		img {
-			inline-size: 100%;
-		}
-	}
-}
-
-.block-about-us {
-	> * {
-		margin-block-end: toRem(30);
-		@media (max-width: $mobileSmall) {
-			margin-block-end: toRem(20);
-		}
-	}
-	> *:last-child {
-		margin-block-end: 0;
-	}
-	// .promo-about-us__title
-	&__title {
-		@media (max-width: $tablet) {
-			font-size: toRem(30);
-		}
-	}
-	// .promo-about-us__main-text
-	&__main-text {
-		margin-block-end: toRem(20);
-		font-size: toRem(26);
-		font-weight: 600;
-		line-height: 1.3;
-		p:not(:last-child) {
-			margin-block-end: toRem(7);
-		}
-		@media (max-width: $tablet) {
-			font-size: toRem(20);
-		}
-	}
-	// .promo-about-us__sub-text
-	&__sub-text {
-		font-size: toRem(20);
-		font-weight: 600;
-		line-height: 1.4;
-		p:not(:last-child) {
-			margin-block-end: toRem(7);
-		}
-		@media (max-width: $tablet) {
-			font-size: toRem(16);
-		}
-	}
-	// .block-about-us__button
-	&__button {
 	}
 }
 
@@ -122,7 +38,14 @@
 		display: grid;
 		gap: toRem(30);
 		justify-items: center;
-		grid-template-columns: repeat(auto-fit, minmax(toRem(290), 1fr));
+		grid-template-columns: repeat(4, minmax(toRem(290), 1fr));
+		@media (max-width: toEm(1280)) {
+			grid-template-columns: repeat(2, minmax(toRem(290), toRem(400)));
+			justify-content: center;
+		}
+		@media (max-width: toEm(670)) {
+			grid-template-columns: auto;
+		}
 	}
 	// .benefits-about-us__item
 	&__item {
@@ -181,6 +104,9 @@
 		font-size: toRem(26);
 		font-weight: 600;
 		line-height: 1.3;
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(23);
+		}
 	}
 	// .item-about-us__text
 	&__text {
