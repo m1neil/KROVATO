@@ -3,6 +3,9 @@
 	&__breadcrumbs {
 		&:not(:last-child) {
 			margin-block-end: toRem(16);
+			@media (max-width: $mobileSmall) {
+				margin-block-end: 0;
+			}
 		}
 	}
 	// .category__block-header

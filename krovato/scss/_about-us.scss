@@ -13,6 +13,9 @@
 	}
 	&__breadcrumbs {
 		margin-block-end: toRem(16);
+		@media (max-width: $mobileSmall) {
+			margin-block-end: 0;
+		}
 	}
 	// .about-us__promo
 	&__promo {

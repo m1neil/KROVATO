@@ -14,6 +14,9 @@
 	// .payment__breadcrumbs
 	&__breadcrumbs {
 		margin-block-end: toRem(16);
+		@media (max-width: $mobileSmall) {
+			margin-block-end: 0;
+		}
 	}
 	// .payment__promo
 	&__promo {
