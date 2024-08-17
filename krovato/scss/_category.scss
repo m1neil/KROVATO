@@ -493,12 +493,14 @@
 	}
 	// .content-products__more
 	&__more {
-		display: flex;
-		margin-inline: auto;
+		@media (min-width: toEm(601)) {
+			display: flex;
+			margin-inline: auto;
+		}
 		@media (min-width: $mobileSmall) {
 			padding-inline: toRem(40);
 		}
-		@media (max-width: toEm(574.98)) {
+		@media (max-width: toEm(600)) {
 			inline-size: 100%;
 		}
 		&:not(:last-child) {

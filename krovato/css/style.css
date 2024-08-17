@@ -3470,18 +3470,20 @@ textarea.input {
             margin-block-end: 1.875rem;
   }
 }
-.content-products__more {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-inline: auto;
+@media (min-width: 37.5625em) {
+  .content-products__more {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-inline: auto;
+  }
 }
 @media (min-width: 29.99875em) {
   .content-products__more {
     padding-inline: 2.5rem;
   }
 }
-@media (max-width: 35.93625em) {
+@media (max-width: 37.5em) {
   .content-products__more {
     inline-size: 100%;
   }
@@ -6615,6 +6617,76 @@ textarea.input {
 .item-shares-delivery__text p:not(:last-child) {
   -webkit-margin-after: 0.4375rem;
           margin-block-end: 0.4375rem;
+}
+
+.blog > * {
+  -webkit-margin-after: 4.375rem;
+          margin-block-end: 4.375rem;
+}
+.blog > *:last-child {
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+.blog__breadcrumbs {
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+}
+@media (max-width: 29.99875em) {
+  .blog__breadcrumbs {
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
+  }
+}
+.articles-blog {
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
+}
+@media (max-width: 61.99875em) {
+  .articles-blog {
+    -webkit-margin-after: 1.25rem;
+            margin-block-end: 1.25rem;
+  }
+}
+@media (max-width: 29.99875em) {
+  .articles-blog {
+    -webkit-margin-after: 0.625rem;
+            margin-block-end: 0.625rem;
+  }
+}
+.articles-blog__container > *:not(:last-child) {
+  -webkit-margin-after: 1.875rem;
+          margin-block-end: 1.875rem;
+}
+@media (min-width: 42.5em) {
+  .articles-blog__items {
+    display: grid;
+    gap: 1.875rem;
+    grid-template-columns: repeat(auto-fill, minmax(19.375rem, 1fr));
+  }
+}
+@media (max-width: 42.49875em) {
+  .articles-blog__article:not(:last-child) {
+    -webkit-margin-after: 1.875rem;
+            margin-block-end: 1.875rem;
+  }
+}
+@media (min-width: 37.5625em) {
+  .articles-blog__more {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-inline: auto;
+  }
+}
+@media (min-width: 29.99875em) {
+  .articles-blog__more {
+    padding-inline: 2.5rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .articles-blog__more {
+    inline-size: 100%;
+  }
 }
 
 .header {
