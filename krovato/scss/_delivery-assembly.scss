@@ -219,103 +219,109 @@
 }
 
 .table-entry {
-	inline-size: 100%;
+	display: none;
+	@media (min-width: $mobile) {
+		display: table;
 
-	tr {
-		display: grid;
-		padding-block: toRem(15);
-		align-items: center;
-		justify-content: space-between;
-		border-radius: toRem(8);
-		td,
-		th {
-			position: relative;
-			padding-inline: toRem(10);
-			// &:nth-child(1) {
-			// 	padding-inline: toRem(10) toRem(5);
-			// }
-			&:nth-child(2) {
-				text-align: center;
-				// padding-inline: toRem(5);
-			}
-			// &:nth-child(3) {
-			// 	padding-inline: toRem(5) toRem(10);
-			// }
-			&:last-child {
-				text-align: right;
-			}
-		}
-	}
-
-	// .table-entry__head
-	&__head {
 		inline-size: 100%;
-		display: block;
-		&:not(:last-child) {
-			margin-block-end: toRem(5);
-		}
+
 		tr {
-			grid-template-columns: minmax(auto, percent(440, 1070)) toRem(126) percent(423, 1070);
-			color: #fff;
-			background-color: $greyColor;
+			display: grid;
+			padding-block: toRem(15);
+			align-items: center;
+			justify-content: space-between;
+			border-radius: toRem(8);
+			td,
 			th {
-				font-size: toRem(20);
-				font-weight: 600;
-				line-height: 1.4;
+				position: relative;
+				padding-inline: toRem(10);
+				// &:nth-child(1) {
+				// 	padding-inline: toRem(10) toRem(5);
+				// }
+				&:nth-child(2) {
+					text-align: center;
+					// padding-inline: toRem(5);
+				}
+				// &:nth-child(3) {
+				// 	padding-inline: toRem(5) toRem(10);
+				// }
+				&:last-child {
+					text-align: right;
+				}
 			}
 		}
-	}
-	// .table-entry__title
-	&__title {
-	}
-	// .table-entry__value
-	&__value {
-	}
-	// .table-entry__body
-	&__body {
-		tr {
-			position: relative;
-			grid-template-columns: minmax(auto, percent(440, 1070)) toRem(126) percent(423, 1070);
-			column-gap: 0;
-			&::before {
-				content: "";
-				position: absolute;
-				inline-size: 100%;
-				inset-inline-start: 0;
-				inset-block-start: 50%;
-				transform: translateY(-50%);
-				border-top: toRem(1) dashed #6a6a6a;
-			}
+
+		// .table-entry__head
+		&__head {
+			inline-size: 100%;
+			display: block;
 			&:not(:last-child) {
 				margin-block-end: toRem(5);
 			}
-			&:nth-child(odd) {
-				background-color: $lightColor;
-				td {
-					&:nth-child(1),
-					&:nth-child(2),
-					&:nth-child(3) span {
-						background-color: $lightColor;
-					}
-				}
-			}
-			td {
-				font-size: toRem(17);
-				line-height: 1.4;
-				&:nth-child(1),
-				&:nth-child(2),
-				&:nth-child(3) span {
-					background-color: #fff;
-				}
-				&:nth-child(3) span {
-					display: inline-block;
-					margin-inline: toRem(-10);
-					padding-inline: toRem(10);
+			tr {
+				grid-template-columns: minmax(auto, percent(440, 1070)) toRem(126) percent(423, 1070);
+				column-gap: toRem(20);
+				color: #fff;
+				background-color: $greyColor;
+				th {
+					font-size: toRem(20);
+					font-weight: 600;
+					line-height: 1.4;
 				}
 			}
 		}
-	}
-	// .table-entry__row
-	&__row {
+		// .table-entry__title
+		&__title {
+		}
+		// .table-entry__value
+		&__value {
+		}
+		// .table-entry__body
+		&__body {
+			tr {
+				position: relative;
+				grid-template-columns: minmax(auto, percent(440, 1070)) toRem(126) percent(423, 1070);
+				column-gap: toRem(20);
+				&::before {
+					content: "";
+					position: absolute;
+					inline-size: 100%;
+					inset-inline-start: 0;
+					inset-block-start: 50%;
+					transform: translateY(-50%);
+					border-top: toRem(1) dashed #6a6a6a;
+				}
+				&:not(:last-child) {
+					margin-block-end: toRem(5);
+				}
+				&:nth-child(odd) {
+					background-color: $lightColor;
+					td {
+						&:nth-child(1),
+						&:nth-child(2),
+						&:nth-child(3) span {
+							background-color: $lightColor;
+						}
+					}
+				}
+				td {
+					font-size: toRem(17);
+					line-height: 1.4;
+					&:nth-child(1),
+					&:nth-child(2),
+					&:nth-child(3) span {
+						background-color: #fff;
+					}
+					&:nth-child(3) span {
+						display: inline-block;
+						margin-inline: toRem(-10);
+						padding-inline: toRem(10);
+					}
+				}
+			}
+		}
+		// .table-entry__row
+		&__row {
+		}
 	}
 }

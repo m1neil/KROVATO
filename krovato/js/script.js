@@ -33,6 +33,14 @@ function windowLoaded() {
 			header.classList.remove('--sticky')
 	})
 
+	const oldTable = document.querySelector('.table-entry')
+	if (oldTable) {
+		const caption = oldTable.previousElementSibling
+		initDivideTable(caption, oldTable)
+		matchMedia.addEventListener("change", () => {
+			initDivideTable(caption, oldTable)
+		})
+	}
 
 	// move elements ====================================================================
 	moveFooterSocial()
@@ -48,6 +56,10 @@ function windowLoaded() {
 	moveSortSelect()
 	moveProductItems()
 	moveReviewForm()
+
+	// Divide table
+
+
 
 	// init =========================================================================================
 	initShowMore()
@@ -232,6 +244,67 @@ function windowLoaded() {
 				}
 			}
 		}
+	}
+
+	// Divide Table
+	function initDivideTable(caption, oldTable) {
+		if (matchMedia.matches) {
+			const container = oldTable.parentElement
+			const headTitles = oldTable.tHead.querySelectorAll('tr .table-entry__value')
+			const bodyRows = oldTable.tBodies[0].querySelectorAll('tr')
+			const tablesData = [[], []]
+			caption.style.display = 'none'
+			bodyRows.forEach(row => {
+				const allTd = row.querySelectorAll('td')
+				const title = allTd[0].textContent
+				const valueFirst = allTd[1].textContent
+				const valueSecond = allTd[2].textContent
+				tablesData[0].push({
+					title,
+					value: valueFirst
+				})
+				tablesData[1].push({
+					title,
+					value: valueSecond
+				})
+			})
+
+			headTitles.forEach((title, i) => {
+				const totalTitle =
+					`<h2 class="tables-delivery__title title title--center">${caption.textContent}<br>${title.textContent}</h2>`
+				const table = getTable(tablesData[i])
+				container.insertAdjacentHTML('beforeend', totalTitle)
+				container.insertAdjacentElement('beforeend', table)
+			})
+		} else {
+			caption.style.removeProperty('display')
+			const tables = document.querySelectorAll('table.sub-table-entry')
+			if (tables.length > 0) {
+				tables.forEach(table => {
+					table.previousElementSibling.remove()
+					table.remove()
+				})
+			}
+		}
+
+	}
+
+	function getTable(data) {
+		const table = document.createElement('table')
+		table.classList.add('sub-table-entry', 'table-delivery')
+		const tbody = table.createTBody()
+		tbody.classList.add('table-delivery__body')
+
+		data.forEach(({ title, value }) => {
+			tbody.insertAdjacentHTML('beforeend', `
+				<tr class="table-delivery__row">
+					<td class="table-delivery__title">${title}</td>
+					<td class="table-delivery__value">${value}</td>
+				</tr>
+			`)
+		})
+
+		return table
 	}
 
 	// move elements in footer ============================================
@@ -877,3 +950,4 @@ function initRange() {
 		})
 	}
 }
+
