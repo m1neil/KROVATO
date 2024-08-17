@@ -271,7 +271,10 @@ function windowLoaded() {
 
 			headTitles.forEach((title, i) => {
 				const totalTitle =
-					`<h2 class="tables-delivery__title title title--center">${caption.textContent}<br>${title.textContent}</h2>`
+					`<h2 class="tables-delivery__title title title--center">
+						${caption.textContent}
+						<span>${title.textContent}</span>
+					</h2>`
 				const table = getTable(tablesData[i])
 				container.insertAdjacentHTML('beforeend', totalTitle)
 				container.insertAdjacentElement('beforeend', table)
