@@ -593,6 +593,9 @@
 	&--full-width {
 		inline-size: 100%;
 	}
+	&--reverse {
+		flex-direction: row-reverse;
+	}
 }
 
 // .rating =====================================================================
