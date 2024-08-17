@@ -6286,6 +6286,17 @@ textarea.input {
   }
 }
 
+.text-delivery {
+  line-height: 1.87;
+}
+.text-delivery p:not(:last-child) {
+  -webkit-margin-after: 0.4375rem;
+          margin-block-end: 0.4375rem;
+}
+.text-delivery--center {
+  text-align: center;
+}
+
 .ukraine-delivery {
   padding-block: 4.375rem;
   background-color: #fff;
@@ -6346,14 +6357,6 @@ textarea.input {
             margin-block-end: -2.0625rem;
   }
 }
-.ukraine-delivery__text {
-  line-height: 1.87;
-}
-.ukraine-delivery__text p:not(:last-child) {
-  -webkit-margin-after: 0.4375rem;
-          margin-block-end: 0.4375rem;
-}
-
 .tables-delivery {
   padding-block: 4.375rem;
   background-color: #fff;
@@ -6367,6 +6370,10 @@ textarea.input {
   .tables-delivery {
     padding-block: 2.5rem;
   }
+}
+.tables-delivery > *:not(:last-child) {
+  -webkit-margin-after: 2.5rem;
+          margin-block-end: 2.5rem;
 }
 .tables-delivery__container > * {
   -webkit-margin-after: 2.5rem;

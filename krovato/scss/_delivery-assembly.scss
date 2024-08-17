@@ -141,6 +141,16 @@
 	}
 }
 
+.text-delivery {
+	line-height: 1.87;
+	p:not(:last-child) {
+		margin-block-end: toRem(7);
+	}
+	&--center {
+		text-align: center;
+	}
+}
+
 //=====================================================================
 .ukraine-delivery {
 	padding-block: toRem(70);
@@ -179,10 +189,6 @@
 	}
 	// .ukraine-delivery__text
 	&__text {
-		line-height: 1.87;
-		p:not(:last-child) {
-			margin-block-end: toRem(7);
-		}
 	}
 }
 
@@ -195,6 +201,9 @@
 	}
 	@media (max-width: $mobileSmall) {
 		padding-block: toRem(40);
+	}
+	& > *:not(:last-child) {
+		margin-block-end: toRem(40);
 	}
 	// .tables-delivery__content
 	&__container {
