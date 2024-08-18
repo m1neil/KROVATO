@@ -4713,8 +4713,9 @@ textarea.input {
 @media (min-width: 61.99875em) {
   .about-product__add-review {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 25.625rem;
-            flex: 0 0 25.625rem;
+        -ms-flex: 0 1 25.625rem;
+            flex: 0 1 25.625rem;
+    min-inline-size: 23.125rem;
   }
 }
 @media (max-width: 37.5em) {

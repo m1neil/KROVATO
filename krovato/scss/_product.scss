@@ -684,7 +684,8 @@
 	// .about-product__add-review
 	&__add-review {
 		@media (min-width: $tablet) {
-			flex: 0 0 toRem(410);
+			flex: 0 1 toRem(410);
+			min-inline-size: toRem(370);
 		}
 		@media (max-width: toEm(600)) {
 			margin-inline: toRem(-15);
