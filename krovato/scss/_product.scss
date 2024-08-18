@@ -666,8 +666,10 @@
 	// .about-product__container
 	&__container {
 		display: flex;
-		align-items: flex-start;
 		column-gap: toRem(30);
+		@media (min-width: $tablet) {
+			align-items: flex-start;
+		}
 		@media (max-width: $tablet) {
 			row-gap: toRem(30);
 			flex-direction: column;
@@ -683,6 +685,13 @@
 	&__add-review {
 		@media (min-width: $tablet) {
 			flex: 0 0 toRem(410);
+		}
+		@media (max-width: toEm(600)) {
+			margin-inline: toRem(-15);
+			border-radius: 0;
+		}
+		@media (max-width: $mobileSmall) {
+			padding-inline: toRem(15);
 		}
 	}
 }
@@ -723,58 +732,6 @@
 	}
 	// .body-about-product__reviews
 	&__reviews {
-	}
-}
-
-.add-review-product {
-	display: block;
-	background-color: #fff;
-	padding: toRem(30);
-	@media (min-width: toEm(601)) {
-		border-radius: toRem(8);
-	}
-	@media (max-width: toEm(600)) {
-		margin-inline: toRem(-15);
-	}
-	@media (max-width: $mobileSmall) {
-		padding-inline: toRem(15);
-	}
-	// .add-review-product__title
-	&__title {
-		margin-bottom: toRem(30);
-	}
-	// .add-review-product__form
-	&__form {
-		> * {
-			margin-block-end: toRem(30);
-		}
-		> *:last-child {
-			margin-block-end: 0;
-		}
-	}
-	// .add-review-product__fields
-	&__fields {
-		> *:not(:last-child) {
-			margin-block-end: toRem(20);
-		}
-	}
-	// .add-review-product__input
-	&__input {
-	}
-	// .add-review-product__textarea
-	&__textarea {
-	}
-	// .add-review-product__rating
-	&__rating {
-	}
-	// .add-review-product__button
-	&__button {
-		@media (min-width: $mobileSmall) and (max-width: $tablet) {
-			display: flex;
-			inline-size: auto;
-			margin: 0 auto;
-			padding-inline: toRem(40);
-		}
 	}
 }
 
@@ -924,14 +881,14 @@
 	}
 	// .item-review-product__product
 	&__product {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
 		column-gap: toRem(10);
 		color: $greyColor;
 		font-size: toRem(20);
 		font-weight: 600;
 		line-height: 1.4; /* 140% */
-		transition: color 0.3s;
+
 		img {
 			flex-shrink: 0;
 			inline-size: toRem(50);
@@ -939,9 +896,15 @@
 			border-radius: 50%;
 			object-fit: contain;
 		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $yellowColor;
+		a {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			transition: color 0.3s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $yellowColor;
+				}
 			}
 		}
 	}

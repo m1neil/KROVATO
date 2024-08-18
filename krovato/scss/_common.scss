@@ -1345,3 +1345,47 @@
 	&__button {
 	}
 }
+
+//=====================================================================
+.add-review-product {
+	border-radius: toRem(8);
+	background-color: #fff;
+	padding: toRem(30);
+	// .add-review-product__title
+	&__title {
+		margin-bottom: toRem(30);
+	}
+	// .add-review-product__form
+	&__form {
+		> * {
+			margin-block-end: toRem(30);
+		}
+		> *:last-child {
+			margin-block-end: 0;
+		}
+	}
+	// .add-review-product__fields
+	&__fields {
+		> *:not(:last-child) {
+			margin-block-end: toRem(20);
+		}
+	}
+	// .add-review-product__input
+	&__input {
+	}
+	// .add-review-product__textarea
+	&__textarea {
+	}
+	// .add-review-product__rating
+	&__rating {
+	}
+	// .add-review-product__button
+	&__button {
+		@media (min-width: $mobileSmall) and (max-width: $tablet) {
+			display: flex;
+			inline-size: auto;
+			margin: 0 auto;
+			padding-inline: toRem(40);
+		}
+	}
+}

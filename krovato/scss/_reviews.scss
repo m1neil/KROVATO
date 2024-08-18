@@ -1,9 +1,24 @@
 .reviews-page {
 	// .reviews-page__breadcrumbs
 	&__breadcrumbs {
+		&:not(:last-child) {
+			margin-block-end: toRem(26);
+			@media (max-width: $tablet) {
+				margin-block-end: toRem(16);
+			}
+		}
 	}
 	// .reviews-page__block
 	&__block {
+		&:not(:last-child) {
+			margin-block-end: toRem(30);
+			@media (max-width: $tablet) {
+				margin-block-end: toRem(20);
+			}
+			@media (max-width: $mobileSmall) {
+				margin-block-end: toRem(10);
+			}
+		}
 	}
 	// .reviews-page__benefits
 	&__benefits {
@@ -16,18 +31,92 @@
 	}
 	// .block-reviews__block-header
 	&__block-header {
+		&:not(:last-child) {
+			@media (max-width: $tablet) {
+				margin-block-end: toRem(20);
+			}
+		}
+		@media (max-width: toEm(600)) {
+			text-align: center;
+		}
+	}
+	&__button {
+		display: none;
+		@media (max-width: $tablet) {
+			display: inline-flex;
+			inline-size: auto;
+			margin-block-end: toRem(40);
+		}
+		@media (max-width: toEm(600)) {
+			inline-size: 100%;
+		}
+	}
+	&__body {
+		@media (min-width: $tablet) {
+			display: flex;
+			column-gap: toRem(30);
+		}
+	}
+	&__content {
+		@media (min-width: $tablet) {
+			flex: 0 1 toRem(850);
+			min-width: 0;
+		}
+		@media (max-width: $tablet) {
+			&:not(:last-child) {
+				margin-block-end: toRem(60);
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			&:not(:last-child) {
+				margin-block-end: toRem(40);
+			}
+		}
+	}
+	&__aside {
+		@media (min-width: $tablet) {
+			flex: 0 1 toRem(410);
+			min-inline-size: toRem(370);
+		}
 	}
 }
 
 .content-block-reviews {
 	// .content-block-reviews__nav-filter
 	&__nav-filter {
+		row-gap: toRem(10);
 		&:not(:last-child) {
 			margin-block-end: toRem(40);
+		}
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+			align-items: flex-start;
+			&:not(:last-child) {
+				margin-block-end: toRem(30);
+			}
 		}
 	}
 	// .content-block-reviews__items
 	&__items {
+		&:not(:last-child) {
+			margin-block-end: toRem(30);
+		}
+	}
+	&__pagination {
+		&:not(:last-child) {
+			margin-block-end: toRem(30);
+		}
+	}
+	&__more {
+		@media (min-width: toEm(601)) {
+			padding-inline: toRem(40);
+			display: flex;
+			margin-inline: auto;
+		}
+
+		@media (max-width: toEm(600)) {
+			inline-size: 100%;
+		}
 	}
 	// .content-block-reviews__item
 	&__item {
@@ -35,11 +124,16 @@
 		@extend %design-block;
 		& > *:not(:last-child) {
 			margin-block-end: toRem(30);
+			@media (max-width: $mobileSmall) {
+				margin-block-end: toRem(20);
+			}
 		}
 		&:not(:last-child) {
 			padding-block-end: toRem(30);
-			margin-block-end: toRem(30);
 			border-bottom: toRem(1) solid #e3e2e2;
+		}
+		@media (max-width: toEm(600)) {
+			padding: toRem(20);
 		}
 	}
 }
@@ -47,29 +141,31 @@
 	position: relative;
 	display: flex;
 	column-gap: toRem(30);
-	padding-block-end: toRem(20);
-	--positionLeft: 0;
-	--widthLine: 6.375rem;
-	&::before {
-		content: "";
-		position: absolute;
-		inline-size: 100%;
-		block-size: toRem(3);
-		background-color: #fff;
-		inset-block-end: 0;
-		inset-inline-start: 0;
-	}
-	&::after {
-		content: "";
-		position: absolute;
-		inline-size: var(--widthLine);
-		block-size: toRem(3);
-		background-color: $yellowColor;
-		inset-block-end: 0;
-		inset-inline-start: var(--positionLeft);
-		transition:
-			inset-inline-start 0.3s,
-			inline-size 0.3s;
+	@media (min-width: $mobileSmall) {
+		padding-block-end: toRem(20);
+		--positionLeft: 0;
+		--widthLine: 6.343rem;
+		&::before {
+			content: "";
+			position: absolute;
+			inline-size: 100%;
+			block-size: toRem(3);
+			background-color: #fff;
+			inset-block-end: 0;
+			inset-inline-start: 0;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			inline-size: var(--widthLine);
+			block-size: toRem(3);
+			background-color: $yellowColor;
+			inset-block-end: 0;
+			inset-inline-start: var(--positionLeft);
+			transition:
+				inset-inline-start 0.3s,
+				inline-size 0.3s;
+		}
 	}
 	// .nav-filter-reviews__button
 	&__button {
@@ -91,9 +187,15 @@
 .aside-block-reviews {
 	// .aside-block-reviews__body
 	&__body {
+		&:not(:last-child) {
+			margin-block-end: toRem(30);
+		}
 	}
 	// .aside-block-reviews__add-review
 	&__add-review {
+		@media (max-width: $mobileSmall) {
+			padding-inline: toRem(20);
+		}
 	}
 }
 .body-reviews {

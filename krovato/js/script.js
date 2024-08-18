@@ -975,7 +975,7 @@ function initFilter() {
 			currentFilter = category
 			targetElement.classList.add('--active')
 			navBlock.style.setProperty('--positionLeft', `${targetElement.offsetLeft / 16}rem`)
-			navBlock.style.setProperty('--widthLine', `${targetElement.offsetWidth / 16}rem`)
+			navBlock.style.setProperty('--widthLine', `${(targetElement.offsetWidth - 0.5) / 16}rem`)
 
 			items.forEach(item => {
 				const category = item.dataset.filterCategory
