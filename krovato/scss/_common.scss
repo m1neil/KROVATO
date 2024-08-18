@@ -27,11 +27,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: toRem(15);
+	&--small {
+		gap: toRem(10);
+	}
 	// .list-social__item
 	&__item {
-		width: toRem(40);
-		height: toRem(40);
+		inline-size: toRem(40);
+		aspect-ratio: 1;
 		flex-shrink: 0;
+		.list-social--small & {
+			inline-size: toRem(30);
+		}
 	}
 	// .list-social__link
 	&__link {

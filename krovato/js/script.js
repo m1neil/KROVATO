@@ -42,6 +42,11 @@ function windowLoaded() {
 		})
 	}
 
+	const googleMapSelector = '#map'
+	if (document.querySelector(googleMapSelector)) {
+		initMap(googleMapSelector)
+	}
+
 	// move elements ====================================================================
 	moveFooterSocial()
 	matchMedia.addEventListener("change", moveFooterSocial)
@@ -1025,4 +1030,40 @@ function initFilter() {
 			})
 		}
 	})
+}
+
+async function initMap(selector) {
+	const { Map } = await google.maps.importLibrary("maps");
+	const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+	const pinIcon = document.createElement("img");
+	pinIcon.src = '../img/icons/locationpin.svg'
+	const map = new Map(document.querySelector(selector), {
+		center: { lat: 50.39610931979366, lng: 30.42378425088765 },
+		zoom: 18,
+		mapId: '547deaae7abeb0d1'
+	});
+
+	const marker = new AdvancedMarkerElement({
+		map,
+		position: { lat: 50.39610931979366, lng: 30.42378425088765 },
+		gmpClickable: true,
+		content: pinIcon
+	});
+	const contentString =
+		'<div id="content">' +
+		'<div id="siteNotice">' +
+		"</div>" +
+		'<h1 style="margin-bottom: 5px; font-weight: 700;" id="firstHeading" class="firstHeading">KROVATO</h1>' +
+		'<div id="bodyContent">' +
+		"<p>Магазин меблів для дому Krovato є дистриб'ютором високоякісних меблів.</p>" +
+		"</div>" +
+		"</div>";
+	const infowindow = new google.maps.InfoWindow({
+		content: contentString,
+		ariaLabel: "Uluru",
+	});
+
+	marker.addEventListener("click", () => {
+		infowindow.open(map, marker);
+	});
 }
