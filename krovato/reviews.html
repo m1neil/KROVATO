@@ -3,9 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="css/style.css">
-		<title>Блог - KROVATO</title>
+		<title>Відгуки - KROVATO</title>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -632,99 +631,365 @@
 				</div>
 			</header>
 			<!-- main -->
-			<main class="blog">
-				<div class="blog__breadcrumbs breadcrumbs">
+			<main class="reviews-page">
+				<div class="reviews-page__breadcrumbs breadcrumbs">
 					<div class="breadcrumbs__container">
 						<ul class="breadcrumbs__list">
 							<li class="breadcrumbs__item">
 								<a href="home.html" class="breadcrumbs__link">Головна</a>
 							</li>
-							<li class="breadcrumbs__item">Блог</li>
+							<li class="breadcrumbs__item">Відгуки</li>
 						</ul>
 					</div>
 				</div>
-				<div class="blog__articles articles-blog">
-					<div class="articles-blog__container">
-						<div class="articles-blog__block-header block-header block-header--margin">
+				<section class="reviews-page__block block-reviews">
+					<div class="block-reviews__container">
+						<div class="block-reviews__block-header block-header block-header--margin">
 							<div class="block-header__body">
-								<h1 class="block-header__title title">Блог</h1>
+								<h1 class="block-header__title title">Відгуки</h1>
 							</div>
 						</div>
-						<div class="articles-blog__items">
-							<article class="articles-blog__article article">
-								<a href="#" class="article__image">
-									<img src="img/articles/01.webp" alt="Стільці для вітальні. Як правильно вибрати?">
-								</a>
-								<div class="article__body">
-									<h2 class="article__title">Стільці для вітальні. Як правильно вибрати?</h2>
-									<a href="#" class="article__more more">Детальніше</a>
+						<div class="block-reviews__body">
+							<div data-filter class="block-reviews__content content-block-reviews">
+								<div data-filter-nav class="content-block-reviews__nav-filter nav-filter-reviews">
+									<button data-filter-button="all" type="button" class="nav-filter-reviews__button --active">Всі відгуки</button>
+									<button data-filter-button="product" type="button" class="nav-filter-reviews__button">Про товари</button>
+									<button data-filter-button="shop" type="button" class="nav-filter-reviews__button">Про Магазин</button>
 								</div>
-							</article>
-							<article class="articles-blog__article article">
-								<a href="#" class="article__image">
-									<img src="img/articles/02.webp" alt="Що краще вибрати для кухні – стільці чи кухонний куточок?">
-								</a>
-								<div class="article__body">
-									<h2 class="article__title">Що краще вибрати для кухні – стільці чи кухонний куточок?</h2>
-									<a href="#" class="article__more more">Детальніше</a>
+								<div class="content-block-reviews__items">
+									<article data-filter-category="shop" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Іван Стедниця
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Вчора привезли ліжко, і воно дуже класне, краще ніж очікували. Велика, м'яка, зручна. Брали разом із матрацом, тому одразу випробували. Є велика ніша для зберігання, поміститься не тільки постіль.
+											</p>
+										</div>
+										<h6 class="item-review-product__user user user--font-bold user--fz-big user--krovato">
+											krovato
+										</h6>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Ольга
+											</h6>
+											<div data-rating="4.5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Покупали сыну игровое кресло в подарок. Качество супер, очень удобное и отлично поддерживает спину. В общем подарком более чем доволен) Отдельное спасибо магазину Мебельок за помощь в выборе кресла!
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/09.webp" alt="Крісло для геймерів AEROCOOL EARL Steel Blue">
+											Крісло для геймерів AEROCOOL EARL Steel Blue
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Надія
+											</h6>
+											<div data-rating="3.5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Для меня это супер-функциональный предмет мебели в моей спальне. Ящиков не много и не мало, все помещается. А удобная полочка сбоку дает возможность отставить туда часть вещей, дабы не загораживать зеркало. К качеству тоже претензий не имею, на вид добротно. Обслуживание - тоже на высоте.
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products//10.webp" alt="Трюмо-7">
+											Трюмо-7
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Максим
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Стулья симпатичные и стильные, на кухне смотрятся отлично! Очень удобно на них сидеть и качество так же радует. Доставили быстро. Рекомендую!
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/09.webp" alt="Стілець обідній Kansas чорний/velvet grey">
+											Стілець обідній Kansas чорний/velvet grey
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Галина
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Кухни подобрали нам по размеру, понравилось качество мебели, кухня собрана очень хорошо. Сборщики собрали все за день. Понравилось как отрегулировали фасады , все в уровень , везде одинаковый зазор.
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/11.webp" alt="Кухня Аліна 3,2">
+											Кухня Аліна 3,2
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Ольга
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Покупали сыну игровое кресло в подарок. Качество супер, очень удобное и отлично поддерживает спину. В общем подарком более чем доволен) Отдельное спасибо магазину Мебельок за помощь в выборе кресла!
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/09.webp" alt="Крісло для геймерів AEROCOOL EARL Steel Blue">
+											Крісло для геймерів AEROCOOL EARL Steel Blue
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Надія
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Отличная работа менеджера, доставили в указанное время, собрали быстро и качественно. Спасибо за работу.
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/01.webp" alt="Ліжко Саванна гірка">
+											Ліжко Саванна гірка
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Екатерина
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Добрый день всем. Работаем в большом родильном отделении многопрофильной больницы. Очень долго искали партнеров для приобретения мебели, что бы было не только красиво, стильно, удобно, комфортно, но и бюджетно. Вот уже второй год сотрудничаем с компанией mebelok. Заказывали матрасы, кровати, офисные диванчики. Очень благодарны специалистам предприятия за быструю обратную связь, квалифицированные консультации, оперативную доставку товара и конечно же за качество производимой продукции. Очень рады, что в Украине есть такие предприятия, которые производят качественный, добротный товар. Ждем следующий заказ (кровати для молодых мамочек) и надеемся на дальнейшее сотрудничество. Екатерина
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/12.webp" alt="Ортопедический матрас Эко-Lite 90х190">
+											Ортопедический матрас Эко-Lite 90х190
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Назар
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												спасибо менеджерам на бажана за то что помогли выбрать даный журнальный столик в гостинную! очень стильный, вписался идеально, при этом цена очень даже приемлема как для такого товара)
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/13.webp" alt="Столик журнальний СЖ-101">
+											Столик журнальний СЖ-101
+										</a>
+									</article>
+									<article data-filter-category="product" class="content-block-reviews__item item-review-product">
+										<div class="item-review-product__header">
+											<h6 class="item-review-product__user user">
+												Ольга
+											</h6>
+											<div data-rating="5" class="item-review-product__rating rating">
+												<div class="rating__stars">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+											</div>
+											<time datetime="2022-01-25" class="item-review-product__date date">25.01.2022</time>
+										</div>
+										<div class="item-review-product__text text-review">
+											<p>
+												Покупали сыну игровое кресло в подарок. Качество супер, очень удобное и отлично поддерживает спину. В общем подарком более чем доволен) Отдельное спасибо магазину Мебельок за помощь в выборе кресла!
+											</p>
+										</div>
+										<a href="#" class="item-review-product__product">
+											<img src="img/products/09.webp" alt="Крісло для геймерів AEROCOOL EARL Steel Blue">
+											Крісло для геймерів AEROCOOL EARL Steel Blue
+										</a>
+									</article>
 								</div>
-							</article>
-							<article class="articles-blog__article article">
-								<a href="#" class="article__image">
-									<img src="img/articles/01.webp" alt="Оформлення вітальні. Які м'які меблі краще вибрати?">
-								</a>
-								<div class="article__body">
-									<h2 class="article__title">Оформлення вітальні. Які м'які меблі краще вибрати?</h2>
-									<a href="#" class="article__more more">Детальніше</a>
+							</div>
+							<aside class="block-reviews__aside aside-block-reviews">
+								<div class="aside-block-reviews__body body-reviews">
+									<div class="body-reviews__block-header block-header">
+										<div class="block-header__body">
+											<h2 class="block-header__title title">Останні відгуки</h2>
+										</div>
+									</div>
+									<div class="body-reviews__wrapper">
+										<div class="body-reviews__logo">
+											<img src="img/logo-tiny.svg" alt="KROVATO">
+										</div>
+										<div class="body-reviews__content">
+											<h3 class="body-reviews__title">Магазин меблів для дому «KROVATO»</h3>
+											<div data-rating="5" class="body-reviews__rating rating">
+												<div class="rating__value">5.0</div>
+												<div class="rating__stars rating__stars--orange">
+													<div class="rating__active">
+														<img src="img/icons/rating/star-orange.svg" alt="star" class="rating__star">
+													</div>
+													<div class="rating__passive">
+														<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star">
+													</div>
+												</div>
+												<div class="rating__text">Базовано на відгуках: 269</div>
+											</div>
+										</div>
+									</div>
 								</div>
-							</article>
-							<article class="articles-blog__article article">
-								<a href="#" class="article__image">
-									<img src="img/articles/01.webp" alt="Стільці для вітальні. Як правильно вибрати?">
-								</a>
-								<div class="article__body">
-									<h2 class="article__title">Стільці для вітальні. Як правильно вибрати?</h2>
-									<a href="#" class="article__more more">Детальніше</a>
+								<div class="aside-block-reviews__add-review add-review-product">
+									<h5 class="add-review-product__title title title--center title--mini">Залишіть свій відгук про магазин</h5>
+									<form action="#" class="add-review-product__form">
+										<div class="add-review-product__fields">
+											<input placeholder="Ваше ім'я прізвище" type="text" name="user-name" class="add-review-product__input input">
+											<input placeholder="E-mail" type="email" name="email" class="add-review-product__input input">
+											<textarea placeholder="Відгук" name="review" class="add-review-product__textarea input"></textarea>
+										</div>
+										<div data-rating="0" class="add-review-product__rating rating rating--center">
+											<h6 class="rating__title">Ваша оцінка:</h6>
+											<div class="rating__stars rating__stars--orange">
+												<div class="rating__active">
+													<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star rating__star--big">
+												</div>
+												<div class="rating__passive">
+													<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star rating__star--big">
+												</div>
+												<div class="rating__radios">
+													<input type="radio" name="rating" value="1" class="rating__radio">
+													<input type="radio" name="rating" value="2" class="rating__radio">
+													<input type="radio" name="rating" value="3" class="rating__radio">
+													<input type="radio" name="rating" value="4" class="rating__radio">
+													<input type="radio" name="rating" value="5" class="rating__radio">
+												</div>
+											</div>
+										</div>
+										<button type="submit" class="add-review-product__button button-link button-link--full-width">Залишити відгук</button>
+									</form>
 								</div>
-							</article>
-							<article class="articles-blog__article article">
-								<a href="#" class="article__image">
-									<img src="img/articles/02.webp" alt="Що краще вибрати для кухні – стільці чи кухонний куточок?">
-								</a>
-								<div class="article__body">
-									<h2 class="article__title">Що краще вибрати для кухні – стільці чи кухонний куточок?</h2>
-									<a href="#" class="article__more more">Детальніше</a>
-								</div>
-							</article>
-							<article class="articles-blog__article article">
-								<a href="#" class="article__image">
-									<img src="img/articles/01.webp" alt="Оформлення вітальні. Які м'які меблі краще вибрати?">
-								</a>
-								<div class="article__body">
-									<h2 class="article__title">Оформлення вітальні. Які м'які меблі краще вибрати?</h2>
-									<a href="#" class="article__more more">Детальніше</a>
-								</div>
-							</article>
+							</aside>
 						</div>
-						<div class="articles-blog__pagination pagination-content">
-							<button type="button" class="pagination-content__button pagination-content__button--arrow pagination-content__button--prev _icon-arrow-down"></button>
-							<button type="button" class="pagination-content__button pagination-content__button--current">1</button>
-							<button type="button" class="pagination-content__button">2</button>
-							<button type="button" class="pagination-content__button">3</button>
-							<button type="button" class="pagination-content__button">4</button>
-							<button type="button" class="pagination-content__button">5</button>
-							<button type="button" class="pagination-content__button">6</button>
-							<button type="button" class="pagination-content__button">7</button>
-							<button type="button" class="pagination-content__button">...</button>
-							<button type="button" class="pagination-content__button">18</button>
-							<button type="button" class="pagination-content__button pagination-content__button--arrow pagination-content__button--next _icon-arrow-down"></button>
-						</div>
-						<button type="button" class="articles-blog__more button-link _icon-download-more">
-							Показати ще товари
-						</button>
 					</div>
-				</div>
-				<div class="blog__benefits benefits">
+				</section>
+				<div class="reviews-page__benefits benefits">
 					<div class="benefits__container">
 						<div class="benefits__item">
 							<img src="img/icons/benefits/preim-1.svg" alt="Безкоштовна доставка" class="benefits__icon">

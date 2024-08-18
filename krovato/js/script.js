@@ -68,6 +68,7 @@ function windowLoaded() {
 		initSliders()
 	initRating()
 	initRange()
+	initFilter()
 
 	const inputPhone = document.querySelector('.bottom-product__input')
 	if (inputPhone) {
@@ -350,7 +351,7 @@ function windowLoaded() {
 
 	// move add review form
 	function moveReviewForm() {
-		const addReviewProduct = document.querySelector('.add-review-product')
+		const addReviewProduct = document.querySelector('.bout-product__add-review')
 		if (!addReviewProduct) return
 		const container = document.querySelector('.about-product__container')
 		const elementNearNeedPlace = document.querySelector('.body-about-product__characteristic')
@@ -954,3 +955,60 @@ function initRange() {
 	}
 }
 
+function initFilter() {
+	const filter = document.querySelector('[data-filter]')
+	if (!filter) return
+	const items = filter.querySelectorAll('[data-filter-category]')
+	const navBlock = filter.querySelector('[data-filter-nav]')
+	let currentFilter = 'all'
+	navBlock.addEventListener('click', e => {
+		const target = e.target
+		if (target.closest('[data-filter-button]')) {
+			const targetElement = target.closest('[data-filter-button]')
+			const category = targetElement.dataset.filterButton
+			if (currentFilter === category) return
+
+			const activeButton = navBlock.querySelector('[data-filter-button].--active')
+			if (activeButton)
+				activeButton.classList.remove('--active')
+
+			currentFilter = category
+			targetElement.classList.add('--active')
+			navBlock.style.setProperty('--positionLeft', `${targetElement.offsetLeft / 16}rem`)
+			navBlock.style.setProperty('--widthLine', `${targetElement.offsetWidth / 16}rem`)
+
+			items.forEach(item => {
+				const category = item.dataset.filterCategory
+				if (category === currentFilter || currentFilter === 'all') {
+					if (!item.classList.contains('--hide')) return
+					item.classList.remove('--hide')
+					item.style.boxSizing = 'content-box'
+					item.style.removeProperty('padding-block')
+					item.style.removeProperty('margin')
+					item.style.removeProperty('border-color')
+					item.style.removeProperty('opacity')
+					item.offsetHeight
+					item.style.blockSize = item.scrollHeight + 'px'
+					setTimeout(() => {
+						item.style.removeProperty('block-size')
+						item.style.removeProperty('box-sizing')
+						item.style.removeProperty('opacity')
+						item.style.removeProperty('transition')
+						item.style.removeProperty('overflow')
+					}, 600);
+				} else {
+					item.classList.add('--hide')
+					item.style.blockSize = item.scrollHeight + 'px'
+					item.offsetHeight
+					item.style.transition = 'all 0.6s'
+					item.style.overflow = 'hidden'
+					item.style.blockSize = 0
+					item.style.paddingBlock = 0
+					item.style.opacity = 0
+					item.style.margin = 0
+					item.style.borderColor = 'transparent'
+				}
+			})
+		}
+	})
+}

@@ -1,0 +1,118 @@
+.reviews-page {
+	// .reviews-page__breadcrumbs
+	&__breadcrumbs {
+	}
+	// .reviews-page__block
+	&__block {
+	}
+	// .reviews-page__benefits
+	&__benefits {
+	}
+}
+
+.block-reviews {
+	// .block-reviews__container
+	&__container {
+	}
+	// .block-reviews__block-header
+	&__block-header {
+	}
+}
+
+.content-block-reviews {
+	// .content-block-reviews__nav-filter
+	&__nav-filter {
+		&:not(:last-child) {
+			margin-block-end: toRem(40);
+		}
+	}
+	// .content-block-reviews__items
+	&__items {
+	}
+	// .content-block-reviews__item
+	&__item {
+		padding: toRem(30);
+		@extend %design-block;
+		& > *:not(:last-child) {
+			margin-block-end: toRem(30);
+		}
+		&:not(:last-child) {
+			padding-block-end: toRem(30);
+			margin-block-end: toRem(30);
+			border-bottom: toRem(1) solid #e3e2e2;
+		}
+	}
+}
+.nav-filter-reviews {
+	position: relative;
+	display: flex;
+	column-gap: toRem(30);
+	padding-block-end: toRem(20);
+	--positionLeft: 0;
+	--widthLine: 6.375rem;
+	&::before {
+		content: "";
+		position: absolute;
+		inline-size: 100%;
+		block-size: toRem(3);
+		background-color: #fff;
+		inset-block-end: 0;
+		inset-inline-start: 0;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		inline-size: var(--widthLine);
+		block-size: toRem(3);
+		background-color: $yellowColor;
+		inset-block-end: 0;
+		inset-inline-start: var(--positionLeft);
+		transition:
+			inset-inline-start 0.3s,
+			inline-size 0.3s;
+	}
+	// .nav-filter-reviews__button
+	&__button {
+		font-size: toRem(20);
+		font-weight: 600;
+		line-height: 1.4;
+		transition: color 0.3s;
+		&.--active {
+			color: $yellowColor;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $yellowColor;
+			}
+		}
+	}
+}
+
+.aside-block-reviews {
+	// .aside-block-reviews__body
+	&__body {
+	}
+	// .aside-block-reviews__add-review
+	&__add-review {
+	}
+}
+.body-reviews {
+	// .body-reviews__block-header
+	&__block-header {
+	}
+	// .body-reviews__wrapper
+	&__wrapper {
+	}
+	// .body-reviews__logo
+	&__logo {
+	}
+	// .body-reviews__content
+	&__content {
+	}
+	// .body-reviews__title
+	&__title {
+	}
+	// .body-reviews__rating
+	&__rating {
+	}
+}

@@ -1235,6 +1235,12 @@
 			background: url("../img/logo-tiny.svg") center / toRem(36) no-repeat;
 		}
 	}
+	&--font-bold {
+		font-weight: 600;
+	}
+	&--fz-big {
+		font-size: toRem(20);
+	}
 }
 
 .date {
