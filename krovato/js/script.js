@@ -94,6 +94,20 @@ function windowLoaded() {
 			input.value = input.value > 0 ? ++input.value : 1
 		}
 
+		if (target.closest('[data-goto]')) {
+			e.preventDefault()
+			const targetElement = target.closest('[data-goto]')
+			const selector = targetElement.dataset.goto
+			if (selector && document.querySelector(selector)) {
+				const element = document.querySelector(selector)
+				const elementTop = element.getBoundingClientRect().top - header.offsetHeight
+				window.scrollBy({
+					top: elementTop,
+					behavior: 'smooth'
+				})
+			}
+		}
+
 		// cart ==============================================================
 		if (target.closest(".middle-header__button._icon-cart"))
 			document.documentElement.classList.toggle("cart-open")
