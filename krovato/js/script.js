@@ -1047,7 +1047,7 @@ async function initMap(selector) {
 		map,
 		position: { lat: 50.39610931979366, lng: 30.42378425088765 },
 		gmpClickable: true,
-		content: pinIcon
+		content: pinIcon,
 	});
 	const contentString =
 		'<div id="content">' +
