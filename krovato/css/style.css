@@ -7722,8 +7722,10 @@ textarea.input {
   -webkit-transition: padding-block 0.2s;
   transition: padding-block 0.2s;
 }
-.--sticky .top-header {
-  padding-block: 0.8125rem;
+@media (min-width: 47.99875em) {
+  .--sticky .top-header {
+    padding-block: 0.8125rem;
+  }
 }
 @media (min-width: 47.99875em) {
   .top-header {
@@ -7782,6 +7784,12 @@ textarea.input {
         -ms-flex-direction: column;
             flex-direction: column;
     row-gap: 1.5625rem;
+  }
+}
+@media (max-width: 61.99875em) and (min-width: 47.99875em) {
+  .--sticky .top-header__container {
+    -webkit-padding-before: 4.6875rem;
+            padding-block-start: 4.6875rem;
   }
 }
 .top-header__actions {

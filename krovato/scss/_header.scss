@@ -44,9 +44,12 @@
 	background-color: $lightColor;
 	position: relative;
 	transition: padding-block 0.2s;
-	.--sticky & {
-		padding-block: toRem(13);
+	@media (min-width: $mobile) {
+		.--sticky & {
+			padding-block: toRem(13);
+		}
 	}
+
 	@media (min-width: $mobile) {
 		z-index: 3;
 	}
@@ -83,6 +86,11 @@
 		@media (max-width: $tablet) {
 			flex-direction: column;
 			row-gap: toRem(25);
+		}
+		@media (max-width: $tablet) and (min-width: $mobile) {
+			.--sticky & {
+				padding-block-start: toRem(75);
+			}
 		}
 	}
 	// .top-header__menu
