@@ -429,9 +429,14 @@
 	// .item-option-product__radios
 	&__radios {
 		display: flex;
+		align-items: flex-start;
 		flex-wrap: wrap;
 		gap: toRem(20);
 		overflow: hidden;
+		margin-block-start: toRem(-10);
+		margin-inline: toRem(-10);
+		padding-block-start: toRem(10);
+		padding-inline: toRem(10);
 		@media (max-width: $mobile) {
 			gap: toRem(15);
 		}
@@ -442,7 +447,6 @@
 		flex: 0 0 toRem(70);
 		aspect-ratio: 1;
 		border-radius: 50%;
-		overflow: hidden;
 		@media (max-width: toEm(600)) {
 			flex-basis: toRem(50);
 		}
@@ -479,14 +483,21 @@
 		appearance: none;
 		border-radius: 50%;
 		border: toRem(5) solid transparent;
-		transition: border-color 0.3s;
+		transition:
+			border-color 0.3s,
+			outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
 		cursor: pointer;
 		&:checked {
 			border-color: $yellowColor;
 		}
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 	}
 	&__button {
-		margin-block-start: toRem(20);
+		margin-block-start: toRem(10);
 		display: inline-flex;
 		flex-direction: row-reverse;
 		column-gap: toRem(18);
@@ -566,10 +577,15 @@
 	// .bottom-product__phone
 	&__phone {
 		position: relative;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(7);
+		transition: outline-color 0.3s;
+		border-radius: toRem(3);
 		&::before {
 			position: absolute;
 			inset-inline-start: 0;
 			inset-block-start: 50%;
+			cursor: pointer;
 			transform: translate(0, -50%);
 			flex-shrink: 0;
 			font-size: toRem(26);
@@ -581,12 +597,13 @@
 				color: $mainColor;
 			}
 		}
+		&:has(.bottom-product__input:focus-visible) {
+			outline-color: $yellowColor;
+		}
 	}
 	// .bottom-product__input
 	&__input {
-		// inline-size: 100%;
 		inline-size: toRem(250);
-		// max-inline-size: toRem(250);
 		padding-inline-start: toRem(48);
 		font-size: toRem(20);
 		font-weight: 600;

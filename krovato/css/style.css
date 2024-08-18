@@ -4389,10 +4389,19 @@ textarea.input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1.25rem;
   overflow: hidden;
+  -webkit-margin-before: -0.625rem;
+          margin-block-start: -0.625rem;
+  margin-inline: -0.625rem;
+  -webkit-padding-before: 0.625rem;
+          padding-block-start: 0.625rem;
+  padding-inline: 0.625rem;
 }
 @media (max-width: 47.99875em) {
   .item-option-product__radios {
@@ -4406,7 +4415,6 @@ textarea.input {
           flex: 0 0 4.375rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  overflow: hidden;
 }
 @media (max-width: 37.5em) {
   .item-option-product__radio {
@@ -4449,16 +4457,21 @@ textarea.input {
           appearance: none;
   border-radius: 50%;
   border: 0.3125rem solid transparent;
-  -webkit-transition: border-color 0.3s;
-  transition: border-color 0.3s;
+  -webkit-transition: border-color 0.3s, outline-color 0.3s;
+  transition: border-color 0.3s, outline-color 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
   cursor: pointer;
 }
 .item-option-product__input:checked {
   border-color: #ffbc57;
 }
+.item-option-product__input:focus-visible {
+  outline-color: #ffbc57;
+}
 .item-option-product__button {
-  -webkit-margin-before: 1.25rem;
-          margin-block-start: 1.25rem;
+  -webkit-margin-before: 0.625rem;
+          margin-block-start: 0.625rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -4582,11 +4595,17 @@ textarea.input {
 }
 .bottom-product__phone {
   position: relative;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.4375rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+  border-radius: 0.1875rem;
 }
 .bottom-product__phone::before {
   position: absolute;
   inset-inline-start: 0;
   inset-block-start: 50%;
+  cursor: pointer;
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
@@ -4599,6 +4618,9 @@ textarea.input {
 }
 .bottom-product__phone:has(.bottom-product__input:focus)::before {
   color: #2b2929;
+}
+.bottom-product__phone:has(.bottom-product__input:focus-visible) {
+  outline-color: #ffbc57;
 }
 .bottom-product__input {
   inline-size: 15.625rem;
