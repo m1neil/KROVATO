@@ -1008,6 +1008,7 @@ function initFilter() {
 					item.style.removeProperty('margin')
 					item.style.removeProperty('border-color')
 					item.style.removeProperty('opacity')
+					item.style.removeProperty('visibility')
 					item.offsetHeight
 					item.style.blockSize = item.scrollHeight + 'px'
 					setTimeout(() => {
@@ -1029,6 +1030,7 @@ function initFilter() {
 					item.style.opacity = 0
 					item.style.margin = 0
 					item.style.borderColor = 'transparent'
+					item.style.visibility = 'hidden'
 					setTimeout(() => {
 						item.classList.remove('--slide')
 					}, 600)
