@@ -982,7 +982,8 @@ function initFilter() {
 	let currentFilter = 'all'
 	navBlock.addEventListener('click', e => {
 		const target = e.target
-		if (target.closest('[data-filter-button]')) {
+		if (target.closest('[data-filter-button]') &&
+			!document.querySelectorAll('.--slide').length) {
 			const targetElement = target.closest('[data-filter-button]')
 			const category = targetElement.dataset.filterButton
 			if (currentFilter === category) return
@@ -1001,6 +1002,7 @@ function initFilter() {
 				if (category === currentFilter || currentFilter === 'all') {
 					if (!item.classList.contains('--hide')) return
 					item.classList.remove('--hide')
+					item.classList.add('--slide')
 					item.style.boxSizing = 'content-box'
 					item.style.removeProperty('padding-block')
 					item.style.removeProperty('margin')
@@ -1014,9 +1016,10 @@ function initFilter() {
 						item.style.removeProperty('opacity')
 						item.style.removeProperty('transition')
 						item.style.removeProperty('overflow')
+						item.classList.remove('--slide')
 					}, 600);
 				} else {
-					item.classList.add('--hide')
+					item.classList.add('--hide', '--slide')
 					item.style.blockSize = item.scrollHeight + 'px'
 					item.offsetHeight
 					item.style.transition = 'all 0.6s'
@@ -1026,6 +1029,9 @@ function initFilter() {
 					item.style.opacity = 0
 					item.style.margin = 0
 					item.style.borderColor = 'transparent'
+					setTimeout(() => {
+						item.classList.remove('--slide')
+					}, 600)
 				}
 			})
 		}
