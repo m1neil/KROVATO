@@ -800,6 +800,7 @@
 			transition:
 				opacity 0.3s,
 				transform 0.3s;
+			will-change: transform;
 			&:first-child {
 			}
 			&:last-child {

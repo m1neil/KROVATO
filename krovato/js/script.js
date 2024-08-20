@@ -24,6 +24,14 @@ function windowLoaded() {
 		document.documentElement.classList.add("--firefox")
 	}
 
+	if (lang) {
+		if (isMobile)
+			lang.setAttribute('aria-label', 'Показати або сховати інші мови')
+		else
+			lang.removeAttribute('aria-label')
+	}
+
+
 	const header = document.querySelector('.header')
 
 	window.addEventListener('scroll', () => {
@@ -489,6 +497,7 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 			if (titles.length > 0) {
 				titles.forEach(title => {
 					title.removeAttribute("tabindex")
+					title.setAttribute('aria-label', 'Відкрити або закрити контент')
 					if (!title.classList.contains("--active")) {
 						title.nextElementSibling.hidden = true
 					}
@@ -505,6 +514,7 @@ function initSpollerBody(arraySpollerBlocks, matchMedia = false) {
 					.filter(item => item.closest('[data-spollers]') === spollerBlock)
 			if (titles.length > 0) {
 				titles.forEach((title) => {
+					title.removeAttribute('aria-label')
 					title.setAttribute("tabindex", -1)
 					title.nextElementSibling.hidden = false
 				})

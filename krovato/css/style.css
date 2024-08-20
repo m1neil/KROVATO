@@ -789,6 +789,7 @@ textarea.input {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  will-change: transform;
   aspect-ratio: 260/220;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
@@ -995,6 +996,7 @@ textarea.input {
   z-index: 1;
   display: block;
   overflow: hidden;
+  will-change: transform;
 }
 .article__image img {
   width: 100%;
@@ -5597,6 +5599,7 @@ textarea.input {
   background-color: #ffbc57;
   font-size: 0.875rem;
   color: #fff;
+  will-change: transform;
   -webkit-transform: translate(-50%, -50%) scale(0.5);
       -ms-transform: translate(-50%, -50%) scale(0.5);
           transform: translate(-50%, -50%) scale(0.5);
@@ -8608,6 +8611,7 @@ textarea.input {
   transition: opacity 0.3s, -webkit-transform 0.3s;
   transition: opacity 0.3s, transform 0.3s;
   transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  will-change: transform;
 }
 .catalog-header__icon span:last-child {
   opacity: 0;

@@ -203,6 +203,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			will-change: transform;
 			aspect-ratio: 260 / 220;
 			transition: transform 0.3s;
 			&:hover {
@@ -372,6 +373,7 @@
 		z-index: 1;
 		display: block;
 		overflow: hidden;
+		will-change: transform;
 		img {
 			width: 100%;
 			object-fit: cover;
