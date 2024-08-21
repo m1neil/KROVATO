@@ -18,10 +18,16 @@ button.swiper-pagination-bullet {
 	border-radius: 50%;
 	background-color: $lightColor;
 	border: toRem(3) solid $greyLightColor;
+	outline: toRem(2) solid transparent;
+	outline-offset: toRem(2);
 	transition:
 		background-color 0.3s,
-		border-color 0.3s;
+		border-color 0.3s,
+		outline-color 0.3s;
 	opacity: 1;
+	&:focus-visible {
+		outline-color: $yellowColor;
+	}
 }
 
 button.swiper-pagination-bullet-active {
@@ -58,7 +64,14 @@ button.swiper-pagination-bullet-active {
 	z-index: 10;
 	background-color: #fff;
 	border-radius: 50%;
-	transition: background-color 0.3s;
+	transition:
+		background-color 0.3s,
+		outline-color 0.3s;
+	outline: toRem(2) solid transparent;
+	outline-offset: toRem(-2);
+	&:focus-visible {
+		outline-color: $greyColor;
+	}
 	&::before {
 		transition: color 0.3s;
 		font-size: toRem(20);

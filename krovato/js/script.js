@@ -665,7 +665,6 @@ function initSliders() {
 
 	// sales
 	new Swiper(".sales__slider", {
-		loop: true,
 		speed: 800,
 		touchAngle: 45,
 		touchRatio: 0.8,
@@ -679,10 +678,6 @@ function initSliders() {
 		navigation: {
 			nextEl: ".sales .block-header__next",
 			prevEl: ".sales .block-header__prev",
-		},
-		autoplay: {
-			delay: 3000,
-			pauseOnMouseEnter: true,
 		},
 		slidesPerView: 3,
 		breakpoints: {
@@ -769,7 +764,6 @@ function initSliders() {
 
 	// articles slider
 	new Swiper(".news__slider", {
-		loop: true,
 		speed: 800,
 		touchAngle: 45,
 		touchRatio: 0.8,
@@ -783,10 +777,6 @@ function initSliders() {
 		navigation: {
 			nextEl: ".news .block-header__next",
 			prevEl: ".news .block-header__prev",
-		},
-		autoplay: {
-			delay: 3000,
-			pauseOnMouseEnter: true,
 		},
 		slidesPerView: 1,
 		spaceBetween: 15,

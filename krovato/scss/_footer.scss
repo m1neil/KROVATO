@@ -110,6 +110,13 @@
 	// .social-top-footer__link
 	&__link {
 		flex-shrink: 0;
+		outline: toRem(2) solid transparent;
+		border-radius: 50%;
+		outline-offset: toRem(3);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		img {
 			border-radius: 50%;
 			width: toRem(40);
@@ -171,7 +178,9 @@
 		font-weight: 600;
 		line-height: 1.4;
 		width: 100%;
-
+		&[tabindex="-1"] {
+			cursor: default;
+		}
 		&::before {
 			display: none;
 		}
@@ -223,6 +232,13 @@
 			color: #f8f8f8;
 			font-size: toRem(17);
 			line-height: 1.41;
+			outline: toRem(2) solid transparent;
+			border-radius: toRem(2);
+			outline-offset: toRem(3);
+			transition: outline-color 0.3s;
+			&:focus-visible {
+				outline-color: $yellowColor;
+			}
 			@media (any-hover: hover) {
 				&:hover {
 					text-decoration: underline;
@@ -307,6 +323,13 @@
 		}
 		a {
 			position: relative;
+			transition: outline-color 0.3s;
+			outline: toRem(2) solid transparent;
+			border-radius: toRem(3);
+			outline-offset: toRem(3);
+			&:focus-visible {
+				outline-color: $yellowColor;
+			}
 			&::after {
 				content: "";
 				position: absolute;
@@ -330,6 +353,13 @@
 	&__call-back {
 		color: $yellowColor;
 		position: relative;
+		transition: outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(3);
+		outline-offset: toRem(3);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			content: "";
 			position: absolute;

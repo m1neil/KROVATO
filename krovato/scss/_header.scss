@@ -136,6 +136,10 @@
 		line-height: 1.2;
 		position: relative;
 		color: $greyColor;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		transition: outline-color 0.3s;
+		border-radius: toRem(2);
 		&::before {
 			content: "";
 			position: absolute;
@@ -145,6 +149,9 @@
 			left: 0;
 			background-color: $greyColor;
 			transition: width 0.5s;
+		}
+		&:focus-visible {
+			outline-color: $yellowColor;
 		}
 		@media (any-hover: hover) {
 			&:hover {
@@ -185,6 +192,13 @@
 	// .social-top-header__link
 	&__link {
 		height: toRem(30);
+		outline: toRem(2) solid transparent;
+		transition: outline-color 0.3s;
+		outline-offset: toRem(3);
+		border-radius: 50%;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		img {
 			height: 100%;
 			transition: transform 0.4s;
@@ -209,8 +223,16 @@
 		align-items: center;
 		color: $greyColor;
 		font-weight: 600;
-		transition: color 0.5s;
+		transition:
+			color 0.5s,
+			outline-color 0.5s;
 		cursor: pointer;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(1);
+		outline-offset: toRem(3);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			flex-shrink: 0;
 			font-size: toRem(10);
@@ -275,7 +297,15 @@
 	&__link {
 		font-size: toRem(19);
 		font-weight: 600;
-		transition: color 0.3s;
+		transition:
+			color 0.3s,
+			outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(1);
+		outline-offset: toRem(3);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				color: $yellowColor;
@@ -354,6 +384,13 @@
 	&__logo {
 		width: toRem(250);
 		flex-shrink: 0;
+		outline: toRem(2) solid transparent;
+		transition: outline-color 0.3s;
+		outline-offset: toRem(5);
+		border-radius: toRem(3);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		img {
 			width: 100%;
 		}
@@ -392,8 +429,8 @@
 	// .middle-header__button
 	&__button {
 		flex-shrink: 0;
-		width: toRem(50);
-		height: toRem(50);
+		inline-size: toRem(50);
+		block-size: toRem(50);
 		border-radius: 50%;
 		border: toRem(2) solid $yellowColor;
 		color: $greyColor;
@@ -403,7 +440,13 @@
 		font-size: toRem(24);
 		transition:
 			background-color 0.3s,
-			color 0.3s;
+			color 0.3s,
+			outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&--search {
 			display: none;
 			position: relative;
@@ -775,7 +818,14 @@
 		background-color: $yellowColor;
 		padding: toRem(12) toRem(22);
 		border-radius: toRem(8);
-		transition: background-color 0.3s;
+		transition:
+			background-color 0.3s,
+			outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(4);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				background-color: $greyColor;
@@ -787,7 +837,7 @@
 	}
 	// .catalog-header__icon
 	&__icon {
-		width: toRem(20);
+		inline-size: toRem(20);
 		aspect-ratio: 1 / 1;
 		flex-shrink: 0;
 		position: relative;
@@ -1000,11 +1050,17 @@
 	&__input {
 		width: 100%;
 		height: toRem(50);
-		border-radius: 8px;
+		border-radius: toRem(8);
 		border: toRem(1) solid $greyLightColor;
 		background-color: #fff;
 		font-size: toRem(16);
 		padding-inline: toRem(15) toRem(52);
+		outline: toRem(2) solid transparent;
+		transition: outline-color 0.3s;
+		outline-offset: toRem(-2);
+		&:focus {
+			outline-color: $yellowColor;
+		}
 		&::placeholder {
 			color: $greyLightColor;
 			transition: opacity 0.3s;
@@ -1019,16 +1075,22 @@
 	&__button {
 		position: absolute;
 		font-size: toRem(23);
-		width: toRem(55);
-		height: toRem(50);
-		top: 50%;
-		right: 0;
+		inline-size: toRem(55);
+		block-size: toRem(50);
+		inset-block-start: 50%;
+		inset-inline-end: 0;
 		color: $greyColor;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		transform: translateY(-50%);
-
+		transition: outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(8);
+		outline-offset: toRem(-2);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			transition: transform 0.3s;
 			will-change: transform;
@@ -1065,9 +1127,9 @@
 	&__button {
 		display: none;
 		@media (min-width: toEm(1070)) {
-			width: toRem(50);
+			inline-size: toRem(50);
+			block-size: toRem(50);
 			flex-shrink: 0;
-			height: toRem(50);
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -1077,7 +1139,13 @@
 			font-size: toRem(23);
 			transition:
 				background-color 0.3s,
-				color 0.3s;
+				color 0.3s,
+				outline-color 0.3s;
+			outline: toRem(2) solid transparent;
+			outline-offset: toRem(-1);
+			&:focus-visible {
+				outline-color: $yellowColor;
+			}
 			@media (any-hover: hover) {
 				&:hover {
 					background-color: $mainColor;
@@ -1111,6 +1179,13 @@
 		font-size: toRem(20);
 		font-weight: 600;
 		line-height: 1.2;
+		outline: toRem(2) solid transparent;
+		transition: outline-color 0.3s;
+		outline-offset: toRem(3);
+		border-radius: toRem(2);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			display: none;
 		}
@@ -1159,7 +1234,14 @@
 		justify-content: center;
 		align-items: center;
 		position: relative;
-		transition: transform 0.4s;
+		transition:
+			transform 0.4s,
+			outline-color 0.4s;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(3);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		span {
 			position: absolute;
 			top: 50%;
@@ -1331,6 +1413,12 @@
 	}
 	// .sales-bottom-header__link
 	&__link {
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(4);
+		border-radius: toRem(1);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 	}
 }
 .room-bottom-header {
@@ -1358,6 +1446,13 @@
 		font-weight: 600;
 		line-height: 1.26; /* 24/19 */
 		position: relative;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(2);
+		transition: outline-color 0.3s;
+		outline-offset: toRem(3);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -1464,27 +1559,25 @@
 			&::before {
 				content: "";
 				position: absolute;
-				width: 0;
-				height: calc(100% - toRem(16));
-				top: toRem(8);
-				left: 100%;
+				inline-size: 0;
+				block-size: calc(100% - toRem(16));
+				inset-block-start: toRem(8);
+				inset-inline-start: 100%;
 				background-color: $yellowColor;
 				z-index: 2;
 				pointer-events: none;
 				transition: width 0.3s;
 			}
-			@media (max-width: $tablet) {
-				&:has(.menu-catalog__item.--active) {
-					&::before {
-						width: toRem(5);
-					}
-					border-radius: toRem(8) 0 0 toRem(8);
+			&:has(.menu-catalog__item.--active, .menu-catalog__link:focus-visible, .menu-catalog__sub-link:focus-visible) {
+				&::before {
+					width: toRem(5);
 				}
+				border-radius: toRem(8) 0 0 toRem(8);
 			}
 		}
 
 		@media (any-hover: hover) {
-			&:has(.menu-catalog__link:hover, .menu-catalog__sub-list:hover) {
+			&:has(.menu-catalog__link:hover, .menu-catalog__link:focus-visible, .menu-catalog__sub-list:hover, .menu-catalog__sub-link:focus-visible) {
 				&::before {
 					width: toRem(5);
 				}
@@ -1496,6 +1589,33 @@
 	&__item {
 		display: grid;
 		grid-template-columns: 1fr auto;
+		&:has(.menu-catalog__link:focus-visible, .menu-catalog__sub-link:focus-visible) {
+			.menu-catalog__link {
+				background-color: $yellowColor;
+			}
+			.menu-catalog__button {
+				&::before {
+					color: $mainColor;
+				}
+			}
+			.menu-catalog__inner {
+				left: 100%;
+				visibility: visible;
+				pointer-events: auto;
+				z-index: 1;
+				border-radius: 0 toRem(8) toRem(8) 0;
+				visibility: visible;
+				transition:
+					left 0.4s,
+					visibility 0.4s,
+					border-radius 0.2s 0.1s;
+			}
+			@media (max-width: $tablet) {
+				.menu-catalog__button {
+					background-color: $yellowColor;
+				}
+			}
+		}
 		@media (min-width: $tablet) {
 			padding-right: toRem(15);
 		}
@@ -1556,11 +1676,17 @@
 		align-items: center;
 		column-gap: toRem(15);
 		min-height: toRem(60);
-		outline-offset: toRem(-5);
+		outline-offset: toRem(-2);
+		outline: toRem(2) solid transparent;
 		position: relative;
 		z-index: 2;
 		background-color: #fff;
-		transition: background-color 0.3s;
+		transition:
+			background-color 0.3s,
+			outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $greyColor;
+		}
 		@media (min-width: $tablet) {
 			margin-right: toRem(-39);
 		}
@@ -1686,6 +1812,13 @@
 	&__sub-link {
 		font-size: toRem(19);
 		line-height: 1.5;
+		transition: outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(2);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				text-decoration: underline;
