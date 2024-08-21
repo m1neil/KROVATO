@@ -663,6 +663,7 @@ textarea.input {
   padding: 1.25rem;
   position: relative;
   z-index: 1;
+  text-align: center;
   aspect-ratio: 250/300;
 }
 .item-category__link::before {
@@ -759,7 +760,7 @@ textarea.input {
   }
 }
 .item-category__image {
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 .item-product {

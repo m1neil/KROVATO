@@ -101,6 +101,7 @@
 		padding: toRem(20);
 		position: relative;
 		z-index: 1;
+		text-align: center;
 		// height: 100%;
 		aspect-ratio: 250 / 300;
 		&::before {
@@ -175,7 +176,7 @@
 	}
 	// .item-category__image
 	&__image {
-		max-width: 100%;
+		max-inline-size: 100%;
 	}
 }
 
