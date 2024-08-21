@@ -506,8 +506,8 @@
 							</div>
 						</div>
 						<form action="#" class="middle-header__search search-header">
-							<input minlength="3" type="text" placeholder="Пошук товарів" class="search-header__input">
-							<button type="submit" class="search-header__button _icon-search"></button>
+							<input minlength="3" required type="text" placeholder="Пошук товарів" class="search-header__input">
+							<button type="submit" aria-label="Розпочати пошук" class="search-header__button _icon-search"></button>
 						</form>
 						<div class="middle-header__phone phone-header">
 							<div class="phone-header__wrapper">
@@ -538,12 +538,12 @@
 								<span class="_icon-search"></span>
 								<span class="_icon-crosshair"></span>
 							</button>
-							<button type="button" class="middle-header__button _icon-favorite"></button>
-							<button type="button" class="middle-header__button _icon-cart"></button>
+							<button aria-label="Показати улюблені товари" type="button" class="middle-header__button _icon-favorite"></button>
+							<button aria-label="Показати корзину" type="button" class="middle-header__button _icon-cart"></button>
 							<div class="middle-header__cart cart-header">
 								<div class="cart-header__header">
 									<h4 class="cart-header__title">Ваш кошик <span>4</span></h4>
-									<button type="button" class="cart-header__close _icon-crosshair"></button>
+									<button aria-label="Закрити корзину" type="button" class="cart-header__close _icon-crosshair"></button>
 								</div>
 								<div class="cart-header__items">
 									<article class="cart-header__product product-cart-header">
@@ -998,22 +998,34 @@
 							<div class="sales__wrapper swiper-wrapper">
 								<div class="sales__slide swiper-slide">
 									<a href="#" class="sales__link">
-										<img src="img/home/events/01.jpg" alt="#">
+										<picture>
+											<source media="(max-width: 991.98px)" srcset="img/home/events/01-2x.webp">
+											<img src="img/home/events/01.webp" alt="Опис зображення">
+										</picture>
 									</a>
 								</div>
 								<div class="sales__slide swiper-slide">
 									<a href="#" class="sales__link">
-										<img src="img/home/events/02.jpg" alt="#">
+										<picture>
+											<source media="(max-width: 991.98px)" srcset="img/home/events/02-2x.webp">
+											<img src="img/home/events/02.webp" alt="Опис зображення">
+										</picture>
 									</a>
 								</div>
 								<div class="sales__slide swiper-slide">
 									<a href="#" class="sales__link">
-										<img src="img/home/events/03.jpg" alt="#">
+										<picture>
+											<source media="(max-width: 991.98px)" srcset="img/home/events/03-2x.webp">
+											<img src="img/home/events/03.webp" alt="Опис зображення">
+										</picture>
 									</a>
 								</div>
 								<div class="sales__slide swiper-slide">
 									<a href="#" class="sales__link">
-										<img src="img/home/events/02.jpg" alt="#">
+										<picture>
+											<source media="(max-width: 991.98px)" srcset="img/home/events/02-2x.webp">
+											<img src="img/home/events/02.webp" alt="Опис зображення">
+										</picture>
 									</a>
 								</div>
 							</div>

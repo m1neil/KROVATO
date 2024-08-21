@@ -1009,6 +1009,7 @@ textarea.input {
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
+  will-change: transform;
 }
 @media (any-hover: hover) {
   .article__image:hover img {
@@ -6046,8 +6047,18 @@ textarea.input {
 .payment__promo .promo-block__img {
   -webkit-padding-before: 1.5625rem;
           padding-block-start: 1.5625rem;
-  -ms-flex-preferred-size: 40.625rem;
-      flex-basis: 40.625rem;
+}
+@media (min-width: 47.99875em) {
+  .payment__promo .promo-block__img {
+    -ms-flex-preferred-size: 40.625rem;
+        flex-basis: 40.625rem;
+  }
+}
+@media (max-width: 47.99875em) {
+  .payment__promo .promo-block__img {
+    max-inline-size: 40.5rem;
+    margin-inline: auto;
+  }
 }
 .payment__faqs {
   -webkit-margin-after: 0;
@@ -8924,6 +8935,7 @@ textarea.input {
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
+  will-change: transform;
 }
 @media (any-hover: hover) {
   .search-header__button:hover::before {

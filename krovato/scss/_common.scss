@@ -381,6 +381,7 @@
 			aspect-ratio: 410 / 270;
 			border-radius: toRem(8);
 			transition: transform 0.3s;
+			will-change: transform;
 		}
 		@media (any-hover: hover) {
 			&:hover {

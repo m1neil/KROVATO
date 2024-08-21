@@ -32,7 +32,13 @@
 		}
 		.promo-block__img {
 			padding-block-start: toRem(25);
-			flex-basis: toRem(650);
+			@media (min-width: $mobile) {
+				flex-basis: toRem(650);
+			}
+			@media (max-width: $mobile) {
+				max-inline-size: toRem(648);
+				margin-inline: auto;
+			}
 		}
 	}
 	// .payment__opportunities

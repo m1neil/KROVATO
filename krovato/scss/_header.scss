@@ -1028,8 +1028,10 @@
 		justify-content: center;
 		align-items: center;
 		transform: translateY(-50%);
+
 		&::before {
 			transition: transform 0.3s;
+			will-change: transform;
 		}
 		@media (any-hover: hover) {
 			&:hover {
