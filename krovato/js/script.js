@@ -140,11 +140,10 @@ function windowLoaded() {
 		// mobile actions ===========================================
 		if (isMobile.matches) {
 			// toggle language ================================
-			if (target.closest(".lang-header")) {
+			if (target.closest(".lang-header"))
 				lang.classList.toggle("--active")
-			} else {
+			else
 				lang.classList.remove("--active")
-			}
 
 			// toggle menu catalog on mobile ======================================================
 			if (target.closest(".menu-catalog__button")) {
@@ -838,7 +837,6 @@ function initSliders() {
 		})
 
 		const buttons = document.querySelectorAll('.sub-slider-product__slide')
-
 		buttons.forEach((button, i) => {
 			button.addEventListener('focusin', () => {
 				mainSlider.slideTo(i, 800, true)

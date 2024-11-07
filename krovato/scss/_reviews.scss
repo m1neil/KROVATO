@@ -172,7 +172,15 @@
 		font-size: toRem(20);
 		font-weight: 600;
 		line-height: 1.4;
-		transition: color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(2);
+		transition:
+			color 0.3s,
+			outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&.--active {
 			color: $yellowColor;
 		}

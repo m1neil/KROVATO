@@ -128,7 +128,15 @@
 		font-size: toRem(20);
 		font-weight: 600;
 		line-height: 1.4;
-		transition: color 0.3s;
+		transition:
+			color 0.3s,
+			outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(1);
+		border-radius: toRem(1);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&:not(:last-child) {
 			margin-block-end: toRem(20);
 		}
@@ -156,6 +164,15 @@
 	// .list-phone__link
 	&__link {
 		@extend .item-contacts__link;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(1);
+		transition:
+			outline-color 0.3s,
+			color 0.3s;
+		border-radius: toRem(1);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 	}
 }
 
@@ -193,6 +210,24 @@
 
 #map {
 	inline-size: 100%;
+	button,
+	a {
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(2);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
+	}
+	gmp-advanced-marker {
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(3);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
+	}
 }
 
 .gm-style-iw-d {
@@ -413,6 +448,13 @@
 		font-size: toRem(30);
 		font-weight: 600;
 		line-height: 1.33;
+		transition: outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(2);
+		border-radius: toRem(2);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -445,6 +487,7 @@
 	}
 	// .form-write-us__textarea
 	&__textarea {
+		max-height: toRem(250);
 	}
 	// .form-write-us__button
 	&__button {
