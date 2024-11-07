@@ -994,26 +994,24 @@
 
 // .show-more =====================================================================
 .show-more {
-	&.--init {
-		position: relative;
-		&::before {
-			content: "";
-			position: absolute;
-			inline-size: 100%;
-			block-size: toRem(145);
-			inset-inline-start: 0;
-			inset-block-end: 0;
-			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 248, 248, 0.8) 33.85%, $lightColor 72.4%);
-			transition: opacity 0.3s;
-			opacity: 0;
-			.seo-text--white & {
-				background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 33.85%, #fff 72.4%);
-			}
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		inline-size: 100%;
+		block-size: toRem(145);
+		inset-inline-start: 0;
+		inset-block-end: 0;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 248, 248, 0.8) 33.85%, $lightColor 72.4%);
+		transition: opacity 0.3s;
+		opacity: 1;
+		.seo-text--white & {
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 33.85%, #fff 72.4%);
 		}
 	}
-	&.--hide {
+	&._showmore-active {
 		&::before {
-			opacity: 1;
+			opacity: 0;
 		}
 	}
 
@@ -1027,34 +1025,30 @@
 	}
 	// .show-more__button
 	&__button {
-		display: none;
-		.--init & {
-			position: relative;
-			display: block;
-			font-size: toRem(50);
-			color: $yellowColor;
-			margin-inline: auto;
-			inline-size: toRem(50);
-			block-size: toRem(50);
-			transform: rotate(-180deg);
-			outline: toRem(2) solid transparent;
-			outline-offset: toRem(5);
-			border-radius: 50%;
-			transition:
-				color 0.3s,
-				transform 0.3s,
-				outline-color 0.3s;
-			&:focus-visible {
-				outline-color: $yellowColor;
-			}
-			@media (any-hover: hover) {
-				&:hover {
-					color: $greyColor;
-				}
-			}
+		display: block;
+		position: relative;
+		font-size: toRem(50);
+		color: $yellowColor;
+		margin-inline: auto;
+		inline-size: toRem(50);
+		block-size: toRem(50);
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(5);
+		border-radius: 50%;
+		transition:
+			color 0.3s,
+			transform 0.3s,
+			outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
 		}
-		.--hide & {
-			transform: rotate(0);
+		._showmore-active & {
+			transform: rotate(-180deg);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $greyColor;
+			}
 		}
 	}
 }

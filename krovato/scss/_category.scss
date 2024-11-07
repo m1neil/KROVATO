@@ -38,23 +38,21 @@
 		padding-inline: toRem(5);
 		margin-block: toRem(-5);
 		padding-block: toRem(5);
-		&.--init {
-			&::after {
-				content: "";
-				position: absolute;
-				inline-size: 100%;
-				block-size: toRem(150);
-				inset-block-end: 0;
-				inset-inline-start: 0;
-				background: linear-gradient(180deg, rgba(248, 248, 248, 0) 0%, rgba(248, 248, 248, 0.8) 33.85%, #f8f8f8 72.4%);
-				opacity: 0;
-				transition: opacity 0.3s;
-				pointer-events: none;
-			}
+		&::after {
+			content: "";
+			position: absolute;
+			inline-size: 100%;
+			block-size: toRem(150);
+			inset-block-end: 0;
+			inset-inline-start: 0;
+			background: linear-gradient(180deg, rgba(248, 248, 248, 0) 0%, rgba(248, 248, 248, 0.8) 33.85%, #f8f8f8 72.4%);
+			opacity: 1;
+			transition: opacity 0.4s;
+			pointer-events: none;
 		}
-		&.--hide {
+		&._showmore-active {
 			&::after {
-				opacity: 1;
+				opacity: 0;
 			}
 		}
 	}
@@ -63,6 +61,9 @@
 		display: grid;
 		gap: toRem(10);
 		grid-template-columns: repeat(auto-fill, minmax(toRem(250), 1fr));
+		margin-inline: toRem(-10);
+		padding-inline: toRem(10);
+		padding-bottom: toRem(20);
 		@media (max-width: toEm(600)) {
 			grid-template-columns: repeat(auto-fill, minmax(toRem(200), 1fr));
 		}
@@ -78,7 +79,6 @@
 		position: relative;
 		inset-inline-start: 50%;
 		transform: translateX(-50%);
-		margin-block-start: toRem(20);
 		z-index: 1;
 		outline: toRem(2) solid transparent;
 		outline-offset: toRem(3);
@@ -351,6 +351,7 @@
 		outline-offset: toRem(3);
 		border-radius: toRem(2);
 		transition: outline-color 0.3s;
+		margin-top: toRem(10);
 		&:focus-visible {
 			outline-color: $yellowColor;
 		}
@@ -371,15 +372,15 @@
 			}
 		}
 		span {
-			&:first-child {
+			&:last-child {
 				display: none;
 			}
-			.--hide & {
+			._showmore-active & {
 				&:first-child {
-					display: inline-block;
+					display: none;
 				}
 				&:last-child {
-					display: none;
+					display: inline-block;
 				}
 			}
 		}
@@ -387,14 +388,8 @@
 }
 
 .list-filter {
-	padding: toRem(15) toRem(15) toRem(20);
-	margin: toRem(-15) toRem(-15) toRem(-20);
-	overflow: hidden;
-	&:not(:last-child) {
-		padding-block-end: toRem(10);
-		margin-block-end: 0;
-	}
-	// .list-filter__item
+	margin-inline: toRem(-15);
+	padding-inline: toRem(15);
 	&__item {
 		&:not(:last-child) {
 			margin-block-end: toRem(15);
@@ -447,7 +442,7 @@
 		.--active & {
 			&::before,
 			&::after {
-				inline-size: toRem(14);
+				inline-size: toRem(14.5);
 			}
 		}
 	}

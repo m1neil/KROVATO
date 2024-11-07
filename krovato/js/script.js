@@ -4,12 +4,8 @@ window.addEventListener("load", windowLoaded)
 const isMobile = window.matchMedia("(any-hover: none)")
 
 function windowLoaded() {
-	// const footerSocial = document.querySelector(".top-footer__social")
-	// const footerContainer = document.querySelector(".top-footer__container")
-	// const footerLogo = document.querySelector(".social-top-footer__img")
 	const lang = document.querySelector(".lang-header")
 	const phoneBox = document.querySelector(".phone-header")
-	const fixedElements = document.querySelectorAll("[data-fixed]")
 
 	// @media request ============================================================
 	const matchMediaTablet = window.matchMedia(`(max-width: ${991.98 / 16}em)`)
@@ -58,7 +54,7 @@ function windowLoaded() {
 	}
 
 	// init =========================================================================================
-	initShowMore()
+	// initShowMore()
 	initSpollers()
 	initSliders()
 	initRating()
@@ -74,7 +70,6 @@ function windowLoaded() {
 		})
 		Inputmask({ "mask": "+380  99  999  99  99", "placeholder": "-" }).mask(inputPhone)
 	}
-
 
 	// document actions ====================================================================================
 	function documentAction(e) {
@@ -187,29 +182,29 @@ function windowLoaded() {
 			document.documentElement.classList.remove("search-open")
 
 		// toggle show more
-		if (target.closest("[data-show-more-trigger]")) {
-			const block = target.closest("[data-show-more]")
-			const content = block.querySelector("[data-show-more-content]")
-			const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
-			block.classList.toggle("--hide")
+		// if (target.closest("[data-show-more-trigger]")) {
+		// 	const block = target.closest("[data-show-more]")
+		// 	const content = block.querySelector("[data-show-more-content]")
+		// 	const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
+		// 	block.classList.toggle("--hide")
 
-			if (block.classList.contains("--hide")) {
-				content.style.height = `${content.offsetHeight / 16}rem`
-				content.offsetHeight
-				content.style.transition = "height 0.3s"
-				content.style.height = `${height / 16}rem`
-				setTimeout(() => {
-					content.style.removeProperty("transition")
-				}, 300)
-			} else {
-				content.style.transition = "height 0.3s"
-				content.style.height = `${content.scrollHeight / 16}rem`
-				setTimeout(() => {
-					content.style.removeProperty("height")
-					content.style.removeProperty("transition")
-				}, 300)
-			}
-		}
+		// 	if (block.classList.contains("--hide")) {
+		// 		content.style.height = `${content.offsetHeight / 16}rem`
+		// 		content.offsetHeight
+		// 		content.style.transition = "height 0.3s"
+		// 		content.style.height = `${height / 16}rem`
+		// 		setTimeout(() => {
+		// 			content.style.removeProperty("transition")
+		// 		}, 300)
+		// 	} else {
+		// 		content.style.transition = "height 0.3s"
+		// 		content.style.height = `${content.scrollHeight / 16}rem`
+		// 		setTimeout(() => {
+		// 			content.style.removeProperty("height")
+		// 			content.style.removeProperty("transition")
+		// 		}, 300)
+		// 	}
+		// }
 
 		if (target.closest('.button-review') && !target.closest('.button-review._icon-like')) {
 			const button = target.closest('.button-review')
@@ -790,53 +785,53 @@ function initRating() {
 	})
 }
 
-function initShowMore() {
-	const blocks = document.querySelectorAll("[data-show-more]")
-	if (!blocks.length) return
-	blocks.forEach((block) => {
-		const content = block.querySelector("[data-show-more-content]")
-		const options = content.hasAttribute('data-show-more-media') ?
-			content.getAttribute('data-show-more-media').split(',') : []
-		const newHeight = options[0] ? parseInt(options[0]) : 0
-		const breakpoint = options[1] ? parseInt(options[1]) : 0
-		const matchMedia = breakpoint ? window.matchMedia(`(max-width: ${breakpoint / 16}em)`) : null
-		const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
+// function initShowMore() {
+// 	const blocks = document.querySelectorAll("[data-show-more]")
+// 	if (!blocks.length) return
+// 	blocks.forEach((block) => {
+// 		const content = block.querySelector("[data-show-more-content]")
+// 		const options = content.hasAttribute('data-show-more-media') ?
+// 			content.getAttribute('data-show-more-media').split(',') : []
+// 		const newHeight = options[0] ? parseInt(options[0]) : 0
+// 		const breakpoint = options[1] ? parseInt(options[1]) : 0
+// 		const matchMedia = breakpoint ? window.matchMedia(`(max-width: ${breakpoint / 16}em)`) : null
+// 		const height = content.dataset.showMoreContent ? parseFloat(content.dataset.showMoreContent) : 280
 
-		if (matchMedia && matchMedia.matches)
-			content.setAttribute('data-show-more-content', newHeight)
-		else
-			content.setAttribute('data-show-more-content', height)
+// 		if (matchMedia && matchMedia.matches)
+// 			content.setAttribute('data-show-more-content', newHeight)
+// 		else
+// 			content.setAttribute('data-show-more-content', height)
 
-		const currentHeight = parseFloat(content.dataset.showMoreContent)
+// 		const currentHeight = parseFloat(content.dataset.showMoreContent)
 
-		if (content.scrollHeight > currentHeight) {
-			block.classList.add("--init", "--hide")
-			content.style.height = `${currentHeight / 16}rem`
-		} else {
-			block.classList.remove("--init", "--hide")
-		}
+// 		if (content.scrollHeight > currentHeight) {
+// 			block.classList.add("--init", "--hide")
+// 			content.style.height = `${currentHeight / 16}rem`
+// 		} else {
+// 			block.classList.remove("--init", "--hide")
+// 		}
 
-		if (matchMedia) {
-			matchMedia.addEventListener('change', e => {
-				if (e.matches)
-					content.setAttribute('data-show-more-content', newHeight)
-				else
-					content.setAttribute('data-show-more-content', height)
+// 		if (matchMedia) {
+// 			matchMedia.addEventListener('change', e => {
+// 				if (e.matches)
+// 					content.setAttribute('data-show-more-content', newHeight)
+// 				else
+// 					content.setAttribute('data-show-more-content', height)
 
 
-				const currentHeight = parseFloat(content.dataset.showMoreContent)
+// 				const currentHeight = parseFloat(content.dataset.showMoreContent)
 
-				if (block.classList.contains('--hide'))
-					content.style.height = `${currentHeight / 16}rem`
-				else {
-					content.style.height = `${content.scrollHeight / 16}rem`
-					content.style.removeProperty('height')
-				}
-			})
-		}
+// 				if (block.classList.contains('--hide'))
+// 					content.style.height = `${currentHeight / 16}rem`
+// 				else {
+// 					content.style.height = `${content.scrollHeight / 16}rem`
+// 					content.style.removeProperty('height')
+// 				}
+// 			})
+// 		}
 
-	})
-}
+// 	})
+// }
 
 function initRange() {
 	const stepsSlider = document.querySelector('.item-filter__range')

@@ -651,8 +651,8 @@
 				</div>
 				<div class="category__type type-category">
 					<div class="type-category__container">
-						<div data-show-more class="type-category__more">
-							<ul data-show-more-content="180" class="type-category__list">
+						<div data-showmore class="type-category__more">
+							<ul data-showmore-content="250" class="type-category__list">
 								<li class="type-category__item">
 									<article class="type-category__card card-type-category">
 										<a href="#" class="card-type-category__link">
@@ -734,7 +734,7 @@
 									</article>
 								</li>
 							</ul>
-							<button data-show-more-trigger type="button" class="type-category__button">
+							<button hidden data-showmore-button="400" type="button" class="type-category__button">
 								<span class="_icon-arrow-hide">Показати підкатегорії</span>
 								<span class="_icon-arrow-hide">Приховати підкатегорії</span>
 							</button>
@@ -797,8 +797,8 @@
 										<span class="title-filter-item__icon"></span>
 									</button>
 									<div class="item-filter__body">
-										<div data-show-more class="item-filter__content">
-											<ul data-show-more-content="355" class="item-filter__list list-filter">
+										<div data-showmore="items" class="item-filter__content">
+											<ul data-showmore-content="10" class="item-filter__list list-filter">
 												<li class="list-filter__item">
 													<label class="item-filter__checkbox checkbox">
 														<span class="checkbox__text">Corners</span>
@@ -914,7 +914,7 @@
 													</label>
 												</li>
 											</ul>
-											<button data-show-more-trigger type="button" class="item-filter__more">
+											<button hidden data-showmore-button type="button" class="item-filter__more">
 												<span>Показати всі</span>
 												<span>Приховати</span>
 											</button>
@@ -969,8 +969,8 @@
 										<span class="title-filter-item__icon"></span>
 									</button>
 									<div class="item-filter__body">
-										<div data-show-more class="item-filter__content">
-											<ul data-show-more-content="420" class="item-filter__list list-filter">
+										<div data-showmore="items" class="item-filter__content">
+											<ul data-showmore-content="10" class="item-filter__list list-filter">
 												<li class="list-filter__item">
 													<label class="item-filter__checkbox checkbox">
 														<span class="checkbox__text">200x210 см</span>
@@ -1098,7 +1098,7 @@
 													</label>
 												</li>
 											</ul>
-											<button data-show-more-trigger type="button" class="item-filter__more">
+											<button hidden data-showmore-button type="button" class="item-filter__more">
 												<span>Показати всі</span>
 												<span>Приховати</span>
 											</button>
@@ -1370,8 +1370,8 @@
 											<h2 class="block-header__title title">Як правильно обрати ліжко?</h2>
 										</div>
 									</div>
-									<div data-show-more class="seo-text__show-more show-more">
-										<div data-show-more-content class="show-more__text">
+									<div data-showmore="size" class="seo-text__show-more show-more">
+										<div data-showmore-content="250" class="show-more__text">
 											<p>
 												При виборі ліжка в інтернет магазині Вам в першу чергу потрібно вибрати матеріал. Найбільшою популярністю користуються дерев'яні ліжка, виготовлені з вільхи, ясена чи дуба. Такі моделі чудово прикрасять Вашу спальню у квартирі чи приватному будинку. Для орендованих квартир, під здачу, більше підійде ліжко з металу, так як воно просто «не вбивається», а також має дуже демократичну ціну.
 											</p>
@@ -1398,7 +1398,7 @@
 												Відгуки про всі товари Ви завжди можете прочитати у розділі Відгуки. Замовити Ви можете: зателефонувавши нам, залишивши замовлення на нашому сайті Krovato.com, або замовивши зворотній дзвінок. Наші менеджери завжди, з радістю, допоможуть Вам із вибором
 											</p>
 										</div>
-										<button data-show-more-trigger aria-label="Показати або сховати текст" type="button" class="show-more__button _icon-show-more"></button>
+										<button hidden data-showmore-button aria-label="Показати або сховати текст" type="button" class="show-more__button _icon-show-more"></button>
 									</div>
 								</div>
 							</section>
@@ -1912,6 +1912,7 @@
 		<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script defer src="js/nouislider.min.js"></script>
 		<script defer src="js/dynamic_adapt.js"></script>
+		<script defer src="js/shomeMore.js"></script>
 		<script defer src="js/script.js"></script>
 	</body>
 </html>
