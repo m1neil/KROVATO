@@ -29,6 +29,10 @@ $mainFont: "Proxima Nova";
 	--menu-catalog-top: 0;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background-color: $lightColor;
 	color: $mainColor;

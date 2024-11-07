@@ -70,15 +70,10 @@ function windowLoaded() {
 	moveProductItems()
 	moveReviewForm()
 
-	// Divide table
-
-
-
 	// init =========================================================================================
 	initShowMore()
 	initSpollers()
-	if (document.querySelector('[class*="slider"]'))
-		initSliders()
+	initSliders()
 	initRating()
 	initRange()
 	initFilter()
@@ -101,14 +96,13 @@ function windowLoaded() {
 		// reduce and increase ==================================================================
 		if (target.closest(".quantity__button--reduce")) {
 			const input = target.closest(".quantity__button--reduce").nextElementSibling
-			input.value = input.value > 1 ? --input.value : 1
+			input.value = input.value > 1 ? input.value - 1 : 1
 		} else if (target.closest(".quantity__button--increase")) {
 			const input = target.closest(".quantity__button--increase").previousElementSibling
-			input.value = input.value > 0 ? ++input.value : 1
+			input.value = input.value > 0 ? input.value + 1 : 1
 		}
 
 		if (target.closest('[data-goto]')) {
-			e.preventDefault()
 			const targetElement = target.closest('[data-goto]')
 			const selector = targetElement.dataset.goto
 			if (selector && document.querySelector(selector)) {
@@ -119,6 +113,7 @@ function windowLoaded() {
 					behavior: 'smooth'
 				})
 			}
+			e.preventDefault()
 		}
 
 		// cart ==============================================================
@@ -533,9 +528,8 @@ function setSpollerAction(e) {
 	const isAccordion = spollerWrapper.hasAttribute("data-accordion")
 
 	if (!spollerWrapper.querySelectorAll("._slide").length) {
-		if (isAccordion && !title.classList.contains("--active")) {
+		if (isAccordion && !title.classList.contains("--active"))
 			hideSpollers(spollerWrapper)
-		}
 		title.classList.toggle("--active")
 		slideToggleSpoller(title.nextElementSibling, 600)
 	}
@@ -627,211 +621,230 @@ function slideToggleSpoller(spoller, duration) {
 
 function initSliders() {
 	// hero slider
-	new Swiper(".hero__slider", {
-		loop: true,
-		spaceBetween: 60,
-		speed: 800,
-		touchAngle: 45,
-		touchRatio: 0.8,
-		pagination: {
-			el: ".hero__pagination",
-			clickable: true,
-			renderBullet: function (index, className) {
-				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+	if (document.querySelector('.hero__slider')) {
+		new Swiper(".hero__slider", {
+			loop: true,
+			spaceBetween: 60,
+			speed: 800,
+			touchAngle: 45,
+			touchRatio: 0.8,
+			pagination: {
+				el: ".hero__pagination",
+				clickable: true,
+				renderBullet: function (index, className) {
+					return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+				},
 			},
-		},
-		navigation: {
-			nextEl: ".hero__button--next",
-			prevEl: ".hero__button--prev",
-		},
-		autoplay: {
-			delay: 3000,
-			pauseOnMouseEnter: true,
-		},
-		breakpoints: {
-			320: {
-				speed: 400,
-				spaceBetween: 30,
+			navigation: {
+				nextEl: ".hero__button--next",
+				prevEl: ".hero__button--prev",
 			},
-			600: {
-				speed: 800,
-				spaceBetween: 40,
+			autoplay: {
+				delay: 3000,
+				pauseOnMouseEnter: true,
 			},
-			991.98: {
-				spaceBetween: 60,
+			breakpoints: {
+				320: {
+					speed: 400,
+					spaceBetween: 30,
+				},
+				600: {
+					speed: 800,
+					spaceBetween: 40,
+				},
+				991.98: {
+					spaceBetween: 60,
+				},
 			},
-		},
-	})
+		})
+	}
 
 	// sales
-	new Swiper(".sales__slider", {
-		speed: 800,
-		touchAngle: 45,
-		touchRatio: 0.8,
-		pagination: {
-			el: ".sales__pagination",
-			clickable: true,
-			renderBullet: function (index, className) {
-				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+	if (document.querySelector('.sales__slider')) {
+		new Swiper(".sales__slider", {
+			speed: 800,
+			touchAngle: 45,
+			touchRatio: 0.8,
+			pagination: {
+				el: ".sales__pagination",
+				clickable: true,
+				renderBullet: function (index, className) {
+					return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+				},
 			},
-		},
-		navigation: {
-			nextEl: ".sales .block-header__next",
-			prevEl: ".sales .block-header__prev",
-		},
-		slidesPerView: 3,
-		breakpoints: {
-			320: {
-				speed: 400,
-				slidesPerView: 1,
-				spaceBetween: 15,
+			navigation: {
+				nextEl: ".sales .block-header__next",
+				prevEl: ".sales .block-header__prev",
 			},
-			600.98: {
-				slidesPerView: 2,
-				spaceBetween: 15,
+			slidesPerView: 3,
+			breakpoints: {
+				320: {
+					speed: 400,
+					slidesPerView: 1,
+					spaceBetween: 15,
+				},
+				600.98: {
+					slidesPerView: 2,
+					spaceBetween: 15,
+				},
+				991.98: {
+					spaceBetween: 30,
+					slidesPerView: 3,
+				},
 			},
-			991.98: {
-				spaceBetween: 30,
-				slidesPerView: 3,
-			},
-		},
-	})
+		})
+	}
 
 	// reviews slider
-	new Swiper(".reviews__slider", {
-		speed: 1200,
-		touchAngle: 45,
-		touchRatio: 0.8,
-		spaceBetween: 30,
-		pagination: {
-			el: ".reviews__swiper-pagination",
-			clickable: true,
-			renderBullet: function (index, className) {
-				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
-			},
-		},
-		slidesPerView: "auto",
-		scrollbar: {
-			el: ".reviews__swiper-scrollbar",
-			hide: false,
-			draggable: true,
-			dragClass: ".reviews__swiper-scrollbar-drag swiper-scrollbar-drag _icon-arrow-scroll",
-			dragSize: 60,
-			snapOnRelease: false,
-		},
-		breakpoints: {
-			320: {
-				speed: 400,
-				slidesPerView: 1,
-				spaceBetween: 15,
-				freeMode: false,
-			},
-			574.98: {
-				slidesPerView: 1.3,
-				spaceBetween: 15,
-				freeMode: {
-					enabled: true,
-					minimumVelocity: 0.02,
-					momentumBounceRatio: 0.3,
-					momentum: true,
-					momentumBounce: false,
+	if (document.querySelector('.reviews__slider')) {
+		new Swiper(".reviews__slider", {
+			speed: 1200,
+			touchAngle: 45,
+			touchRatio: 0.8,
+			spaceBetween: 30,
+			pagination: {
+				el: ".reviews__swiper-pagination",
+				clickable: true,
+				renderBullet: function (index, className) {
+					return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
 				},
 			},
-			767.98: {
-				slidesPerView: 2,
-				spaceBetween: 15,
-				freeMode: {
-					enabled: true,
-					minimumVelocity: 0.02,
-					momentumBounceRatio: 0.3,
-					momentum: true,
-					momentumBounce: false,
+			slidesPerView: "auto",
+			scrollbar: {
+				el: ".reviews__swiper-scrollbar",
+				hide: false,
+				draggable: true,
+				dragClass: ".reviews__swiper-scrollbar-drag swiper-scrollbar-drag _icon-arrow-scroll",
+				dragSize: 60,
+				snapOnRelease: false,
+			},
+			breakpoints: {
+				320: {
+					speed: 400,
+					slidesPerView: 1,
+					spaceBetween: 15,
+					freeMode: false,
+				},
+				574.98: {
+					slidesPerView: 1.3,
+					spaceBetween: 15,
+					freeMode: {
+						enabled: true,
+						minimumVelocity: 0.02,
+						momentumBounceRatio: 0.3,
+						momentum: true,
+						momentumBounce: false,
+					},
+				},
+				767.98: {
+					slidesPerView: 2,
+					spaceBetween: 15,
+					freeMode: {
+						enabled: true,
+						minimumVelocity: 0.02,
+						momentumBounceRatio: 0.3,
+						momentum: true,
+						momentumBounce: false,
+					},
+				},
+				991.98: {
+					spaceBetween: 30,
+					slidesPerView: "auto",
+					freeMode: {
+						enabled: true,
+						minimumVelocity: 0.02,
+						momentumBounceRatio: 0.3,
+						momentum: true,
+						momentumBounce: false,
+					},
 				},
 			},
-			991.98: {
-				spaceBetween: 30,
-				slidesPerView: "auto",
-				freeMode: {
-					enabled: true,
-					minimumVelocity: 0.02,
-					momentumBounceRatio: 0.3,
-					momentum: true,
-					momentumBounce: false,
-				},
-			},
-		},
-	})
+		})
+	}
 
 	// articles slider
-	new Swiper(".news__slider", {
-		speed: 800,
-		touchAngle: 45,
-		touchRatio: 0.8,
-		pagination: {
-			el: ".news__swiper-pagination",
-			clickable: true,
-			renderBullet: function (index, className) {
-				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+	if (document.querySelector('.news__slider')) {
+		new Swiper(".news__slider", {
+			speed: 800,
+			touchAngle: 45,
+			touchRatio: 0.8,
+			pagination: {
+				el: ".news__swiper-pagination",
+				clickable: true,
+				renderBullet: function (index, className) {
+					return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+				},
 			},
-		},
-		navigation: {
-			nextEl: ".news .block-header__next",
-			prevEl: ".news .block-header__prev",
-		},
-		slidesPerView: 1,
-		spaceBetween: 15,
-		breakpoints: {
-			320: {
-				speed: 400,
-				slidesPerView: 1,
-				spaceBetween: 15,
+			navigation: {
+				nextEl: ".news .block-header__next",
+				prevEl: ".news .block-header__prev",
 			},
-			600: {
-				slidesPerView: 2,
-				spaceBetween: 15,
+			slidesPerView: 1,
+			spaceBetween: 15,
+			breakpoints: {
+				320: {
+					speed: 400,
+					slidesPerView: 1,
+					spaceBetween: 15,
+				},
+				600: {
+					slidesPerView: 2,
+					spaceBetween: 15,
+				},
+				1089.98: {
+					spaceBetween: 30,
+					slidesPerView: 3,
+				},
 			},
-			1089.98: {
-				spaceBetween: 30,
-				slidesPerView: 3,
-			},
-		},
-	})
+		})
+	}
 
 	// product sub slider
-	const subSliderProduct = new Swiper(".sub-slider-product", {
-		speed: 500,
-		slidesPerView: 5,
-		watchSlidesProgress: true,
-		breakpoints: {
-			320: {
-				spaceBetween: 10,
+	if (document.querySelector('.sub-slider-product') && document.querySelector('.main-slider-product')) {
+		const subSliderProduct = new Swiper(".sub-slider-product", {
+			speed: 500,
+			slidesPerView: 5,
+			watchSlidesProgress: true,
+			breakpoints: {
+				320: {
+					spaceBetween: 10,
+				},
+				768: {
+					spaceBetween: 20,
+				}
 			},
-			768: {
-				spaceBetween: 20,
-			}
-		},
-	})
+		})
 
-	// product slider
-	new Swiper(".main-slider-product", {
-		speed: 800,
-		pagination: {
-			el: ".main-slider-product__swiper-pagination",
-			clickable: true,
-			renderBullet: function (index, className) {
-				return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+		// product slider
+		const mainSlider = new Swiper(".main-slider-product", {
+			speed: 800,
+			pagination: {
+				el: ".main-slider-product__swiper-pagination",
+				clickable: true,
+				renderBullet: function (index, className) {
+					return `<button class="${className}" aria-label="Go to slide ${index + 1}"></button>`
+				},
 			},
-		},
-		autoHeight: true,
-		navigation: {
-			nextEl: ".main-slider-product__button--next",
-			prevEl: ".main-slider-product__button--prev",
-		},
-		thumbs: {
-			swiper: subSliderProduct,
-		},
-		spaceBetween: 20,
-	})
+			autoHeight: true,
+			navigation: {
+				nextEl: ".main-slider-product__button--next",
+				prevEl: ".main-slider-product__button--prev",
+			},
+			thumbs: {
+				swiper: subSliderProduct,
+				autoScrollOffset: 1,
+			},
+			spaceBetween: 20,
+		})
+
+		const buttons = document.querySelectorAll('.sub-slider-product__slide')
+
+		buttons.forEach((button, i) => {
+			button.addEventListener('focusin', () => {
+				mainSlider.slideTo(i, 800, true)
+			})
+		})
+	}
 }
 
 function initRating() {
@@ -864,7 +877,8 @@ function initShowMore() {
 	if (!blocks.length) return
 	blocks.forEach((block) => {
 		const content = block.querySelector("[data-show-more-content]")
-		const options = content.hasAttribute('data-show-more-media') ? content.getAttribute('data-show-more-media').split(',') : []
+		const options = content.hasAttribute('data-show-more-media') ?
+			content.getAttribute('data-show-more-media').split(',') : []
 		const newHeight = options[0] ? parseInt(options[0]) : 0
 		const breakpoint = options[1] ? parseInt(options[1]) : 0
 		const matchMedia = breakpoint ? window.matchMedia(`(max-width: ${breakpoint / 16}em)`) : null
@@ -886,17 +900,17 @@ function initShowMore() {
 
 		if (matchMedia) {
 			matchMedia.addEventListener('change', e => {
-				if (e.matches) {
+				if (e.matches)
 					content.setAttribute('data-show-more-content', newHeight)
-				} else {
+				else
 					content.setAttribute('data-show-more-content', height)
-				}
+
 
 				const currentHeight = parseFloat(content.dataset.showMoreContent)
 
-				if (block.classList.contains('--hide')) {
+				if (block.classList.contains('--hide'))
 					content.style.height = `${currentHeight / 16}rem`
-				} else {
+				else {
 					content.style.height = `${content.scrollHeight / 16}rem`
 					content.style.removeProperty('height')
 				}

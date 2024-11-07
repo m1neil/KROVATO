@@ -111,7 +111,13 @@
 			transform: translate(0, -50%);
 			transition:
 				opacity 0.3s,
-				background-color 0.3s;
+				background-color 0.3s,
+				outline-color 0.3s;
+			outline: toRem(2) solid transparent;
+			outline-offset: toRem(2);
+			&:focus-visible {
+				outline-color: $greyColor;
+			}
 			// .main-slider-product__button--prev
 			&--prev {
 				inset-inline-start: toRem(20);
@@ -146,6 +152,7 @@
 		}
 		// .sub-slider-product__slide
 		&__slide {
+			outline: none;
 			position: relative;
 			aspect-ratio: 1;
 			border-radius: toRem(8);
@@ -185,6 +192,13 @@
 				inline-size: 100%;
 				block-size: 100%;
 				object-fit: cover;
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					&::after {
+						opacity: 0.8;
+					}
+				}
 			}
 		}
 	}
@@ -326,6 +340,13 @@
 		display: flex;
 		align-items: center;
 		column-gap: toRem(10);
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(2);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			flex-shrink: 0;
 			font-weight: 400;

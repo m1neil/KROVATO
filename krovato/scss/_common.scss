@@ -730,7 +730,16 @@
 		color: $greyColor;
 		font-size: toRem(17);
 		line-height: 141.176%;
-		transition: color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(2);
+		border-radius: toRem(2);
+		transition:
+			color 0.3s,
+			outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				color: $greyLightColor;
@@ -1053,6 +1062,10 @@
 		overflow-x: auto;
 		white-space: nowrap;
 		padding-block-end: toRem(5);
+		margin-left: toRem(-5);
+		margin-top: toRem(-5);
+		padding-top: toRem(5);
+		padding-left: toRem(5);
 	}
 	// .breadcrumbs__item
 	&__item {
@@ -1079,6 +1092,13 @@
 	// .breadcrumbs__link
 	&__link {
 		position: relative;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(1);
+		outline-offset: toRem(3);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::after {
 			content: "";
 			position: absolute;

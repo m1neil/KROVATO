@@ -34,6 +34,10 @@
 	&__more {
 		position: relative;
 		overflow: hidden;
+		margin-inline: toRem(-5);
+		padding-inline: toRem(5);
+		margin-block: toRem(-5);
+		padding-block: toRem(5);
 		&.--init {
 			&::after {
 				content: "";
@@ -76,6 +80,13 @@
 		transform: translateX(-50%);
 		margin-block-start: toRem(20);
 		z-index: 1;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(1);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		.--hide & {
 			margin-block-start: 0;
 		}
@@ -131,6 +142,12 @@
 		justify-content: space-between;
 		row-gap: toRem(5);
 		position: relative;
+		outline-offset: toRem(3);
+		transition: outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -283,6 +300,16 @@
 	border-top: toRem(1) solid #e3e2e2;
 	// .item-filter__title
 	&__title {
+		border-radius: toRem(5);
+		transition: outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		&:disabled {
+			cursor: default;
+			opacity: 0.4;
+		}
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 	}
 	// .item-filter__content
 	&__content {
@@ -320,6 +347,13 @@
 		color: $yellowColor;
 		font-weight: 600;
 		line-height: 1.5;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(2);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::after {
 			content: "";
 			position: absolute;
@@ -413,7 +447,7 @@
 		.--active & {
 			&::before,
 			&::after {
-				inline-size: toRem(15);
+				inline-size: toRem(14);
 			}
 		}
 	}
@@ -435,6 +469,12 @@
 		background-color: #fff;
 		padding-inline: toRem(15);
 		text-align: center;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(-1);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		// .form-filter__input--min
 		&--min {
 		}
@@ -452,7 +492,14 @@
 		border-radius: toRem(8);
 		font-size: toRem(19);
 		font-weight: 600;
-		transition: background-color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		transition:
+			background-color 0.3s,
+			outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				background-color: $greyColor;
@@ -558,6 +605,13 @@
 		padding-inline-end: toRem(15);
 		background: url("../img/icons/icon-font/arrow-down.svg") right center / toRem(10) toRem(6) no-repeat;
 		margin-inline-end: toRem(7);
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(2);
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 	}
 	// .sort-filter__items
 	&__items {
@@ -578,10 +632,13 @@
 		background-color: #fff;
 		font-size: toRem(15);
 		line-height: 100%;
-		transition:
-			background-color 0.3s,
-			border-color 0.3s,
-			color 0.3s;
+		transition: all 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			font-size: toRem(8);
 		}
@@ -647,10 +704,12 @@
 		background-color: #fff;
 		color: $greyColor;
 		font-size: toRem(17);
-		transition:
-			background-color 0.3s,
-			border-color 0.3s,
-			color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		transition: all 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		// .pagination-content__button--arrow
 		&--arrow {
 			&::before {
@@ -730,7 +789,14 @@
 		line-height: 1.26;
 		text-align: left;
 		background: url("../img/icons/icon-font/question.svg") toRem(18) 50% / toRem(33) no-repeat;
-		transition: color 0.3s;
+		transition:
+			color 0.3s,
+			outline-color 0.3s;
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(8);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&.--active {
 			&::before {
 				transform: rotate(-180deg);

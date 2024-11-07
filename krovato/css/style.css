@@ -257,6 +257,10 @@ table {
   --menu-catalog-top: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #f8f8f8;
   color: #2b2929;
@@ -1412,8 +1416,14 @@ textarea.input {
   color: #535353;
   font-size: 1.0625rem;
   line-height: 141.176%;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.125rem;
+  border-radius: 0.125rem;
+  -webkit-transition: color 0.3s, outline-color 0.3s;
+  transition: color 0.3s, outline-color 0.3s;
+}
+.rating__reviews:focus-visible {
+  outline-color: #ffbc57;
 }
 @media (any-hover: hover) {
   .rating__reviews:hover {
@@ -1766,6 +1776,10 @@ textarea.input {
   white-space: nowrap;
   -webkit-padding-after: 0.3125rem;
           padding-block-end: 0.3125rem;
+  margin-left: -0.3125rem;
+  margin-top: -0.3125rem;
+  padding-top: 0.3125rem;
+  padding-left: 0.3125rem;
 }
 .breadcrumbs__item {
   color: #535353;
@@ -1799,6 +1813,14 @@ textarea.input {
 }
 .breadcrumbs__link {
   position: relative;
+  outline: 0.125rem solid transparent;
+  border-radius: 0.0625rem;
+  outline-offset: 0.1875rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+}
+.breadcrumbs__link:focus-visible {
+  outline-color: #ffbc57;
 }
 .breadcrumbs__link::after {
   content: "";
@@ -2354,6 +2376,13 @@ textarea.input {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: absolute;
+  outline: 0.125rem solid transparent;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+  outline-offset: 0.125rem;
+}
+.noUi-handle:focus-visible {
+  outline-color: #2b2929;
 }
 
 .noUi-touch-area {
@@ -3167,6 +3196,10 @@ textarea.input {
 .type-category__more {
   position: relative;
   overflow: hidden;
+  margin-inline: -0.3125rem;
+  padding-inline: 0.3125rem;
+  margin-block: -0.3125rem;
+  padding-block: 0.3125rem;
 }
 .type-category__more.--init::after {
   content: "";
@@ -3204,6 +3237,14 @@ textarea.input {
   -webkit-margin-before: 1.25rem;
           margin-block-start: 1.25rem;
   z-index: 1;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  border-radius: 0.0625rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+}
+.type-category__button:focus-visible {
+  outline-color: #ffbc57;
 }
 .--hide .type-category__button {
   -webkit-margin-before: 0;
@@ -3282,6 +3323,13 @@ textarea.input {
           justify-content: space-between;
   row-gap: 0.3125rem;
   position: relative;
+  outline-offset: 0.1875rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+  outline: 0.125rem solid transparent;
+}
+.card-type-category__link:focus-visible {
+  outline-color: #ffbc57;
 }
 .card-type-category__link::before {
   content: "";
@@ -3447,6 +3495,19 @@ textarea.input {
 .item-filter {
   border-top: 0.0625rem solid #e3e2e2;
 }
+.item-filter__title {
+  border-radius: 0.3125rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+  outline: 0.125rem solid transparent;
+}
+.item-filter__title:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+.item-filter__title:focus-visible {
+  outline-color: #ffbc57;
+}
 .item-filter__content {
   padding: 0.9375rem 0.9375rem 1.25rem;
 }
@@ -3476,6 +3537,14 @@ textarea.input {
   color: #ffbc57;
   font-weight: 600;
   line-height: 1.5;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  border-radius: 0.125rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+}
+.item-filter__more:focus-visible {
+  outline-color: #ffbc57;
 }
 .item-filter__more::after {
   content: "";
@@ -3577,7 +3646,7 @@ textarea.input {
           transform: rotate(-45deg);
 }
 .--active .title-filter-item__icon::before, .--active .title-filter-item__icon::after {
-  inline-size: 0.9375rem;
+  inline-size: 0.875rem;
 }
 
 .price-filter {
@@ -3602,6 +3671,13 @@ textarea.input {
   background-color: #fff;
   padding-inline: 0.9375rem;
   text-align: center;
+  outline: 0.125rem solid transparent;
+  outline-offset: -0.0625rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+}
+.price-filter__input:focus-visible {
+  outline-color: #ffbc57;
 }
 .price-filter__button {
   text-transform: uppercase;
@@ -3612,8 +3688,13 @@ textarea.input {
   border-radius: 0.5rem;
   font-size: 1.1875rem;
   font-weight: 600;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  -webkit-transition: background-color 0.3s, outline-color 0.3s;
+  transition: background-color 0.3s, outline-color 0.3s;
+}
+.price-filter__button:focus-visible {
+  outline-color: #ffbc57;
 }
 @media (any-hover: hover) {
   .price-filter__button:hover {
@@ -3743,6 +3824,14 @@ textarea.input {
   background: url("../img/icons/icon-font/arrow-down.svg") right center/0.625rem 0.375rem no-repeat;
   -webkit-margin-end: 0.4375rem;
           margin-inline-end: 0.4375rem;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  border-radius: 0.125rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+}
+.sort-filter__select:focus-visible {
+  outline-color: #ffbc57;
 }
 .sort-filter__items {
   display: -webkit-box;
@@ -3773,8 +3862,13 @@ textarea.input {
   background-color: #fff;
   font-size: 0.9375rem;
   line-height: 100%;
-  -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+}
+.sort-filter__item:focus-visible {
+  outline-color: #ffbc57;
 }
 .sort-filter__item::before {
   font-size: 0.5rem;
@@ -3854,8 +3948,13 @@ textarea.input {
   background-color: #fff;
   color: #535353;
   font-size: 1.0625rem;
-  -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.pagination-content__button:focus-visible {
+  outline-color: #ffbc57;
 }
 .pagination-content__button--arrow::before {
   font-size: 0.625rem;
@@ -3950,8 +4049,13 @@ textarea.input {
   line-height: 1.26;
   text-align: left;
   background: url("../img/icons/icon-font/question.svg") 1.125rem 50%/2.0625rem no-repeat;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  -webkit-transition: color 0.3s, outline-color 0.3s;
+  transition: color 0.3s, outline-color 0.3s;
+  outline: 0.125rem solid transparent;
+  border-radius: 0.5rem;
+}
+.faqs__title:focus-visible {
+  outline-color: #ffbc57;
 }
 .faqs__title.--active::before {
   -webkit-transform: rotate(-180deg);
@@ -4126,8 +4230,13 @@ textarea.input {
     -webkit-transform: translate(0, -50%);
         -ms-transform: translate(0, -50%);
             transform: translate(0, -50%);
-    -webkit-transition: opacity 0.3s, background-color 0.3s;
-    transition: opacity 0.3s, background-color 0.3s;
+    -webkit-transition: opacity 0.3s, background-color 0.3s, outline-color 0.3s;
+    transition: opacity 0.3s, background-color 0.3s, outline-color 0.3s;
+    outline: 0.125rem solid transparent;
+    outline-offset: 0.125rem;
+  }
+  .main-slider-product__button:focus-visible {
+    outline-color: #535353;
   }
   .main-slider-product__button--prev {
     inset-inline-start: 1.25rem;
@@ -4164,6 +4273,7 @@ textarea.input {
     max-inline-size: 36.25rem;
   }
   .sub-slider-product__slide {
+    outline: none;
     position: relative;
     aspect-ratio: 1;
     border-radius: 0.5rem;
@@ -4207,6 +4317,11 @@ textarea.input {
     block-size: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+}
+@media (min-width: 29.99875em) and (any-hover: hover) {
+  .sub-slider-product__slide:hover::after {
+    opacity: 0.8;
   }
 }
 
@@ -4398,6 +4513,14 @@ textarea.input {
   -webkit-column-gap: 0.625rem;
      -moz-column-gap: 0.625rem;
           column-gap: 0.625rem;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  border-radius: 0.125rem;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+}
+.options-product__favorite:focus-visible {
+  outline-color: #ffbc57;
 }
 .options-product__favorite::before {
   -ms-flex-negative: 0;

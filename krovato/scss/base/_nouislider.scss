@@ -70,6 +70,12 @@
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	position: absolute;
+	outline: toRem(2) solid transparent;
+	transition: outline-color 0.3s;
+	outline-offset: toRem(2);
+	&:focus-visible {
+		outline-color: $mainColor;
+	}
 }
 .noUi-touch-area {
 	height: 100%;
