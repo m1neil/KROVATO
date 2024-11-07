@@ -4,9 +4,9 @@ window.addEventListener("load", windowLoaded)
 const isMobile = window.matchMedia("(any-hover: none)")
 
 function windowLoaded() {
-	const footerSocial = document.querySelector(".top-footer__social")
-	const footerContainer = document.querySelector(".top-footer__container")
-	const footerLogo = document.querySelector(".social-top-footer__img")
+	// const footerSocial = document.querySelector(".top-footer__social")
+	// const footerContainer = document.querySelector(".top-footer__container")
+	// const footerLogo = document.querySelector(".social-top-footer__img")
 	const lang = document.querySelector(".lang-header")
 	const phoneBox = document.querySelector(".phone-header")
 	const fixedElements = document.querySelectorAll("[data-fixed]")
@@ -14,7 +14,6 @@ function windowLoaded() {
 	// @media request ============================================================
 	const matchMediaTablet = window.matchMedia(`(max-width: ${991.98 / 16}em)`)
 	const matchMedia = window.matchMedia(`(max-width: ${767.98 / 16}em)`)
-	const matchMediaSmallPc = window.matchMedia(`(max-width: ${1149.98 / 16}em)`)
 
 	// listener ===========================================================================
 	document.addEventListener("click", documentAction)
@@ -33,13 +32,16 @@ function windowLoaded() {
 
 
 	const header = document.querySelector('.header')
+	if (header) {
+		window.addEventListener('scroll', () => {
+			if (scrollY > 100 && !header.classList.contains('--sticky'))
+				header.classList.add('--sticky')
+			else if (scrollY <= 100 && header.classList.contains('--sticky'))
+				header.classList.remove('--sticky')
+		})
+	}
 
-	window.addEventListener('scroll', () => {
-		if (scrollY > 100 && !header.classList.contains('--sticky'))
-			header.classList.add('--sticky')
-		else if (scrollY <= 100 && header.classList.contains('--sticky'))
-			header.classList.remove('--sticky')
-	})
+
 
 	const oldTable = document.querySelector('.table-entry')
 	if (oldTable) {
@@ -54,21 +56,6 @@ function windowLoaded() {
 	if (document.querySelector(googleMapSelector)) {
 		initMap(googleMapSelector)
 	}
-
-	// move elements ====================================================================
-	moveFooterSocial()
-	matchMedia.addEventListener("change", moveFooterSocial)
-
-	moveHeaderElements(matchMediaTablet.matches)
-
-	matchMediaTablet.addEventListener("change", () => {
-		moveHeaderElements(matchMediaTablet.matches)
-		moveReviewForm()
-	})
-
-	moveSortSelect()
-	moveProductItems()
-	moveReviewForm()
 
 	// init =========================================================================================
 	initShowMore()
@@ -236,10 +223,13 @@ function windowLoaded() {
 			document.documentElement.classList.contains("menu-open") ||
 			document.documentElement.classList.contains("cart-open")
 		) {
-			addPaddingScrollFixedElement()
+			const scrollWidth = getWidthScroll()
 			document.documentElement.classList.add("lock")
+			document.body.style.paddingRight = `${scrollWidth / 16}rem`
+			togglePaddingScrollFixedElement(scrollWidth)
 		} else {
-			removePaddingScrollFixedElement()
+			document.body.style.removeProperty('padding-right')
+			togglePaddingScrollFixedElement()
 			document.documentElement.classList.remove("lock")
 		}
 	}
@@ -247,8 +237,9 @@ function windowLoaded() {
 	// key actions ====================================================================================
 	function keyActions(e) {
 		if (e.key === "Escape") {
+			togglePaddingScrollFixedElement()
 			document.documentElement.classList.remove("catalog-open", "lock", "search-open", "cart-open")
-			removePaddingScrollFixedElement()
+			document.body.style.removeProperty('padding-right')
 
 			if (isMobile.matches && matchMediaTablet.matches && !matchMedia.matches) {
 				const activeMenuCatalogItems = document.querySelectorAll(".menu-catalog__item.--active")
@@ -332,67 +323,25 @@ function windowLoaded() {
 		return table
 	}
 
-	// move elements in footer ============================================
-	function moveFooterSocial() {
-		if (matchMedia.matches) {
-			footerContainer.append(footerSocial)
-			footerContainer.prepend(footerLogo)
+
+	function togglePaddingScrollFixedElement(widthScroll) {
+		const fixedElements = document.querySelectorAll("[data-fixed]")
+		if (!fixedElements.length) return
+		if (widthScroll) {
+			fixedElements.forEach(element => {
+				element.style.paddingRight = `${widthScroll / 16}rem`
+			})
 		} else {
-			footerContainer.prepend(footerSocial)
-			footerSocial.prepend(footerLogo)
+			fixedElements.forEach(element => {
+				element.style.removeProperty('padding-right')
+			})
 		}
 	}
+}
 
-	// move title product
-	function moveProductItems() {
-		const bodyProductInfo = document.querySelector('.body-product__info')
-		const optionsProductFavorite = document.querySelector('.options-product__favorite')
-		if (!bodyProductInfo || !optionsProductFavorite) return
-		const parentBodyProductInfo = bodyProductInfo.parentElement
-		const containerForParentBodyProductInfo = document.querySelector('.product-card__container')
-		const containerForOptionsProductFavorite = document.querySelector('.actions-product')
-		const parentOptionsProductFavorite = optionsProductFavorite.parentElement
-		matchMediaSmallPc.addEventListener('change', () => {
-			if (matchMediaSmallPc.matches) {
-				containerForParentBodyProductInfo.prepend(bodyProductInfo)
-				containerForOptionsProductFavorite.append(optionsProductFavorite)
-			} else {
-				parentBodyProductInfo.prepend(bodyProductInfo)
-				parentOptionsProductFavorite.append(optionsProductFavorite)
-			}
-		})
-		if (matchMediaSmallPc.matches) {
-			containerForParentBodyProductInfo.prepend(bodyProductInfo)
-			containerForOptionsProductFavorite.append(optionsProductFavorite)
-		} else {
-			parentBodyProductInfo.prepend(bodyProductInfo)
-			parentOptionsProductFavorite.append(optionsProductFavorite)
-		}
-	}
-
-	// move add review form
-	function moveReviewForm() {
-		const addReviewProduct = document.querySelector('.bout-product__add-review')
-		if (!addReviewProduct) return
-		const container = document.querySelector('.about-product__container')
-		const elementNearNeedPlace = document.querySelector('.body-about-product__characteristic')
-		if (matchMediaTablet.matches)
-			elementNearNeedPlace.after(addReviewProduct)
-		else
-			container.append(addReviewProduct)
-	}
-
-	// remove padding right ============================================
-	function removePaddingScrollFixedElement() {
-		document.body.style.removeProperty("padding-right")
-		fixedElements.forEach((element) => {
-			element.style.removeProperty("padding-right")
-		})
-	}
-
-	function addPaddingScrollFixedElement() {
-		const box = document.createElement("div")
-		box.style.cssText = `
+function getWidthScroll() {
+	const box = document.createElement("div")
+	box.style.cssText = `
 			width: 50px;
 			height: 50px;
 			overflow-y: scroll;
@@ -402,39 +351,10 @@ function windowLoaded() {
 			top: 0;
 			left: -100%;
 		`
-		document.body.append(box)
-		const scrollWidth = box.offsetWidth - box.clientWidth
-		box.remove()
-		document.body.style.paddingRight = `${scrollWidth / 16}rem`
-		fixedElements.forEach(element => {
-			element.style.paddingRight = `${scrollWidth / 16}rem`
-		})
-	}
-}
-
-// move header elements ===================================================================
-function moveHeaderElements(isTablet) {
-	const topHeaderContainer = document.querySelector(".top-header__container")
-	const bottomHeaderContainer = document.querySelector(".bottom-header__container")
-	const middleHeaderContainer = document.querySelector(".middle-header__container")
-	const bottomHeaderMenu = document.querySelector(".bottom-header__menu")
-	const catalogHeader = document.querySelector(".catalog-header")
-	const middleHeaderActions = document.querySelector(".middle-header__actions")
-	const searchHeader = document.querySelector(".search-header")
-	const topHeaderActions = document.querySelector(".top-header__actions")
-
-	if (isTablet) {
-		topHeaderContainer.append(bottomHeaderMenu)
-		topHeaderContainer.append(topHeaderActions)
-		bottomHeaderContainer.append(catalogHeader)
-		bottomHeaderContainer.append(searchHeader)
-		bottomHeaderContainer.append(middleHeaderActions)
-	} else {
-		bottomHeaderContainer.append(bottomHeaderMenu)
-		middleHeaderContainer.children[1].after(catalogHeader)
-		middleHeaderContainer.children[2].after(searchHeader)
-		middleHeaderContainer.append(middleHeaderActions)
-	}
+	document.body.append(box)
+	const scrollWidth = box.offsetWidth - box.clientWidth
+	box.remove()
+	return scrollWidth
 }
 
 // spollers ==========================================================================
@@ -916,24 +836,6 @@ function initShowMore() {
 		}
 
 	})
-}
-
-function moveSortSelect() {
-	const sort = document.querySelector('.sort-filter__wrap')
-	if (sort) {
-		const options = sort.dataset.da.split(',')
-		const selectorWhereMove = options[0]
-		const valueBreakpoint = options[1]
-		const whereMoveItem = document.querySelector(selectorWhereMove)
-		const parent = sort.parentElement
-		const mediaRequest = window.matchMedia(`(max-width: ${valueBreakpoint / 16}em)`)
-
-		if (mediaRequest.matches) whereMoveItem.append(sort)
-
-		mediaRequest.addEventListener('change', e => {
-			e.matches ? whereMoveItem.append(sort) : parent.append(sort)
-		})
-	}
 }
 
 function initRange() {

@@ -22,7 +22,7 @@
 								<li class="menu__item"><a href="contacts.html" class="menu__link">Контакти</a></li>
 							</ul>
 						</nav>
-						<div class="top-header__actions">
+						<div data-da=".top-header__container,991.98,3" class="top-header__actions">
 							<div class="top-header__social social-top-header">
 								<div class="social-top-header__text">Допомога і консультація:</div>
 								<ul class="social-top-header__list">
@@ -63,7 +63,7 @@
 								<img src="img/logo.svg" alt="KROVATO">
 							</picture>
 						</a>
-						<div class="middle-header__catalog catalog-header">
+						<div data-da=".bottom-header__container,991.98" class="middle-header__catalog catalog-header">
 							<button type="button" aria-label="Відкрити або зачинити каталог" class="catalog-header__button">
 								<span class="catalog-header__icon">
 									<span class="_icon-menu-catalog"></span>
@@ -505,7 +505,7 @@
 								</div>
 							</div>
 						</div>
-						<form action="#" class="middle-header__search search-header">
+						<form data-da=".bottom-header__container,991.98" action="#" class="middle-header__search search-header">
 							<input minlength="3" required type="text" placeholder="Пошук товарів" class="search-header__input">
 							<button type="submit" aria-label="Розпочати пошук" class="search-header__button _icon-search"></button>
 						</form>
@@ -533,7 +533,7 @@
 								<button type="button" class="inner-phone-header__call-me">Передзвоніть мені</button>
 							</div>
 						</div>
-						<div class="middle-header__actions">
+						<div data-da=".bottom-header__container,991.98" class="middle-header__actions">
 							<button type="button" class="middle-header__button middle-header__button--search">
 								<span class="_icon-search"></span>
 								<span class="_icon-crosshair"></span>
@@ -592,7 +592,7 @@
 				</div>
 				<div data-fixed class="header-bottom bottom-header">
 					<div class="bottom-header__container">
-						<div class="bottom-header__menu">
+						<div data-da=".top-header__container,991.98" class="bottom-header__menu">
 							<ul class="bottom-header__sales sales-bottom-header">
 								<li class="sales-bottom-header__item">
 									<a href="#" class="sales-bottom-header__link link-sales link-sales--shares">Акції</a>
@@ -631,7 +631,6 @@
 					</div>
 				</div>
 			</header>
-			<!-- main -->
 			<main class="product">
 				<div class="product__breadcrumbs breadcrumbs">
 					<div class="breadcrumbs__container">
@@ -713,7 +712,7 @@
 							</div>
 						</div>
 						<div class="product-card__body body-product">
-							<div class="body-product__info">
+							<div data-da=".product-card__container,1149.98" class="body-product__info">
 								<h1 class="body-product__title title">Ліжко двоспальне МК-1 з підйомним механізмом</h1>
 								<div class="body-product__stock stock _icon-in-stock">В наявності</div>
 								<div data-rating="5" class="body-product__rating rating">
@@ -735,7 +734,7 @@
 										<div class="options-product__current-price">15 400 грн.</div>
 										<div class="options-product__old-price">25 400 грн.</div>
 									</div>
-									<button type="button" class="options-product__favorite _icon-favorite">В обране</button>
+									<button data-da=".actions-product,1149.98" type="button" class="options-product__favorite _icon-favorite">В обране</button>
 								</div>
 								<div class="options-product__wrap">
 									<div class="options-product__items">
@@ -902,7 +901,7 @@
 				</div>
 				<div class="product__about about-product">
 					<div class="about-product__container">
-						<aside class="about-product__add-review add-review-product">
+						<aside data-da=".about-product__container,991.98" class="about-product__add-review add-review-product">
 							<h5 class="add-review-product__title title title--mini">Залишіть свій відгук</h5>
 							<form action="#" class="add-review-product__form">
 								<div class="add-review-product__fields">
@@ -1482,8 +1481,8 @@
 			<footer class="footer">
 				<div class="footer__top top-footer">
 					<div class="top-footer__container">
-						<div class="top-footer__social social-top-footer">
-							<img src="img/logo-footer.svg" alt="KROVATO" class="social-top-footer__img">
+						<div data-da=".top-footer__container,767.98" class="top-footer__social social-top-footer">
+							<img data-da=".top-footer__container,767.98,0" src="img/logo-footer.svg" alt="KROVATO" class="social-top-footer__img">
 							<div class="social-top-footer__item">
 								<div class="social-top-footer__text">Приєднуйтесь:</div>
 								<div class="social-top-footer__links">
@@ -1634,6 +1633,7 @@
 		</div>
 		<script defer src="js/inputmask.min.js"></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script defer src="js/dynamic_adapt.js"></script>
 		<script defer src="js/script.js"></script>
 	</body>
 </html>
