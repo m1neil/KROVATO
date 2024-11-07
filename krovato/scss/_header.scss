@@ -577,9 +577,11 @@
 	&__items {
 		overflow-y: auto;
 		max-height: calc(100vh - toRem(480));
-		padding-block-end: toRem(5);
-		margin-inline-end: toRem(-5);
-		padding-inline-end: toRem(5);
+		margin-inline: 0 toRem(-15);
+		margin-block: toRem(-5) 0;
+		padding-block: toRem(5) 0;
+		padding-inline: 0 toRem(15);
+
 		@media (max-width: $mobile) {
 			max-height: calc(100vh - toRem(420));
 		}
@@ -746,7 +748,15 @@
 		line-height: 1.26;
 		text-align: left;
 		a {
-			transition: color 0.3s;
+			transition:
+				color 0.3s,
+				outline-color 0.3s;
+			outline: toRem(2) solid transparent;
+			outline-offset: toRem(3);
+			border-radius: toRem(2);
+			&:focus-visible {
+				outline-color: $yellowColor;
+			}
 			@media (any-hover: hover) {
 				&:hover {
 					color: $yellowColor;
@@ -772,6 +782,11 @@
 		font-size: toRem(8);
 		color: $mainColor;
 		transition: all 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(2);
+		&:focus-visible {
+			outline-color: $greyColor;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				background-color: $greyColor;

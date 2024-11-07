@@ -902,6 +902,35 @@
 				</div>
 				<div class="product__about about-product">
 					<div class="about-product__container">
+						<aside class="about-product__add-review add-review-product">
+							<h5 class="add-review-product__title title title--mini">Залишіть свій відгук</h5>
+							<form action="#" class="add-review-product__form">
+								<div class="add-review-product__fields">
+									<input required placeholder="Ваше ім'я прізвище" type="text" name="user-name" class="add-review-product__input input">
+									<input required placeholder="E-mail" type="email" name="email" class="add-review-product__input input">
+									<textarea placeholder="Відгук" name="review" class="add-review-product__textarea input"></textarea>
+								</div>
+								<div data-rating="0" class="add-review-product__rating rating rating--center">
+									<h6 class="rating__title">Ваша оцінка:</h6>
+									<div class="rating__stars rating__stars--orange">
+										<div class="rating__active">
+											<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star rating__star--big">
+										</div>
+										<div class="rating__passive">
+											<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star rating__star--big">
+										</div>
+										<div class="rating__radios">
+											<input aria-label="Виставити оцінку 1" type="radio" name="rating" value="1" class="rating__radio">
+											<input aria-label="Виставити оцінку 2" type="radio" name="rating" value="2" class="rating__radio">
+											<input aria-label="Виставити оцінку 3" type="radio" name="rating" value="3" class="rating__radio">
+											<input aria-label="Виставити оцінку 4" type="radio" name="rating" value="4" class="rating__radio">
+											<input aria-label="Виставити оцінку 5" type="radio" name="rating" value="5" class="rating__radio">
+										</div>
+									</div>
+								</div>
+								<button type="submit" class="add-review-product__button button-link button-link--full-width">Залишити відгук</button>
+							</form>
+						</aside>
 						<section class="about-product__body body-about-product">
 							<h2 class="body-about-product__title title">Опис товару</h2>
 							<div class="body-about-product__description">
@@ -1250,35 +1279,6 @@
 								<button type="button" class="reviews-product__more button-link _icon-download-more">Показати ще відгуки</button>
 							</section>
 						</section>
-						<aside class="about-product__add-review add-review-product">
-							<h5 class="add-review-product__title title title--mini">Залишіть свій відгук</h5>
-							<form action="#" class="add-review-product__form">
-								<div class="add-review-product__fields">
-									<input required placeholder="Ваше ім'я прізвище" type="text" name="user-name" class="add-review-product__input input">
-									<input required placeholder="E-mail" type="email" name="email" class="add-review-product__input input">
-									<textarea placeholder="Відгук" name="review" class="add-review-product__textarea input"></textarea>
-								</div>
-								<div data-rating="0" class="add-review-product__rating rating rating--center">
-									<h6 class="rating__title">Ваша оцінка:</h6>
-									<div class="rating__stars rating__stars--orange">
-										<div class="rating__active">
-											<img src="img/icons/rating/star-yellow.svg" alt="star" class="rating__star rating__star--big">
-										</div>
-										<div class="rating__passive">
-											<img src="img/icons/rating/star-grey.svg" alt="star" class="rating__star rating__star--big">
-										</div>
-										<div class="rating__radios">
-											<input aria-label="Виставити оцінку 1" type="radio" name="rating" value="1" class="rating__radio">
-											<input aria-label="Виставити оцінку 2" type="radio" name="rating" value="2" class="rating__radio">
-											<input aria-label="Виставити оцінку 3" type="radio" name="rating" value="3" class="rating__radio">
-											<input aria-label="Виставити оцінку 4" type="radio" name="rating" value="4" class="rating__radio">
-											<input aria-label="Виставити оцінку 5" type="radio" name="rating" value="5" class="rating__radio">
-										</div>
-									</div>
-								</div>
-								<button type="submit" class="add-review-product__button button-link button-link--full-width">Залишити відгук</button>
-							</form>
-						</aside>
 					</div>
 				</div>
 				<section class="product__popular-products popular-products">

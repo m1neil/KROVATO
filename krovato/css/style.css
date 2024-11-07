@@ -1342,8 +1342,9 @@ textarea.input {
   color: #535353;
   border: 0.125rem solid #ffbc57;
   padding: 0.6875rem 0.875rem;
-  -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  outline-offset: 0.25rem;
+  -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s, outline-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, outline-color 0.3s;
 }
 .button-link--border:has(.link-sales) {
   -webkit-transition: background-color 0.3s, border-color 0.3s;
@@ -1910,6 +1911,9 @@ textarea.input {
   text-align: center;
   width: 1.625rem;
 }
+.quantity__button:focus-visible {
+  outline-color: #ffbc57;
+}
 .quantity__button--reduce {
   font-size: 0.625rem;
 }
@@ -1924,6 +1928,16 @@ textarea.input {
   text-align: center;
   font-size: 1.25rem;
   font-weight: 600;
+}
+.quantity__button, .quantity__value {
+  outline: 0.125rem solid transparent;
+  border-radius: 0.1875rem;
+  outline-offset: 0;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
+}
+.quantity__button:focus-visible, .quantity__value:focus-visible {
+  outline-color: #ffbc57;
 }
 
 .link-sales {
@@ -4738,8 +4752,14 @@ textarea.input {
       -ms-flex-align: center;
           align-items: center;
   color: #ffbc57;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  border-radius: 0.0625rem;
+  -webkit-transition: color 0.3s, outline-color 0.3s;
+  transition: color 0.3s, outline-color 0.3s;
+}
+.item-option-product__button:focus-visible {
+  outline-color: #ffbc57;
 }
 .item-option-product__button::before {
   -webkit-margin-before: -0.0625rem;
@@ -4958,6 +4978,10 @@ textarea.input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   -webkit-column-gap: 1.875rem;
      -moz-column-gap: 1.875rem;
           column-gap: 1.875rem;
@@ -5255,8 +5279,14 @@ textarea.input {
      -moz-column-gap: 0.4375rem;
           column-gap: 0.4375rem;
   color: #535353;
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  -webkit-transition: color 0.3s, outline-color 0.3s;
+  transition: color 0.3s, outline-color 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.25rem;
+  border-radius: 0.125rem;
+}
+.button-review:focus-visible {
+  outline-color: #ffbc57;
 }
 @media (any-hover: hover) {
   .button-review:hover {
@@ -8622,12 +8652,10 @@ textarea.input {
 .cart-header__items {
   overflow-y: auto;
   max-height: calc(100vh - 30rem);
-  -webkit-padding-after: 0.3125rem;
-          padding-block-end: 0.3125rem;
-  -webkit-margin-end: -0.3125rem;
-          margin-inline-end: -0.3125rem;
-  -webkit-padding-end: 0.3125rem;
-          padding-inline-end: 0.3125rem;
+  margin-inline: 0 -0.9375rem;
+  margin-block: -0.3125rem 0;
+  padding-block: 0.3125rem 0;
+  padding-inline: 0 0.9375rem;
 }
 @media (max-width: 47.99875em) {
   .cart-header__items {
@@ -8802,8 +8830,14 @@ textarea.input {
   text-align: left;
 }
 .product-cart-header__title a {
-  -webkit-transition: color 0.3s;
-  transition: color 0.3s;
+  -webkit-transition: color 0.3s, outline-color 0.3s;
+  transition: color 0.3s, outline-color 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.1875rem;
+  border-radius: 0.125rem;
+}
+.product-cart-header__title a:focus-visible {
+  outline-color: #ffbc57;
 }
 @media (any-hover: hover) {
   .product-cart-header__title a:hover {
@@ -8833,6 +8867,11 @@ textarea.input {
   color: #2b2929;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.125rem;
+}
+.product-cart-header__remove:focus-visible {
+  outline-color: #535353;
 }
 @media (any-hover: hover) {
   .product-cart-header__remove:hover {

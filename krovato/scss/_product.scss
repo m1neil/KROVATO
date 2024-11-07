@@ -524,7 +524,15 @@
 		column-gap: toRem(18);
 		align-items: center;
 		color: $yellowColor;
-		transition: color 0.3s;
+		outline: toRem(2) solid transparent;
+		outline-offset: toRem(3);
+		border-radius: toRem(1);
+		transition:
+			color 0.3s,
+			outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		&::before {
 			margin-block-start: toRem(-1);
 			font-size: toRem(10);
@@ -704,6 +712,7 @@
 	// .about-product__container
 	&__container {
 		display: flex;
+		flex-direction: row-reverse;
 		column-gap: toRem(30);
 		@media (min-width: $tablet) {
 			align-items: flex-start;
@@ -954,7 +963,15 @@
 	align-items: center;
 	column-gap: toRem(7);
 	color: $greyColor;
-	transition: color 0.3s;
+	transition:
+		color 0.3s,
+		outline-color 0.3s;
+	outline: toRem(2) solid transparent;
+	outline-offset: toRem(4);
+	border-radius: toRem(2);
+	&:focus-visible {
+		outline-color: $yellowColor;
+	}
 	@media (any-hover: hover) {
 		&:hover {
 			color: $yellowColor;

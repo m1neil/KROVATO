@@ -657,10 +657,12 @@
 		color: $greyColor;
 		border: toRem(2) solid $yellowColor;
 		padding: toRem(11) toRem(14);
+		outline-offset: toRem(4);
 		transition:
 			background-color 0.3s,
 			border-color 0.3s,
-			color 0.3s;
+			color 0.3s,
+			outline-color 0.3s;
 
 		&:has(.link-sales) {
 			transition:
@@ -1177,6 +1179,9 @@
 	&__button {
 		text-align: center;
 		width: toRem(26);
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 		// .quantity__button--reduce
 		&--reduce {
 			font-size: toRem(10);
@@ -1194,6 +1199,16 @@
 		text-align: center;
 		font-size: toRem(20);
 		font-weight: 600;
+	}
+	&__button,
+	&__value {
+		outline: toRem(2) solid transparent;
+		border-radius: toRem(3);
+		outline-offset: 0;
+		transition: outline-color 0.3s;
+		&:focus-visible {
+			outline-color: $yellowColor;
+		}
 	}
 }
 
