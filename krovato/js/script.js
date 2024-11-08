@@ -838,6 +838,7 @@ function initShowMore() {
 
 function changeActiveShowMore() {
 	const blocks = document.querySelectorAll("[data-show-more]")
+	if (!blocks.length) return
 	blocks.forEach(item => {
 		const content = item.querySelector('[data-show-more-content]')
 		const size = parseFloat(content.getAttribute('data-show-more-content'))
