@@ -549,6 +549,9 @@
 			font-size: toRem(10);
 			transition: transform 0.3s;
 		}
+		&[hidden] {
+			display: none;
+		}
 		.--hide & {
 			&::before {
 				transform: rotate(180deg);

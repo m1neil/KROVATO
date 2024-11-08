@@ -4776,6 +4776,9 @@ textarea.input {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
+.item-option-product__button[hidden] {
+  display: none;
+}
 .--hide .item-option-product__button::before {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
