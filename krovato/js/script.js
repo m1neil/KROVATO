@@ -78,15 +78,6 @@ function windowLoaded() {
 	function documentAction(e) {
 		const target = e.target
 
-		// reduce and increase ==================================================================
-		if (target.closest(".quantity__button--reduce")) {
-			const input = target.closest(".quantity__button--reduce").nextElementSibling
-			input.value = input.value > 1 ? input.value - 1 : 1
-		} else if (target.closest(".quantity__button--increase")) {
-			const input = target.closest(".quantity__button--increase").previousElementSibling
-			input.value = input.value > 0 ? input.value + 1 : 1
-		}
-
 		if (target.closest('[data-goto]')) {
 			const targetElement = target.closest('[data-goto]')
 			const selector = targetElement.dataset.goto
@@ -101,19 +92,21 @@ function windowLoaded() {
 			e.preventDefault()
 		}
 
+
 		// cart ==============================================================
 		if (target.closest(".middle-header__button._icon-cart"))
 			document.documentElement.classList.toggle("cart-open")
 		else if (
 			!target.closest(".cart-header") ||
-			target.closest(".cart-header__close") ||
+			target.closest('.cart-header__close') ||
 			target.closest("[data-cart-continue]")
 		) document.documentElement.classList.remove("cart-open")
 
-		if (target.closest(".product-cart-header__remove")) {
-			const item = target.closest(".cart-header__product")
-			item.remove()
+		if (target.closest('.product-cart-header__remove')) {
+			const productItem = target.closest('.product-cart-header')
+			productItem.remove()
 		}
+
 
 		// toggle burger menu ===========================================
 		if (target.closest(".icon-menu")) {

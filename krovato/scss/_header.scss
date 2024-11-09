@@ -658,6 +658,9 @@
 		transition: all 0.3s;
 		outline: toRem(2) solid transparent;
 		outline-offset: toRem(3);
+		&.--hide {
+			display: none;
+		}
 		&:focus-visible {
 			outline-color: $yellowColor;
 		}
@@ -711,6 +714,10 @@
 				}
 			}
 		}
+	}
+	&__message {
+		font-size: toRem(20);
+		text-align: center;
 	}
 }
 
