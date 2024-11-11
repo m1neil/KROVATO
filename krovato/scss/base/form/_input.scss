@@ -90,7 +90,7 @@
 		color: $greyColor;
 		transition: opacity 0.3s;
 	}
-	&:focus {
+	&:focus:not(:read-only) {
 		outline-color: $yellowColor;
 		&::placeholder {
 			opacity: 0;

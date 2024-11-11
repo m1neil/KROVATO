@@ -1181,6 +1181,12 @@
 	&__button {
 		text-align: center;
 		width: toRem(26);
+		transition:
+			outline-color 0.3s,
+			opacity 0.3s;
+		&:disabled {
+			opacity: 0.3;
+		}
 		&:focus-visible {
 			outline-color: $yellowColor;
 		}
@@ -1202,13 +1208,13 @@
 		font-size: toRem(20);
 		font-weight: 600;
 		text-align: center;
+		transition: outline-color 0.3s;
 	}
 	&__button,
 	&__value {
 		outline: toRem(2) solid transparent;
 		border-radius: toRem(3);
 		outline-offset: 0;
-		transition: outline-color 0.3s;
 		&:focus-visible {
 			outline-color: $yellowColor;
 		}

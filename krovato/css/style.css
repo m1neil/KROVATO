@@ -534,22 +534,28 @@ button.swiper-pagination-bullet-active {
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
-.input:focus {
+.input:focus:not(:-moz-read-only) {
   outline-color: #ffbc57;
 }
-.input:focus::-webkit-input-placeholder {
+.input:focus:not(:read-only) {
+  outline-color: #ffbc57;
+}
+.input:focus:not(:read-only)::-webkit-input-placeholder {
   opacity: 0;
 }
-.input:focus::-moz-placeholder {
+.input:focus:not(:read-only)::-moz-placeholder {
   opacity: 0;
 }
-.input:focus:-ms-input-placeholder {
+.input:focus:not(:read-only):-ms-input-placeholder {
   opacity: 0;
 }
-.input:focus::-ms-input-placeholder {
+.input:focus:not(:read-only)::-ms-input-placeholder {
   opacity: 0;
 }
-.input:focus::placeholder {
+.input:focus:not(:-moz-read-only)::placeholder {
+  opacity: 0;
+}
+.input:focus:not(:read-only)::placeholder {
   opacity: 0;
 }
 
@@ -1910,6 +1916,11 @@ textarea.input {
 .quantity__button {
   text-align: center;
   width: 1.625rem;
+  -webkit-transition: outline-color 0.3s, opacity 0.3s;
+  transition: outline-color 0.3s, opacity 0.3s;
+}
+.quantity__button:disabled {
+  opacity: 0.3;
 }
 .quantity__button:focus-visible {
   outline-color: #ffbc57;
@@ -1929,13 +1940,13 @@ textarea.input {
   font-size: 1.25rem;
   font-weight: 600;
   text-align: center;
+  -webkit-transition: outline-color 0.3s;
+  transition: outline-color 0.3s;
 }
 .quantity__button, .quantity__value {
   outline: 0.125rem solid transparent;
   border-radius: 0.1875rem;
   outline-offset: 0;
-  -webkit-transition: outline-color 0.3s;
-  transition: outline-color 0.3s;
 }
 .quantity__button:focus-visible, .quantity__value:focus-visible {
   outline-color: #ffbc57;
@@ -8869,6 +8880,12 @@ textarea.input {
   font-size: 1.25rem;
   text-align: center;
 }
+.cart-header__message.--error {
+  color: #e03d3d;
+}
+.cart-header__message.--error:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
 
 .product-cart-header {
   display: grid;
@@ -9163,6 +9180,10 @@ textarea.input {
   text-transform: uppercase;
   padding-block: 0.875rem 0.8125rem;
   padding-inline: 1.75rem;
+}
+.promo-cart__button:disabled {
+  background-color: #b1b1b1;
+  cursor: default;
 }
 
 .total-cart {

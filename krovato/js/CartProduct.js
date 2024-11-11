@@ -22,7 +22,7 @@ class Quantity {
 		return this.#amount
 	}
 
-
+	// functions ===========================================================================
 	toggleDisabledButton(button, borderValue) {
 		if (borderValue === this.Amount)
 			button.setAttribute('disabled', '')
@@ -35,9 +35,6 @@ class Quantity {
 		this.toggleDisabledButton(this.increaseButton, this.maxAmount)
 		this.toggleDisabledButton(this.decreaseButton, this.minAmount)
 	}
-
-
-	// functions ===========================================================================
 
 	updateInput() {
 		this.input.value = this.Amount
@@ -147,6 +144,30 @@ class ProductCart {
 		this.props = { ...props }
 	}
 
+	// functions ===========================================================================
+	sendNewAmount(event) {
+		const newAmount = event.detail.newAmount
+		this.sendEvent({ newAmount })
+	}
+
+	removeProduct() {
+		this.sendEvent({}, 'remove')
+	}
+
+	// custom events ===========================================================================
+	sendEvent(property, type = 'update') {
+		const event = new CustomEvent('change-state', {
+			detail: {
+				...property,
+				id: this.props.id,
+				type
+			},
+			bubbles: true
+		})
+		this.wrapper.dispatchEvent(event)
+	}
+
+	// create elements ===========================================================================
 	createImg() {
 		const img = document.createElement('img')
 		img.classList = 'product-cart-header__img --loading'
@@ -178,27 +199,6 @@ class ProductCart {
 		return button
 	}
 
-	sendNewAmount(event) {
-		const newAmount = event.detail.newAmount
-		this.sendEvent({ newAmount })
-	}
-
-	removeProduct() {
-		this.sendEvent({}, 'remove')
-	}
-
-	sendEvent(property, type = 'update') {
-		const event = new CustomEvent('change-state', {
-			detail: {
-				...property,
-				id: this.props.id,
-				type
-			},
-			bubbles: true
-		})
-		this.wrapper.dispatchEvent(event)
-	}
-
 	createPrices() {
 		const wrapper = document.createElement('div')
 		wrapper.className = 'product-cart-header__prices'
@@ -215,6 +215,7 @@ class ProductCart {
 		return wrapper
 	}
 
+
 	render(bemClass, selectorContainer) {
 		const wrapper = document.createElement('article')
 		wrapper.addEventListener('update-amount', this.sendNewAmount.bind(this))
@@ -226,7 +227,8 @@ class ProductCart {
 		wrapper.append(this.createImg())
 		wrapper.append(this.createBodyContent())
 		wrapper.append(this.createRemoveButton())
-		wrapper.append(new Quantity(this.props.amount, this.props.maxAmount).render('product-cart-header'))
+		const quantity = new Quantity(this.props.amount, this.props.maxAmount)
+		wrapper.append(quantity.render('product-cart-header'))
 		wrapper.append(this.createPrices())
 
 		if (selectorContainer) {
@@ -247,6 +249,7 @@ class CartHeader {
 		this.ProductList = data
 	}
 
+	// set, get ===========================================================================
 	get AmountProducts() {
 		return this.ProductList.length
 	}
@@ -254,6 +257,7 @@ class CartHeader {
 	get ProductList() {
 		return this.#productList
 	}
+
 	set ProductList(newList) {
 		if (!Array.isArray(newList))
 			throw new Error("Очікується масив з даними про товари!")
@@ -262,77 +266,22 @@ class CartHeader {
 			this.fillListElement()
 	}
 
-	createNotificationEmptyCart() {
-		this.listElement.append(this.createInfoElement())
-		this.orderButton.classList.add('--hide')
-	}
-
-
-	fillListElement() {
-		if (this.ProductList.length) {
-			this.listElement.innerHTML = ''
-			this.orderButton.classList.remove('--hide')
-			this.ProductList.forEach(product => {
-				const element = new ProductCart(product).render('cart-header')
-				this.listElement.append(element)
-			})
-		} else this.createNotificationEmptyCart()
-
-	}
-
-	createInfoElement(message = 'Корзина пуста') {
-		const element = document.createElement('div')
-		element.className = 'cart-header__message'
-		element.textContent = message
-		return element
-	}
-
-	updateProductList(newList) {
-		this.ProductList = newList
-	}
-
-
-	createButtons(isButtonOrder = true) {
-		const button = document.createElement('button')
-		button.type = 'button'
-		button.className = 'cart-header__button'
-		const textButton = isButtonOrder ? 'оформити замовлення' : 'Продовжити покупки'
-		const dataAttribute = isButtonOrder ? 'data-cart-order' : 'data-cart-continue'
-		button.textContent = textButton
-		button.setAttribute(dataAttribute, '')
-		if (!isButtonOrder)
-			button.classList.add('cart-header__button--border')
-		return button
-	}
-
+	// functions ===========================================================================
+	// TODO: Под вопросом метод
 	actionFooterCart(e) {
 		const target = e.target
 		if (target.closest('[data-cart-order]')) {
 
 		} else if (target.closest('[data-cart-continue]')) {
-			document.documentElement.classList.remove("cart-open")
+			// document.documentElement.classList.remove("cart-open")
 		}
 	}
 
-	createHeader(isHeaderCart) {
-		const wrapper = document.createElement('div')
-		wrapper.className = 'cart-header__header'
-
-		const title = document.createElement('h4')
-		title.className = 'cart-header__title'
-		title.innerHTML = `Ваш кошик <span>${this.AmountProducts}</span>`
-		wrapper.append(title)
-
-		if (isHeaderCart) {
-			const button = document.createElement('button')
-			button.type = 'button'
-			button.className = 'cart-header__close _icon-crosshair'
-			button.setAttribute('aria-label', 'Закрити корзину')
-			wrapper.append(button)
-		}
-
-		return wrapper
+	// updates ===========================================================================
+	updateProductList(newList) {
+		this.ProductList = newList
 	}
+
 	updateAmount(id, newAmount) {
 		const product = this.ProductList.find(item => item.id === id)
 		product.amount = newAmount
@@ -342,6 +291,7 @@ class CartHeader {
 	removeProductItem(id) {
 		this.#productList = this.ProductList.filter(item => item.id !== id)
 		this.updateLocalStorage()
+		this.amountProductsEl.textContent = this.AmountProducts
 		if (!this.ProductList.length)
 			this.createNotificationEmptyCart()
 	}
@@ -355,6 +305,101 @@ class CartHeader {
 		if (type === 'update')
 			this.updateAmount(id, newAmount)
 		else this.removeProductItem(id)
+	}
+
+	// create elements ===========================================================================
+	createHeader(isHeaderCart) {
+		const wrapper = document.createElement('div')
+		wrapper.className = 'cart-header__header'
+
+		const title = document.createElement('h4')
+		title.className = 'cart-header__title'
+		title.textContent = 'Ваш кошик '
+
+		const amountProductsEl = document.createElement('span')
+		amountProductsEl.textContent = this.AmountProducts
+		title.append(amountProductsEl)
+		this.amountProductsEl = amountProductsEl
+		wrapper.append(title)
+
+		if (isHeaderCart) {
+			const button = document.createElement('button')
+			button.type = 'button'
+			button.className = 'cart-header__close _icon-crosshair'
+			button.setAttribute('aria-label', 'Закрити корзину')
+			wrapper.append(button)
+		}
+
+		return wrapper
+	}
+
+	createNotificationEmptyCart() {
+		this.listElement.append(this.createInfoElement())
+		this.orderButton.classList.add('--hide')
+	}
+
+	fillListElement() {
+		if (this.ProductList.length) {
+			this.listElement.innerHTML = ''
+			this.orderButton.classList.remove('--hide')
+			this.ProductList.forEach(product => {
+				const element = new ProductCart(product).render('cart-header')
+				this.listElement.append(element)
+			})
+		} else this.createNotificationEmptyCart()
+	}
+
+	createInfoElement(message = 'Корзина пуста', classModify = '') {
+		const element = document.createElement('div')
+		element.className = 'cart-header__message'
+		if (classModify)
+			element.classList.add(classModify)
+		element.textContent = message
+		return element
+	}
+
+	createButtons(isButtonOrder = true, tag = 'button') {
+		const element = document.createElement(tag)
+		if (tag === 'button') {
+			element.type = 'button'
+		} else {
+			element.href = 'order.html'
+		}
+		element.className = 'cart-header__button'
+		const textElement = isButtonOrder ? 'оформити замовлення' : 'Продовжити покупки'
+		const dataAttribute = isButtonOrder ? 'data-cart-order' : 'data-cart-continue'
+		element.textContent = textElement
+		element.setAttribute(dataAttribute, '')
+		if (!isButtonOrder)
+			element.classList.add('cart-header__button--border')
+		return element
+	}
+
+	createFooter(isHeaderCart) {
+		const footer = document.createElement('div')
+		footer.addEventListener('click', this.actionFooterCart.bind(this))
+		footer.className = 'cart-header__footer'
+
+		if (isHeaderCart) {
+			this.orderButton = this.createButtons(true, 'a')
+			footer.append(this.orderButton)
+			const continueButton = this.createButtons(false)
+			footer.append(continueButton)
+		} else {
+			this.orderButton = this.createButtons()
+			footer.append(this.orderButton)
+			const confirmation = document.createElement('div')
+			confirmation.className = 'cart-header__confirmation'
+			confirmation.textContent = 'Підтверджуючи замовлення, я приймаю умови'
+			footer.append(confirmation)
+
+			const link = document.createElement('a')
+			link.textContent = 'Угоди користувача'
+			link.href = '#'
+			link.setAttribute('target', '_blank')
+			confirmation.append(link)
+		}
+		return footer
 	}
 
 	render(bemClass, isHeaderCart = true, selectorContainer) {
@@ -371,15 +416,7 @@ class CartHeader {
 
 		wrapper.append(this.createHeader(isHeaderCart))
 
-		const footer = document.createElement('div')
-		footer.addEventListener('click', this.actionFooterCart.bind(this))
-		footer.className = 'cart-header__footer'
-		this.orderButton = this.createButtons()
-		footer.append(this.orderButton)
-		if (isHeaderCart) {
-			const continueButton = this.createButtons(false)
-			footer.append(continueButton)
-		}
+		const footer = this.createFooter(isHeaderCart)
 
 		this.listElement = document.createElement('div')
 		this.listElement.className = 'cart-header__items'
@@ -391,29 +428,238 @@ class CartHeader {
 	}
 }
 
-// class CartOrder {
+// child class CartOrder ===========================================================================
+class CartOrder extends CartHeader {
+	constructor(data) {
+		super(data)
+		this.promoCode = '4512'
+		this.discountRent = 7
+		this.isDiscountInclude = false
+		this.regExp = /\D/g
+	}
+	// get ===========================================================================
+	get TotalPrice() {
+		return this.ProductList.reduce((prevSum, { currentPrice, amount }) => prevSum + currentPrice * amount, 0)
+	}
 
-// }
+	// function ===========================================================================
+
+	updateState(event) {
+		const { type, id, newAmount } = event.detail
+		if (type === 'update')
+			this.updateAmount(id, newAmount)
+		else this.removeProductItem(id)
+		this.fillTableAboutOrder()
+	}
+
+	getTotalPriceWithDiscount(value) {
+		return value - value * this.discountRent / 100
+	}
+
+	inputPromoCode(event) {
+		const target = event.target
+		const value = target.value
+		if (this.regExp.test(value))
+			target.value = value.replace(this.regExp, '')
+	}
+
+	formatValue(value) {
+		if (!value) return
+		const formatter = new Intl.NumberFormat('ru-RU')
+		return formatter.format(value)
+	}
+
+	checkPromoCode() {
+		let value = this.inputElementPromo.value
+		if (value.length < 4)
+			throw new RangeError("Промокод складається з 4 символів!")
+		else if (value !== this.promoCode)
+			throw new RangeError("Не вірний код!")
+
+		this.inputElementPromo.setAttribute('readonly', '')
+		this.buttonSendPromoCode.setAttribute('disabled', '')
+		this.isDiscountInclude = true
+		this.fillTableAboutOrder()
+	}
+
+	removeError(element) {
+		if (element && element.classList.contains('--error'))
+			element.remove()
+	}
+
+	createDiscountElement() {
+		const wrapper = document.createElement('div')
+		wrapper.className = 'cart-header__promo promo-cart'
+
+		const label = document.createElement('label')
+		label.className = 'promo-cart__label'
+		label.textContent = 'Є промокод?'
+		label.setAttribute('for', 'promo-code')
+		wrapper.append(label)
+
+		const icon = document.createElement('img')
+		icon.src = 'img/icons/order/promo-code.svg'
+		icon.alt = 'icon discount'
+		icon.setAttribute('aria-hidden', true)
+		label.prepend(icon)
+
+		const actionsWrapper = document.createElement('div')
+		actionsWrapper.className = 'promo-cart__actions'
+		wrapper.append(actionsWrapper)
+
+		const input = document.createElement('input')
+		input.value = this.promoCode
+		input.type = 'text'
+		input.className = 'promo-cart__input input'
+		input.placeholder = 'Введіть код'
+		input.addEventListener('input', this.inputPromoCode.bind(this))
+		input.addEventListener('focusin', () => {
+			this.removeError(wrapper.nextElementSibling)
+		})
+		input.maxLength = 4
+		actionsWrapper.append(input)
+		this.inputElementPromo = input
+
+		const button = document.createElement('button')
+		button.type = 'button'
+		button.className = 'promo-cart__button button-link'
+		button.textContent = 'ок'
+		button.addEventListener('click', () => {
+			try {
+				this.checkPromoCode()
+				this.removeError(wrapper.nextElementSibling)
+			} catch (error) {
+				this.removeError(wrapper.nextElementSibling)
+				const errorElement = this.createInfoElement(error.message, '--error')
+				wrapper.after(errorElement)
+			}
+		})
+		this.buttonSendPromoCode = button
+		actionsWrapper.append(button)
+
+		return wrapper
+	}
+
+	createRow(text, value, cssModify) {
+		const row = document.createElement('tr')
+		row.className = 'total-cart__row'
+
+		const colLabel = document.createElement('td')
+		colLabel.className = 'total-cart__label'
+		colLabel.textContent = text
+		row.append(colLabel)
+
+		const colValue = document.createElement('td')
+		colValue.className = 'total-cart__value'
+		if (cssModify) colValue.classList.add(cssModify)
+		colValue.textContent = value
+		row.append(colValue)
+
+		return row
+	}
+
+	fillTableAboutOrder() {
+		this.tableAboutOrder.innerHTML = ''
+		if (this.AmountProducts) {
+			const totalPrice = this.TotalPrice
+
+			const tbody = this.tableAboutOrder.createTBody()
+			tbody.append(this.createRow(
+				`${this.AmountProducts} товари на суму:`,
+				`${this.formatValue(totalPrice)} грн.`)
+			)
+
+			let totalPriceWithDiscount
+			if (this.isDiscountInclude) {
+				totalPriceWithDiscount = this.getTotalPriceWithDiscount(totalPrice)
+				tbody.append(this.createRow('Знижка:', `${this.discountRent}%`))
+			}
+
+			tbody.append(this.createRow('Вартість доставки:', 'За тарифами оператора'))
+
+			const currentTotalPrice = this.formatValue(totalPriceWithDiscount ?? totalPrice)
+			tbody.append(this.createRow(
+				'До оплати:',
+				`${currentTotalPrice} грн.`,
+				'total-cart__value--fz-big'
+			))
+			this.tableAboutOrder.append(tbody)
+		} else {
+			while (this.listElement.nextSibling) {
+				this.listElement.nextSibling.remove()
+			}
+		}
+	}
+
+	createAboutOrder() {
+		const wrapper = document.createElement('div')
+		wrapper.className = 'cart-header__total total-car'
+
+		const title = document.createElement('h5')
+		title.className = 'total-cart__title'
+		title.textContent = 'Разом:'
+		wrapper.append(title)
+
+		const table = document.createElement('table')
+		table.className = 'total-cart__table'
+		this.tableAboutOrder = table
+		this.fillTableAboutOrder()
+		wrapper.append(table)
+
+		const label = document.createElement('label')
+		label.className = 'total-cart__checkbox checkbox checkbox--light-grey'
+		label.innerHTML = `
+			<span class="checkbox__text">Не передзвонюйте мені для підтвердження замовлення</span>
+			<input type="checkbox" name="not-call" class="checkbox__input">
+		`
+		wrapper.append(label)
+
+		return wrapper
+	}
+
+	sendOrder() {
+		let totalPrice = this.TotalPrice
+		if (this.isDiscountInclude)
+			totalPrice = this.getTotalPriceWithDiscount(totalPrice)
+		const order = {
+			products: this.ProductList,
+			totalPrice
+		}
+		console.log(order)
+	}
+
+	render(bemClass, selectorContainer) {
+		super.render(bemClass, false, selectorContainer)
+		this.orderButton.addEventListener('click', this.sendOrder.bind(this))
+		const discountElement = this.createDiscountElement()
+		this.listElement.after(discountElement)
+		discountElement.after(this.createAboutOrder())
+	}
+}
 
 
 window.addEventListener('load', () => {
 	const quantities = document.querySelectorAll('[data-quantity-button]')
-	if (!quantities.length) return
-	quantities.forEach(item => {
-		const quantity = new Quantity(2, 5).render(item.getAttribute('data-quantity-button'))
-		item.after(quantity)
-		item.remove()
-	})
+	if (quantities.length) {
+		quantities.forEach(item => {
+			const quantity = new Quantity(2, 5).render(item.getAttribute('data-quantity-button'))
+			item.after(quantity)
+			item.remove()
+		})
+	}
 
 
 	let data = JSON.parse(localStorage.getItem('product-cart'))
-	if (!data || !data.length) { // TODO: Удалить потом !data.length тестовая версия кода  
+	if (!data || !data.length) {
 		data = dataForCart()
 		localStorage.setItem('product-cart', JSON.stringify(data))
 	}
 
 	try {
 		new CartHeader(data).render('middle-header', true, '.middle-header__actions')
+		if (document.querySelector('.form-order__check')) {
+			new CartOrder(data).render('check-order', '.form-order__check')
+		}
 	} catch (error) {
 		console.error(error.message)
 	}
